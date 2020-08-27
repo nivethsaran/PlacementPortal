@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
+        <a class="navbar-brand" href="#">Preparely</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="quiz">
+    
+        <h2 class="quiz-question">Q1: How do you spell "Red"?</h2>
+        <ul data-quiz-question="1">
+            <li class="quiz-answer" data-quiz-answer="a">a. Red</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. Reed</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. Req</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. Sed</li>
+        </ul>
+    
+        <h2 class="quiz-question">Q2: How do you spell "Green"?</h2>
+        <ul data-quiz-question="2">
+            <li class="quiz-answer" data-quiz-answer="a">a. Greeen</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. Green</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. Gren</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. Grenn</li>
+        </ul>
+    
+        <h2 class="quiz-question">Q3: How do you spell "Blue"?</h2>
+        <ul data-quiz-question="3">
+            <li class="quiz-answer" data-quiz-answer="a">a. Bluue</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. Bluee</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. Btue</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. Blue</li>
+        </ul>
+    
+        <h2 class="quiz-question">Q4: How do you spell "HTML"?</h2>
+        <ul data-quiz-question="4">
+            <li class="quiz-answer" data-quiz-answer="a">a. MLTH</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. LMTH</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. HTML</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. HMTL</li>
+        </ul>
+    
+        <h2 class="quiz-question">Q5: How do you spell "CSS"?</h2>
+        <ul data-quiz-question="5">
+            <li class="quiz-answer" data-quiz-answer="a" onclick='alert("Something") ''>a. ASS</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. CAA</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. ASA</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. CSS</li>
+        </ul>
+    
+        <h2 class="quiz-question">Q6: How do you spell "JavaScript"?</h2>
+        <ul data-quiz-question="6">
+            <li class="quiz-answer" data-quiz-answer="a">a. ScriptJava</li>
+            <li class="quiz-answer" data-quiz-answer="b">b. JavaScript</li>
+            <li class="quiz-answer" data-quiz-answer="c">c. JabaHutt</li>
+            <li class="quiz-answer" data-quiz-answer="d">d. jQuery</li>
+        </ul>
+    </div>
+    
+    <div class="quiz-result"></div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -210,19 +210,7 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- JavaScript Libs -->
+<!-- JavaScript Libs -->
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -239,33 +227,8 @@
 <script src="https://codemirror.net/mode/clike/clike.js"></script>
 <script src="https://codemirror.net/addon/edit/closebrackets.js"></script>
 <script src="https://codemirror.net/addon/lint/lint.js"></script>
-<script>
-    var config, editor;
-
-    config = {
-        lineNumbers: true,
-        mode: "text/x-java",
-        theme: "material",
-        indentWithTabs: true,
-        // readOnly: true
-        screenReaderLabel: "Code",
-        smartIndent: true,
-        addModeClass: true,
-        autoCloseBrackets: true,
-        gutters: ["CodeMirror-lint-markers"],
-        lint: true
-    };
-
-    editor = CodeMirror.fromTextArea(document.getElementById("code"), config);
-
-    // function selectTheme() {
-    //     editor.setOption("theme", "solarized dark");
-    // }
-    // setTimeout(selectTheme, 5000);
-
-    function showCode() {
-        console.log(editor.getValue().split("\n"));
-    }
+<script src="index.js">
+    
 </script>
 </body>
 
