@@ -85,3 +85,62 @@ body {
 .quiz-result.bad {
 	background: red;
 }
+
+
+
+.centerContainer { 
+  padding: 10px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cardList {
+  flex-basis : 60em;
+
+}
+
+.topicList { 
+    padding : 5px;
+ flex-basis : 20em;
+  border: 1px solid gray;
+}
+
+.card { 
+  border-top: 0.5px solid lightgray;
+  padding-top: 4px;
+   display:flex;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cardImg {
+  max-width:250px;
+  width: 100px;
+  height: 100px;
+}
+
+.cardImg img {
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cardData {
+ margin-left: 5px;
+
+}
+
+.cardTitle {
+  font-size: 20px;
+}
+
+.cardSubTitle {
+  font-style : italic;
+}
+
+.cardTime{
+  color : dimgray;
+   font-style : italic;
+}

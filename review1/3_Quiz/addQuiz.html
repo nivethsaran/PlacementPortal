@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
+        <a class="navbar-brand" href="#">Preparely</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="margin-top: 50px;">
+        <form action="">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Quiz Name</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inlineFormCustomSelectPref">Number of Questions</label>
+                    <select class="custom-select" id="inlineFormCustomSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option>
+                    </select>
+                </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Quiz Description</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="This quiz tests your knowledge on ....">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputCity">Date of Exam</label>
+                    <input type="date" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputState">Start Window</label>
+                    <input type="time" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputZip">End Window</label>
+                    <input type="time" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputZip">Duration(in minutes)</label>
+                    <input type="number" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">Department</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose</option>
+                        <option>CSE</option>
+                        <option>NON-CSE</option>
+                        <option>ALL</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">Topic</label>
+                    <input type="text" class="form-control" id="inputZip" placeholder="OS, DBMS etc..">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">Quiz Access Pin</label>
+                    <div class="col-auto">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                            <input type="number" class="form-control" id="inputZip" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            
+            <br>
+            <div class="cardList">
+                <div class="card">
+                    <div class="cardData">
+                        <h4 class="cardTitle">Question 1</h4>
+                        <br>
+                        <label for="exampleInputPassword1">Question</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1">
+                        <br>
+                        <div class="form-row">
+                            <div class="input-group col-md-2">
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option a">
+                            </div>
+                            <div class="input-group col-md-2">
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option b">
+                            </div>
+                            <div class="input-group col-md-2">
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option c">
+                            </div>
+                            <div class="input-group col-md-2">
+                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option d">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <select id="inputState" class="form-control">
+                                    <option selected>Correct Option</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+        </form>
+
+        <button type="submit" class="btn btn-info">Add Quiz</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
