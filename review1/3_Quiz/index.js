@@ -1,92 +1,71 @@
-var Quiz = function () {
-    var self = this;
-    this.init = function () {
-        self._bindEvents();
+function loadPage()
+{
+    nooq ="<option value=\"1\" selected>1</option>"
+    for (var i = 2; i <= 10; i++) {
+        nooq += "<option value=" + i + ">" + i + "</option>\n"
     }
+    document.getElementById("nooq").innerHTML=nooq
 
-    this.correctAnswers = [
-        { question: 1, answer: 'a' },
-        { question: 2, answer: 'b' },
-        { question: 3, answer: 'd' },
-        { question: 4, answer: 'c' },
-        { question: 5, answer: 'd' },
-        { question: 6, answer: 'b' },
-    ]
-
-    this._pickAnswer = function ($answer, $answers) {
-        $answers.find('.quiz-answer').removeClass('active');
-        $answer.addClass('active');
+    
+    if (document.getElementById("enablepin").checked==true)
+    {
+        document.getElementById("pin").disabled=false;
     }
-    this._calcResult = function () {
-        var numberOfCorrectAnswers = 0;
-        $('ul[data-quiz-question]').each(function (i) {
-            var $this = $(this),
-                chosenAnswer = $this.find('.quiz-answer.active').data('quiz-answer'),
-                correctAnswer;
-
-            for (var j = 0; j < self.correctAnswers.length; j++) {
-                var a = self.correctAnswers[j];
-                if (a.question == $this.data('quiz-question')) {
-                    correctAnswer = a.answer;
-                }
-            }
-
-            if (chosenAnswer == correctAnswer) {
-                numberOfCorrectAnswers++;
-
-                // highlight this as correct answer
-                $this.find('.quiz-answer.active').addClass('correct');
-            }
-            else {
-                $this.find('.quiz-answer[data-quiz-answer="' + correctAnswer + '"]').addClass('correct');
-                $this.find('.quiz-answer.active').addClass('incorrect');
-            }
-        });
-        if (numberOfCorrectAnswers < 3) {
-            return { code: 'bad', text: 'Poor spelling skills' };
-        }
-        else if (numberOfCorrectAnswers == 3 || numberOfCorrectAnswers == 4) {
-            return { code: 'mid', text: 'Moderate spelling skills' };
-        }
-        else if (numberOfCorrectAnswers > 4) {
-            return { code: 'good', text: 'Good spelling skills' };
-        }
+    else{
+        document.getElementById("pin").disabled = true;
     }
-    this._isComplete = function () {
-        var answersComplete = 0;
-        $('ul[data-quiz-question]').each(function () {
-            if ($(this).find('.quiz-answer.active').length) {
-                answersComplete++;
-            }
-        });
-        if (answersComplete >= 6) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    changeNOOQ()
+}
+
+function togglePin()
+{
+    if (document.getElementById("enablepin").checked==true)
+    {
+        document.getElementById("pin").disabled=false;
     }
-    this._showResult = function (result) {
-        $('.quiz-result').addClass(result.code).html(result.text);
-    }
-    this._bindEvents = function () {
-        $('.quiz-answer').on('click', function () {
-            var $this = $(this),
-                $answers = $this.closest('ul[data-quiz-question]');
-            self._pickAnswer($this, $answers);
-            if (self._isComplete()) {
-
-                // scroll to answer section
-                $('html, body').animate({
-                    scrollTop: $('.quiz-result').offset().top
-                });
-
-                self._showResult(self._calcResult());
-                $('.quiz-answer').off('click');
-
-            }
-        });
+    else{
+        document.getElementById("pin").disabled = true;
     }
 }
-var quiz = new Quiz();
-quiz.init();
+
+function changeNOOQ()
+{
+
+    let count=parseInt(document.getElementById("nooq").value)
+
+    cardlistinnerhtml ="<h2>Questions</h2><br>"
+    for(var i=1;i<=count;i++)
+    {
+        cardlistinnerhtml += `<div class=\"card\">\n
+            <div class=\"cardData\">\n
+                <label for=\"exampleInputPassword1\">Question `+i+`</label>\n
+                <input type=\"text\\" class=\"form-control\" id=\"question`+ i +`\">\n
+            <br >\n
+            <div class=\"form-row\">\n
+            <div class=\"input-group col-md-2\">\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i +`a\" placeholder=\"option a\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i +`b\" placeholder=\"option b\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i +`c\" placeholder=\"option c\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i +`d\" placeholder=\"option d\">\n
+                          </div >\n
+            <div class=\"form-group col-md-4\">\n
+            <select id =\"correct`+ i +`\" class=\"form-control\">\n
+            <option selected > Correct Option</option >\n
+            <option value =\"a\">a</option>\n
+            <option value =\"b\">b</option>\n
+            <option value =\"c\">c</option>\n
+            <option value =\"d\">d</option>\n
+                                                </select >\n
+                                            </div >\n
+                                        </div >\n
+                                    </div></div><br>`
+    }
+    document.getElementById("cardlist").innerHTML=cardlistinnerhtml
+    
+}

@@ -11,7 +11,7 @@
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="loadPage()">
     <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
         <a class="navbar-brand" href="#">Preparely</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -36,111 +36,87 @@
         <form action="">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Quiz Name</label>
-                    <input type="text" class="form-control" id="inputPassword4">
+                    <label for="quizname" id="quizname-label">Quiz Name</label>
+                    <input type="text" class="form-control" id="quizname">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inlineFormCustomSelectPref">Number of Questions</label>
-                    <select class="custom-select" id="inlineFormCustomSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                        <option value="5">Five</option>
+                    <label for="nooq" id="nooq-label">Number of Questions</label>
+                    <select class="custom-select" id="nooq" onclick="changeNOOQ()">
                     </select>
                 </div>
             
             </div>
             <div class="form-group">
-                <label for="inputAddress">Quiz Description</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="This quiz tests your knowledge on ....">
+                <label for="quizdesc" id="quizdesc-label">Quiz Description</label>
+                <input type="text" class="form-control" id="quizdesc" placeholder="This quiz tests your knowledge on ....">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="inputCity">Date of Exam</label>
-                    <input type="date" class="form-control" id="inputCity">
+                    <label for="date" id="date-label">Date of Exam</label>
+                    <input type="date" class="form-control" id="date">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputState">Start Window</label>
-                    <input type="time" class="form-control" id="inputCity">
+                    <label for="starttime" id="starttime-label">Start Window</label>
+                    <input type="time" class="form-control" id="starttime">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputZip">End Window</label>
-                    <input type="time" class="form-control" id="inputZip">
+                    <label for="endtime" id="endtime-label">End Window</label>
+                    <input type="time" class="form-control" id="endtime">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="inputZip">Duration(in minutes)</label>
-                    <input type="number" class="form-control" id="inputZip">
+                    <label for="duration" id="duration-label">Duration(in minutes)</label>
+                    <input type="number" class="form-control" id="duration">
                 </div>
             </div>
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="inputState">Department</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose</option>
-                        <option>CSE</option>
-                        <option>NON-CSE</option>
-                        <option>ALL</option>
+                    <label for="dept" id="dept-label">Department</label>
+                    <select id="dept" class="form-control">
+                        <option disabled selected>Choose</option>
+                        <option value="CSE">CSE</option>
+                        <option value="NONCSE">NON-CSE</option>
+                        <option value="ALL">ALL</option>
                     </select>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="inputState">Topic</label>
-                    <input type="text" class="form-control" id="inputZip" placeholder="OS, DBMS etc..">
+                    <label for="topic" id="topic-label">Topic</label>
+                    <select id="topic" class="form-control">
+                        <option disabled selected>Choose</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Verbal">Verbal</option>
+                        <option value="Aptitude">Aptitude</option>
+                        <option value="All">All</option>
+                    </select>
                 </div>
 
+                
                 <div class="form-group col-md-4">
-                    <label for="inputState">Quiz Access Pin</label>
-                    <div class="col-auto">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                            <input type="number" class="form-control" id="inputZip" placeholder="">
-                        </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="enablepin" onclick="togglePin()">
+                        <label class="custom-control-label" for="enablepin">Pin/Access Entry Code</label>   
                     </div>
+                        <input type="number" class="form-control pin-ed-adjust" id="pin" placeholder="">
                 </div>
+                
             </div>
             
             <br>
             
             <br>
-            <div class="cardList">
-                <div class="card">
-                    <div class="cardData">
-                        <h4 class="cardTitle">Question 1</h4>
-                        <br>
-                        <label for="exampleInputPassword1">Question</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1">
-                        <br>
-                        <div class="form-row">
-                            <div class="input-group col-md-2">
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option a">
-                            </div>
-                            <div class="input-group col-md-2">
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option b">
-                            </div>
-                            <div class="input-group col-md-2">
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option c">
-                            </div>
-                            <div class="input-group col-md-2">
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="option d">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <select id="inputState" class="form-control">
-                                    <option selected>Correct Option</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+
+            <div class="questiondiv">
+                <div class="cardList" id="cardlist"></div>
+            </div>
             
-                </div>
+            <br>
+                <button type="submit" class="btn btn-info btn-submit-quiz">Add Quiz</button>
         </form>
 
-        <button type="submit" class="btn btn-info">Add Quiz</button>
+        
     </div>
-
+    <br><br>
     <script src="index.js"></script>
 </body>
 

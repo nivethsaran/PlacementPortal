@@ -2,7 +2,7 @@ var config, editor;
 
 config = {
     lineNumbers: true,
-    mode: "text/x-java",
+    mode: "python",
     theme: "material",
     indentWithTabs: true,
     // readOnly: true
