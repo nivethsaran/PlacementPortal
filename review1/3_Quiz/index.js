@@ -6,6 +6,7 @@ function loadPage()
     }
     document.getElementById("nooq").innerHTML=nooq
 
+
     
     if (document.getElementById("enablepin").checked==true)
     {
@@ -68,4 +69,27 @@ function changeNOOQ()
     }
     document.getElementById("cardlist").innerHTML=cardlistinnerhtml
     
+}
+
+function loadIndex()
+{
+    quizlistinnerhtml=""
+    for(var i=1;i<=10;i++)
+    {
+        quizlistinnerhtml += `<div class="card" onclick=quizonclick(`+i+`)>
+                <div class="cardData">
+                    <h4 class="cardTitle">Quiz `+ i +` title</h4>
+                    <p class="cardSubTitle">Content of the quiz description goes here. </p>
+                    <p class="cardTime">Details about quiz</p>
+                    <input type="text" placeholder="Enter PIN">
+                    <a href="quiz.html" class="pincheck">Start Quiz</a>
+                </div>
+            </div>`
+    }
+    document.getElementById('quizlistmain').innerHTML=quizlistinnerhtml
+}
+
+function quizonclick(a)
+{
+    alert(a);
 }
