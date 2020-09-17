@@ -88,6 +88,7 @@
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary" onclick="clearCode()">Clear Code</button>
                         <button class="btn btn-sm btn-outline-secondary" onclick="copyCode()">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="hideQuestion()">Hide Question</button>
                     </div>
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="language-label" data-toggle="dropdown"
@@ -108,6 +109,8 @@
             <div class="question">
 
             </div>
+            <textarea class="form-control" id="question" rows="5"
+                disabled hidden></textarea><br>
             <textarea name="code" id="code">//Enter Code here.....</textarea>
             <br>
             <br>
