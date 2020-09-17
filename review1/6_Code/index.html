@@ -50,120 +50,31 @@
                     </a>
                 </h6>
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                    <li class="nav-item" onclick="displayQuestion(0)">
+                        <a class="nav-link" href="#">
                             <span data-feather="home"></span>
-                            Question 0 <span class="sr-only">(current)</span>
+                            Question 0 
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" onclick="displayQuestion(1)">
                             <span data-feather="file"></span>
                             Question 1
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" onclick="displayQuestion(2)">
                             <span data-feather="layers"></span>
                             Question 2
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" onclick="displayQuestion(3)">
                             <span data-feather="layers"></span>
                             Question 3
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 5
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 6
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Question 1
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 2
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 3
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 5
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 6
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Question 1
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 2
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 3
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 4
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 5
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="layers"></span>
-                            Question 6
-                        </a>
-                    </li>
+                    
 
                 </ul>
             </div>
@@ -175,31 +86,39 @@
                 <h1 class="h2">Code Module</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary">Dark theme toggle</button>
-                        <button class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="clearCode()">Clear Code</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="copyCode()">Share</button>
                     </div>
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="language-label" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Language
+                            Language (C)
                         </a>
                     
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">C++</a>
-                            <a class="dropdown-item" href="#">C</a>
-                            <a class="dropdown-item" href="#">JAVA</a>
-                            <a class="dropdown-item" href="#">PYTHON</a>
+                        <div class="dropdown-menu" id="language">
+                            <a class="dropdown-item" onclick="changeCode('C')" href="#">C</a>
+                            <a class="dropdown-item" onclick="changeCode('C++')" href="#">C++</a>
+                            <a class="dropdown-item" onclick="changeCode('JAVA')" href="#">JAVA</a>
+                            <a class="dropdown-item" onclick="changeCode('PYTHON')" href="#">PYTHON</a>
                         </div>
                     </div>
                 </div>
                 
             </div>
+            <div class="question">
+
+            </div>
             <textarea name="code" id="code">//Enter Code here.....</textarea>
             <br>
             <br>
+            
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Custom Input</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="custominput-check" onchange="toggleinput()">
+                    <label class="form-check-label" for="custominput" id="custominput-label">Custom Input</label>
+                </div>
+                
+                <textarea class="form-control" id="custominput" rows="5" onchange="validateinput()" onkeyup="validateinput()"></textarea>
             </div>
             <input type="submit" value="Compile and Run" class="btn btn-dark" onclick="showCode()">
             <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>

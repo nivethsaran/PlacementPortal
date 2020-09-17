@@ -37,7 +37,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="quizname" id="quizname-label">Quiz Name</label>
-                    <input type="text" class="form-control" id="quizname">
+                    <input type="text" class="form-control" id="quizname" onchange="validatenull('quizname')" onkeyup="validatenull('quizname')">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="nooq" id="nooq-label">Number of Questions</label>
@@ -48,24 +48,24 @@
             </div>
             <div class="form-group">
                 <label for="quizdesc" id="quizdesc-label">Quiz Description</label>
-                <input type="text" class="form-control" id="quizdesc" placeholder="This quiz tests your knowledge on ....">
+                <input type="text" class="form-control" id="quizdesc" placeholder="This quiz tests your knowledge on ...." onchange="validatenull('quizdesc')" onkeyup="validatenull('quizdesc')">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="date" id="date-label">Date of Exam</label>
-                    <input type="date" class="form-control" id="date">
+                    <input type="date" class="form-control" id="date" onblur="validdate()" onchange="validdate()">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="starttime" id="starttime-label">Start Window</label>
-                    <input type="time" class="form-control" id="starttime">
+                    <input type="time" class="form-control" id="starttime" onkeyup="validtime()" onchange="validtime()">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="endtime" id="endtime-label">End Window</label>
-                    <input type="time" class="form-control" id="endtime">
+                    <input type="time" class="form-control" id="endtime" onkeyup="validtime()" onchange="validtime()">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="duration" id="duration-label">Duration(in minutes)</label>
-                    <input type="number" class="form-control" id="duration">
+                    <input type="number" class="form-control" id="duration" onkeyup="validdur()" onchange="validdur()"> 
                 </div>
             </div>
             <div class="form-row">
@@ -95,9 +95,9 @@
                 <div class="form-group col-md-4">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="enablepin" onclick="togglePin()">
-                        <label class="custom-control-label" for="enablepin">Pin/Access Entry Code</label>   
+                        <label class="custom-control-label" id="pin-label" for="enablepin">Pin</label>   
                     </div>
-                        <input type="number" class="form-control pin-ed-adjust" id="pin" placeholder="">
+                        <input type="number" class="form-control pin-ed-adjust" id="pin" placeholder="" onchange="validpin()" onkeyup="validpin()">
                 </div>
                 
             </div>
