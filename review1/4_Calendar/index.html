@@ -7,7 +7,8 @@
     <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <title>Document</title>
+    <script src = "calendar-script.js"></script>
+    <title>Calendar</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
@@ -35,14 +36,12 @@
         <div class="col leftCol">
             <div class="content">
                 <h1 class="date">Friday<span>September 12th</span></h1>
-                <div class="notes">
-                    <p>
-                        <input type="text" value="" placeholder="new note" />
-                        <a href="#" title="Add note" class="addNote animate">+</a>
-                    </p>
-                    <ul class="noteList">
-                        <li>Basic stuff<a href="#" title="Remove note" class="removeNote animate">x</a></li>
-                    </ul>
+                
+                <ul class = "noteList">
+                    <li>Add Note<a href="#" title="Add note" class="addNote animate" onclick = "addNote()">+</a></li>
+                </ul>
+                <br>
+                <div class="notes" id = "note_div">
                 </div>
             </div>
         </div>
@@ -51,18 +50,18 @@
             <div class="content">
                 <h2 class="year">2013</h2>
                 <ul class="months">
-                    <li><a href="#" title="Jan" data-value="1">Jan</a></li>
-                    <li><a href="#" title="Feb" data-value="2">Feb</a></li>
-                    <li><a href="#" title="Mar" data-value="3">Mar</a></li>
-                    <li><a href="#" title="Apr" data-value="4">Apr</a></li>
-                    <li><a href="#" title="May" data-value="5">May</a></li>
-                    <li><a href="#" title="Jun" data-value="6">Jun</a></li>
-                    <li><a href="#" title="Jul" data-value="7">Jul</a></li>
-                    <li><a href="#" title="Aug" data-value="8">Aug</a></li>
-                    <li><a href="#" title="Sep" data-value="9" class="selected">Sep</a></li>
-                    <li><a href="#" title="Oct" data-value="10">Oct</a></li>
-                    <li><a href="#" title="Nov" data-value="11">Nov</a></li>
-                    <li><a href="#" title="Dec" data-value="12">Dec</a></li>
+                    <li><a href="#" title="Jan" data-value="1" onclick = "highlight_month(this.id)" id = "jan">Jan</a></li>
+                    <li><a href="#" title="Feb" data-value="2" onclick = "highlight_month(this.id)" id = "feb">Feb</a></li>
+                    <li><a href="#" title="Mar" data-value="3" onclick = "highlight_month(this.id)" id = "mar">Mar</a></li>
+                    <li><a href="#" title="Apr" data-value="4" onclick = "highlight_month(this.id)" id = "apr">Apr</a></li>
+                    <li><a href="#" title="May" data-value="5" onclick = "highlight_month(this.id)" id = "may">May</a></li>
+                    <li><a href="#" title="Jun" data-value="6" onclick = "highlight_month(this.id)" id = "jun">Jun</a></li>
+                    <li><a href="#" title="Jul" data-value="7" onclick = "highlight_month(this.id)" id = "jul">Jul</a></li>
+                    <li><a href="#" title="Aug" data-value="8" onclick = "highlight_month(this.id)" id = "aug">Aug</a></li>
+                    <li><a href="#" title="Sep" data-value="9" onclick = "highlight_month(this.id)" id = "sep">Sep</a></li>
+                    <li><a href="#" title="Oct" data-value="10" onclick = "highlight_month(this.id)" id = "oct">Oct</a></li>
+                    <li><a href="#" title="Nov" data-value="11" onclick = "highlight_month(this.id)" id = "nov">Nov</a></li>
+                    <li><a href="#" title="Dec" data-value="12" onclick = "highlight_month(this.id)" id = "dec">Dec</a></li>
                 </ul>
                 <div class="clearfix"></div>
                 <ul class="weekday">

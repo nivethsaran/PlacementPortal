@@ -169,7 +169,7 @@ a{
 	font-size: 10px;
 	color: #C7BEBE;
 	text-align: center;
-	width: 32px;
+	width: 30px;
 	margin-bottom: 20px;
 }
 
@@ -179,14 +179,14 @@ a{
 }
 
 .calendar .weekday li a{
-	width: 55px;
+	width: 50px;
 	text-align: center;
 	margin-bottom: 20px;
 	font-size: 12px;
 }
 
 .calendar .days li{
-	width: 55px;
+	width: 50px;
 }
 
 .calendar .days li a{
