@@ -34,30 +34,36 @@ function validateUserReg() {
 function validateEmailReg() {
     var uname = document.getElementById("emailsignup").value
     if (uname == "" || uname == null) {
-        document.getElementsByClassName("youmail")[0].innerHTML = "Your email or username (data required here)"
+        document.getElementsByClassName("youmail")[0].innerHTML = "Your email  (data required here)"
     }
     else {
-        document.getElementsByClassName("youmail")[0].innerHTML = "Your email or username"
+        document.getElementsByClassName("youmail")[0].innerHTML = "Your email"
     }
 }
 
 function validatePassReg() {
     var uname = document.getElementById("passwordsignup").value
     if (uname == "" || uname == null) {
-        document.getElementsByClassName("youpasswd")[1].innerHTML = "Your email or username (data required here)"
+        document.getElementsByClassName("youpasswd")[1].innerHTML = "Your password (data required here)"
         console.log(document.getElementsByClassName("youpasswd"));
     }
     else {
-        document.getElementsByClassName("youpasswd")[1].innerHTML = "Your email or username"
+        document.getElementsByClassName("youpasswd")[1].innerHTML = "Your password"
     }
 }
 
 function validatePassConfirmReg() {
     var uname = document.getElementById("passwordsignup_confirm").value
+    var uname1 = document.getElementById("passwordsignup").value
     if (uname == "" || uname == null) {
-        document.getElementsByClassName("youpasswd")[2].innerHTML = "Your email or username (data required here)"
+        document.getElementsByClassName("youpasswd")[2].innerHTML = "confirm password (data required here)"
     }
     else {
-        document.getElementsByClassName("youpasswd")[2].innerHTML = "Your email or username"
+        document.getElementsByClassName("youpasswd")[2].innerHTML = "confirm password"
     }
+    if(uname1 != uname){
+        document.getElementsByClassName("youpasswd")[2].innerHTML = "password not matching"
+    }
+    
+
 }

@@ -5,6 +5,20 @@ body {
 
 .quiz{
 	margin-top: 50px;
+	margin-left: 100px;
+	
+}
+
+.timer{
+	margin: 30px;
+}
+
+.questions{
+	padding: 20px;
+	border: 3px;
+	border-style: dotted;
+	margin-right: 20%;
+	border-color: teal;
 }
 
 .startquizbutton{
@@ -83,4 +97,9 @@ body {
 
 .filtercontainer{
 	margin-top: 50px;
+}
+
+label{
+	margin-right: 10px;
+	margin-left: 10px;
 }

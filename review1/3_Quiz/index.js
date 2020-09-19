@@ -304,3 +304,61 @@ function optiondvalid(i) {
 function quizonclick(a) {
     // alert(a);
 }
+
+
+function quiztimer()
+{
+    var start = new Date().getTime();
+    var end = start + (1000 * 60 * 0.2)
+    var myfunc = setInterval(function () {
+        
+        console.log(start + " " + end);
+        // code goes here
+        var now = new Date().getTime();
+        var timeleft = end - now;
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+        document.getElementById("mins").innerHTML = minutes + "m "
+        document.getElementById("secs").innerHTML = seconds + "s"
+
+
+        
+        if (timeleft < 0) {
+            clearInterval(myfunc);
+            document.getElementById("mins").innerHTML = ""
+            document.getElementById("secs").innerHTML = ""
+            document.getElementById("end").innerHTML = "TIME UP!!";
+            document.getElementById("timer").classList.add("btn-danger")
+            submitQuiz()
+        }
+
+
+        
+    }, 1000)
+    
+}
+
+answers=['a','b','c','d','a']
+function submitQuiz()
+{  
+    score=0
+    for(var i=0;i<5;i++)
+    {
+        var ans = document.getElementsByName('question'+(i+1));
+        var ans_value;
+        for (var j = 0; j < ans.length; j++) {
+            if (ans[j].checked) {
+                ans_value = ans[j].value;
+            }
+        }
+        if(ans_value==answers[i])
+        {
+            score++ 
+        }
+    }
+    alert(score)
+    document.getElementById("submitbtn").disabled=true
+    document.getElementById("messageclose").hidden=false
+}
+

@@ -11,7 +11,7 @@
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="quiztimer()">
     <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
         <a class="navbar-brand" href="#">Preparely</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -36,37 +36,113 @@
 
     <div id="quiz" class="quiz">
 
-
-        <p>Question<p>
-        <label>
-            <input type="radio" name="question1" value="letter">
-            Question
-        </label>
-        <label>
-            <input type="radio" name="question1" value="letter">
-            Question
-        </label>
-        <label>
-            <input type="radio" name="question1" value="letter">
-            Question
-        </label>
-
-        <p>Question2
-        <p>
-            <label>
-                <input type="radio" name="question2" value="letter">
-                Question
-            </label>
-            <label>
-                <input type="radio" name="question2" value="letter">
-                Question
-            </label>
-            <label>
-                <input type="radio" name="question2" value="letter">
-                Question
-            </label>
         
-    </div>
-    <script src="index.js"></script>
+        <div id="timer" class="timer btn btn-info"><span>Timer:</span><span  id="mins"></span> <span  id="secs"></span> <span  id="end"></span></div>
+        
+        <div class="questions">
+
+            
+<p>Question 1</p>
+<label>
+    <input type="radio" name="question1" id="question1" value="a">
+    Question
+</label>
+<label>
+    <input type="radio" name="question1" id="question1" value="b">
+    Question
+</label>
+<label>
+    <input type="radio" name="question1" id="question1" value="c">
+    Question
+</label>
+<label>
+    <input type="radio" name="question1" id="question1" value="d">
+    Question
+</label>
+<hr>
+<p>Question2
+</p>
+<label>
+    <input type="radio" name="question2" id="question2" value="a">
+    Question
+</label>
+<label>
+    <input type="radio" name="question2" id="question2" value="b">
+    Question
+</label>
+<label>
+    <input type="radio" name="question2" id="question2" value="c">
+    Question
+</label>
+<label>
+    <input type="radio" name="question2" id="question2" value="d">
+    Question
+</label>
+<hr>
+<p>Question3
+</p>
+<label>
+    <input type="radio" name="question3" id="question3" value="a">
+    Question
+</label>
+<label>
+    <input type="radio" name="question3" id="question3" value="b">
+    Question
+</label>
+<label>
+    <input type="radio" name="question3" id="question3" value="c">
+    Question
+</label>
+<label>
+    <input type="radio" name="question3" id="question3" value="d">
+    Question
+</label>
+<hr>
+<p>Question4
+</p>
+<label>
+    <input type="radio" name="question4" id="question4" value="a">
+    Question
+</label>
+<label>
+    <input type="radio" name="question4" id="question4" value="b">
+    Question
+</label>
+<label>
+    <input type="radio" name="question4" id="question4" value="c">
+    Question
+</label>
+<label>
+    <input type="radio" name="question4" id="question4" value="d">
+    Question
+</label>
+<hr>
+<p>Question5
+</p>
+<label>
+    <input type="radio" name="question5" id="question5" value="a">
+    Question
+</label>
+<label>
+    <input type="radio" name="question5" id="question5" value="b">
+    Question
+</label>
+<label>
+    <input type="radio" name="question5" id="question5" value="c">
+    Question
+</label>
+<label>
+    <input type="radio" name="question5" id="question5" value="d">
+    Question
+</label>
+<hr>
+
+        </div>
+        <br>
+            <button type="button" id="submitbtn" onclick="submitQuiz()" class="btn btn-danger">Submit</button>
+            <h6 id="messageclose" hidden>Close the tab after the quiz is over</h6>
+    </div><br>
+   
+    <script src="index.js" ></script>
 </body>
 </html>
