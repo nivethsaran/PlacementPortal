@@ -104,7 +104,7 @@ function loadIndex()
                     <p class="cardSubTitle">Content of the quiz description goes here. </p>
                     <p class="cardTime">Details about quiz</p>
                     <input type="text" placeholder="Enter PIN">
-                    <a href="quiz.html" class="pincheck">Start Quiz</a>
+                    <a href="quiz.html" target="_blank" class="pincheck">Start Quiz</a>
                 </div>
             </div>`
     }
