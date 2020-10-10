@@ -1,0 +1,59 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (quizid,facultyid,quizname,quizdescription,numofquestions,
+               quizdate,quizstarttime,quizendtime,duration,department,
+               topic,pin)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizid (#PCDATA)>
+<!ATTLIST quizid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT facultyid (#PCDATA)>
+<!ATTLIST facultyid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizname (#PCDATA)>
+<!ATTLIST quizname
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizdescription (#PCDATA)>
+<!ATTLIST quizdescription
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT numofquestions (#PCDATA)>
+<!ATTLIST numofquestions
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizdate (#PCDATA)>
+<!ATTLIST quizdate
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizstarttime (#PCDATA)>
+<!ATTLIST quizstarttime
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizendtime (#PCDATA)>
+<!ATTLIST quizendtime
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT duration (#PCDATA)>
+<!ATTLIST duration
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT department (#PCDATA)>
+<!ATTLIST department
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT topic (#PCDATA)>
+<!ATTLIST topic
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT pin (#PCDATA)>
+<!ATTLIST pin
+  xmlns CDATA #FIXED ''>

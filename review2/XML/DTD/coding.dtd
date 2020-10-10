@@ -1,0 +1,30 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (problemid,problemname,problemdesc,problemdifficulty,
+               facultyid)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT problemid (#PCDATA)>
+<!ATTLIST problemid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT problemname (#PCDATA)>
+<!ATTLIST problemname
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT problemdesc (#PCDATA)>
+<!ATTLIST problemdesc
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT problemdifficulty (#PCDATA)>
+<!ATTLIST problemdifficulty
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT facultyid (#PCDATA)>
+<!ATTLIST facultyid
+  xmlns CDATA #FIXED ''>

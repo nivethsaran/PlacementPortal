@@ -1,0 +1,24 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ROW">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="facultyid"/>
+              <xs:element type="xs:byte" name="feedbackid"/>
+              <xs:element type="xs:byte" name="pace"/>
+              <xs:element type="xs:byte" name="onlinetoolsusgae"/>
+              <xs:element type="xs:byte" name="effectiveness"/>
+              <xs:element type="xs:byte" name="approachability"/>
+              <xs:element type="xs:string" name="recommend"/>
+              <xs:element type="xs:string" name="optadvanced"/>
+              <xs:element type="xs:string" name="suggestions"/>
+              <xs:element type="xs:byte" name="courseid"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

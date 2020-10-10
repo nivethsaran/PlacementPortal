@@ -1,0 +1,25 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (eventid,eventdate,eventtitle,eventdesc)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT eventid (#PCDATA)>
+<!ATTLIST eventid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT eventdate (#PCDATA)>
+<!ATTLIST eventdate
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT eventtitle (#PCDATA)>
+<!ATTLIST eventtitle
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT eventdesc (#PCDATA)>
+<!ATTLIST eventdesc
+  xmlns CDATA #FIXED ''>

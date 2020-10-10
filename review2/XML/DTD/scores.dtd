@@ -1,0 +1,29 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (scoreid,quizid,rollno,total,score)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT scoreid (#PCDATA)>
+<!ATTLIST scoreid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizid (#PCDATA)>
+<!ATTLIST quizid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT rollno (#PCDATA)>
+<!ATTLIST rollno
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT total (#PCDATA)>
+<!ATTLIST total
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT score (#PCDATA)>
+<!ATTLIST score
+  xmlns CDATA #FIXED ''>

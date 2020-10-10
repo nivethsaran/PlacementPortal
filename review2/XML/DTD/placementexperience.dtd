@@ -1,0 +1,29 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (experienceid,rollno,experience,companyname,posttime)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT experienceid (#PCDATA)>
+<!ATTLIST experienceid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT rollno (#PCDATA)>
+<!ATTLIST rollno
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT experience (#PCDATA)>
+<!ATTLIST experience
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT companyname (#PCDATA)>
+<!ATTLIST companyname
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT posttime (#PCDATA)>
+<!ATTLIST posttime
+  xmlns CDATA #FIXED ''>

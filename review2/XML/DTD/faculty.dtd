@@ -1,0 +1,38 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (fullname,facultyid,authpassword,avatarurl,mobilenumber,
+               email,department)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT fullname (#PCDATA)>
+<!ATTLIST fullname
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT facultyid (#PCDATA)>
+<!ATTLIST facultyid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT authpassword (#PCDATA)>
+<!ATTLIST authpassword
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT avatarurl (#PCDATA)>
+<!ATTLIST avatarurl
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT mobilenumber (#PCDATA)>
+<!ATTLIST mobilenumber
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT email (#PCDATA)>
+<!ATTLIST email
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT department (#PCDATA)>
+<!ATTLIST department
+  xmlns CDATA #FIXED ''>

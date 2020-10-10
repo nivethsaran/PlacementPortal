@@ -1,0 +1,19 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ROW">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="noteid"/>
+              <xs:element type="xs:string" name="notetitle"/>
+              <xs:element type="xs:string" name="notecontent"/>
+              <xs:element type="xs:date" name="notedate"/>
+              <xs:element type="xs:string" name="rollno"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

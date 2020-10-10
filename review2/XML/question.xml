@@ -1,0 +1,37 @@
+<DATA>
+
+	<ROW>
+		<quizid>1</quizid>
+		<questionid>1</questionid>
+		<question>J2EE full form</question>
+		<answer>a</answer>
+	</ROW>
+
+	<ROW>
+		<quizid>1</quizid>
+		<questionid>2</questionid>
+		<question>JSP full form</question>
+		<answer>b</answer>
+	</ROW>
+
+	<ROW>
+		<quizid>1</quizid>
+		<questionid>3</questionid>
+		<question>XML full form</question>
+		<answer>c</answer>
+	</ROW>
+
+	<ROW>
+		<quizid>1</quizid>
+		<questionid>4</questionid>
+		<question>HTML full form</question>
+		<answer>d</answer>
+	</ROW>
+
+	<ROW>
+		<quizid>1</quizid>
+		<questionid>5</questionid>
+		<question>HTTPS full form</question>
+		<answer>a</answer>
+	</ROW>
+</DATA>

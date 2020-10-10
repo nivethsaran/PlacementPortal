@@ -1,0 +1,34 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (courseid,coursename,topicname,department,courseurl,
+               facultyid)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT courseid (#PCDATA)>
+<!ATTLIST courseid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT coursename (#PCDATA)>
+<!ATTLIST coursename
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT topicname (#PCDATA)>
+<!ATTLIST topicname
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT department (#PCDATA)>
+<!ATTLIST department
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT courseurl (#PCDATA)>
+<!ATTLIST courseurl
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT facultyid (#PCDATA)>
+<!ATTLIST facultyid
+  xmlns CDATA #FIXED ''>

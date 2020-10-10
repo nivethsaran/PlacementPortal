@@ -1,0 +1,25 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT DATA (ROW)+>
+<!ATTLIST DATA
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT ROW (quizid,questionid,question,answer)>
+<!ATTLIST ROW
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT quizid (#PCDATA)>
+<!ATTLIST quizid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT questionid (#PCDATA)>
+<!ATTLIST questionid
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT question (#PCDATA)>
+<!ATTLIST question
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT answer (#PCDATA)>
+<!ATTLIST answer
+  xmlns CDATA #FIXED ''>
