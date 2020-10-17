@@ -9,4 +9,25 @@
 		<total>5</total>
 		<studentscore>3</studentscore>
 	</score>
+	<score>
+		<scoreid>2</scoreid>
+		<quizid>1</quizid>
+		<rollno>CB.EN.U4CSE17338</rollno>
+		<total>5</total>
+		<studentscore>5</studentscore>
+	</score>
+	<score>
+		<scoreid>3</scoreid>
+		<quizid>1</quizid>
+		<rollno>CB.EN.U4CSE17340</rollno>
+		<total>5</total>
+		<studentscore>5</studentscore>
+	</score>
+	<score>
+		<scoreid>4</scoreid>
+		<quizid>1</quizid>
+		<rollno>CB.EN.U4CSE17341</rollno>
+		<total>5</total>
+		<studentscore>4</studentscore>
+	</score>
 </scores>

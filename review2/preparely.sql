@@ -44,8 +44,12 @@ foreign key (facultyid) references faculty(facultyid)
 create table question(
 quizid integer,
 questionid varchar(10),
-question varchar(100),
+questioncontent varchar(100),
 answer varchar(2),
+optiona varchar(20),
+optionb varchar(20),
+optionc varchar(20),
+optiond varchar(20),
 foreign key (quizid) references quiz(quizid),
 primary key (quizid,questionid)
 );
@@ -98,7 +102,7 @@ scoreid integer primary key auto_increment,
 quizid integer,
 rollno varchar(20),
 total integer,
-score integer,
+studentscore integer,
 foreign key (rollno) references student(rollno),
 foreign key (quizid) references quiz(quizid)
 );
@@ -106,7 +110,7 @@ foreign key (quizid) references quiz(quizid)
 create table placementexperience(
 experienceid integer primary key auto_increment,
 rollno  varchar(20),
-experience varchar(200),
+experiencecontent varchar(200),
 companyname varchar(30),
 posttime datetime,
 foreign key (rollno) references student(rollno)
@@ -174,11 +178,11 @@ insert into student values ("Niveth Saran","CB.EN.U4CSE17337","$Qwer1234","https
 
 insert into quiz (facultyid,quizname,quizdescription,numofquestions,quizdate,quizstarttime,quizendtime,duration,department,topic,pin) values ("CB.EN.U4CSEFAC01","J2EE","Testing J2EE Basic Undestanding",5,'2020-10-07','01:00:00','01:30:00',15,"CSE","NCP",1234);
 
-insert into question (quizid,questionid,questioncontent,answer) values(1,1,"J2EE full form","a");
-insert into question (quizid,questionid,questioncontent,answer) values(1,2,"JSP full form","b");
-insert into question (quizid,questionid,questioncontent,answer) values(1,3,"XML full form","c");
-insert into question (quizid,questionid,questioncontent,answer) values(1,4,"HTML full form","d");
-insert into question (quizid,questionid,questioncontent,answer) values(1,5,"HTTPS full form","a");
+insert into question values(1,1,"J2EE full form","a");
+insert into question values(1,2,"JSP full form","b");
+insert into question values(1,3,"XML full form","c");
+insert into question values(1,4,"HTML full form","d");
+insert into question values(1,5,"HTTPS full form","a");
 
 insert into courses (coursename,topicname,department,courseurl,facultyid) values ("NCP","J2EE","CSE","https://www.youtube.com/watch?v=vJ-Zn4fo0MQ","CB.EN.U4CSEFAC01");
 
@@ -188,9 +192,9 @@ insert into feedback (facultyid,pace,onlinetoolsusgae,effectiveness,approachabil
 
 insert into companyregistration(facultyid,companyname,deadline,formurl) values ("CB.EN.U4CSEFAC01","Cisco","2020-11-05","notavailable");
 
-insert into scores(quizid,rollno,total,score) values (1,"CB.EN.U4CSE17337",5,3);
+insert into scores(quizid,rollno,total,studentscore) values (1,"CB.EN.U4CSE17337",5,3);
 
-insert into placementexperience(rollno,experience,companyname,posttime) values ("CB.EN.U4CSE17337","Great Exp","Cisco","2020-10-07 12:00:00");
+insert into placementexperience(rollno,experiencecontent,companyname,posttime) values ("CB.EN.U4CSE17337","Great Exp","Cisco","2020-10-07 12:00:00");
 
 insert into studentnotes(notetitle,notecontent,notedate,rollno) values ("NCP Review","3 more days left","2020-10-23","CB.EN.U4CSE17337");
 
