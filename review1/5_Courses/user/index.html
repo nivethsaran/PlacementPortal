@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body onload="loadXML()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">Preparely</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -47,52 +47,17 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container"><br><br><br><br>
+    <br><br><br><br>
+    <div class="container">
         <h3 class="display-3 text-center">Course Videos</h3><br>
-        <div class="resource-container">
-            <div id="1">
-                <h4>Django Paypal | Client Side Integration</h4><br>
-                <iframe id="preview-video" src="https://www.youtube.com/embed/8rMfW4wO-vU"
-                    allowfullscreen="allowfullscreen"></iframe>
-                <p class="lead">
-                    description 1
-                </p>
-            </div><br><br>
-            <div id="2">
-                <h4>React State Management Tutorial | Context Api | React Tutorial For Beginners</h4>
-                <br>
-                <iframe id="preview-video" src="https://www.youtube.com/embed/35lXWvCuM8o"
-                    allowfullscreen="allowfullscreen"></iframe>
-                <p class="lead">
-                    description 2
-                </p>
-            </div><br><br>
-            <div id="3">
-                <h4>Pitching & Marketing a Website Idea</h4><br>
-                <iframe id="preview-video" src="https://www.youtube.com/embed/fju01GCBD24"
-                    allowfullscreen="allowfullscreen"></iframe>
-                <p class="lead">
-                    description 3
-                </p>
-            </div><br><br>
-            <div id="4">
-                <h4>Redux For Beginners | React Redux Tutorial</h4><br>
-                <iframe id="preview-video" src="https://www.youtube.com/embed/CVpUuw9XSjY"
-                    allowfullscreen="allowfullscreen"></iframe>
-                <p class="lead">
-                    description 4
-                </p>
-            </div><br><br>
-            <div id="5">
-                <h4>Django Portfolio Website Full Build Timelapse</h4><br>
-                <iframe id="preview-video" src="https://www.youtube.com/embed/iQcJPeCcjNo"
-                    allowfullscreen="allowfullscreen"></iframe>
-                <p class="lead">
-                    description 5
-                </p>
-            </div><br><br>
+
+
+        <!-- the xml data will be rendered inside the below div tag -->
+        <div class="resource-container" id="mainWrapper">
+
         </div>
+
+
     </div>
 
     <!-- script -->

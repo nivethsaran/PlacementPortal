@@ -2,7 +2,7 @@
   <xs:element name="courses">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="course" maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="course" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="courseid"/>

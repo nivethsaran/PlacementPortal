@@ -2,7 +2,7 @@
   <xs:element name="experiences">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="experience" maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="experience" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="experienceid"/>

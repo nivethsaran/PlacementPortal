@@ -1,43 +1,20 @@
-h3 {
-    color: #606060;
-}
-
-.form-box {
-    /* border: black solid 1px; */
-    margin: 0 20%;
-}
-
-.compulsory {
-    color: red;
-}
-
-.faded {
-    color: rgb(163, 163, 163);
-}
-
-#hidden-alert-danger{
-    display: none;
-}
-
-#hidden-alert-success{
-    display: none;
-}
-
-#preview{
-    display:none;
-}
-
-#addCourse-danger{
-    display: none;
-}
-
-#addCourse-success{
-    display: none;
+h4 {
+    font-size: 20px;
+    color: black;
 }
 
 #preview-video{
-    /* width: 640px;
-    height: 360px; */
-    width: 560px;
-    height: 315px;
+    width: 550px;
+    height: 310px;
+} 
+
+.resource-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.child{
+    flex: 0.5;
+    margin-right: 5px;
 }

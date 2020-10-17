@@ -83,21 +83,29 @@ function loadQuizXML(){
   xmlhttp1.send();
 }
 
-function loadQuestions()
+function loadQuestions(xmlDoc)
 {
     var x = xmlDoc.getElementsByTagName("question");
     console.log(x[0]);
     quizlistinnerhtml=""
     for(var i=0;i<x.length;i++)
     {
-         var quizid=x[i].getElementsByTagName("quizid")[0].childNodes[0].nodeValue;
+        var quizid=x[i].getElementsByTagName("quizid")[0].childNodes[0].nodeValue;
         var questionid=x[i].getElementsByTagName("questionid")[0].childNodes[0].nodeValue;
         var questioncontent=x[i].getElementsByTagName("questioncontent")[0].childNodes[0].nodeValue;
         var answer=x[i].getElementsByTagName("answer")[0].childNodes[0].nodeValue;
-        var studentscore=x[i].getElementsByTagName("studentscore")[0].childNodes[0].nodeValue;
-        quizlistinnerhtml += '<li class="list-group-item">Quiz '+quizid+':'+(studentscore/total*100)+'%</li>'+'\n'
+        var optiona=x[i].getElementsByTagName("optiona")[0].childNodes[0].nodeValue;
+        var optionb=x[i].getElementsByTagName("optionb")[0].childNodes[0].nodeValue;
+        var optionc=x[i].getElementsByTagName("optionc")[0].childNodes[0].nodeValue;
+        var optiond=x[i].getElementsByTagName("optiond")[0].childNodes[0].nodeValue;
+        quizlistinnerhtml += '<p>Question '+questionid+':'+questioncontent+'</p>\n'+
+                                '<label><input type="radio" name="question'+questionid+'" id="question'+questionid+'" value="a">\n'+
+                                optiona+'\n</label><label><input type="radio" name="question'+questionid+'" id="question'+questionid+'" value="b">\n'+
+                                optionb+'\n</label><label><input type="radio" name="question'+questionid+'" id="question'+questionid+'" value="c">\n'+
+                                optionc+'\n</label><label><input type="radio" name="question'+questionid+'" id="question'+questionid+'" value="d">\n'+
+                                optiond+'\n</label><hr>'
     }
-    document.getElementById('scorelist').innerHTML=quizlistinnerhtml
+    document.getElementById('questions').innerHTML=quizlistinnerhtml
 }
 function loadScores(xmlDoc)
 {

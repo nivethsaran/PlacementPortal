@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
-<!DOCTYPE courses SYSTEM "DTD/courses.dtd">
-<courses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/courses.xsd">
+<!DOCTYPE courses SYSTEM "courses.dtd">
+<?xml-stylesheet href="courses.css" type="text/css" ?>
+
+<courses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="courses.xsd">
 	<course>
 		<courseid>1</courseid>
 		<coursename>NCP</coursename>
@@ -10,4 +11,22 @@
 		<courseurl>https://www.youtube.com/watch?v=vJ-Zn4fo0MQ</courseurl>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
 	</course>
-</courses>
+    
+	<course>
+		<courseid>2</courseid>
+		<coursename>NLP</coursename>
+		<topicname>LDA</topicname>
+		<department>CSE</department>
+		<courseurl>https://www.youtube.com/watch?v=T05t-SqKArY</courseurl>
+		<facultyid>CB.EN.U4CSEFEC02</facultyid>
+	</course>
+    
+	<course>
+		<courseid>3</courseid>
+		<coursename>FODS</coursename>
+		<topicname>Hypothesis testing</topicname>
+		<department>CSE</department>
+		<courseurl>https://www.youtube.com/watch?v=VK-rnA3-41c</courseurl>
+		<facultyid>CB.EN.U4CSEFBC03</facultyid>
+	</course>
+</courses>  

@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
-<!DOCTYPE experiences SYSTEM "DTD/placementexperience.dtd">
-<experiences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/placementexperience.xsd">
+<!DOCTYPE experiences SYSTEM "placementexperience.dtd">
+<?xml-stylesheet href="placementexperience.css" type="text/css" ?>
+
+<experiences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="placementexperience.xsd">
 	<experience>
 		<experienceid>1</experienceid>
 		<rollno>CB.EN.U4CSE17337</rollno>
-		<experiencecontent>Great Exp</experiencecontent>
+		<experiencecontent>Great Experience!</experiencecontent>
 		<companyname>Cisco</companyname>
 		<posttime>2020-10-07 12:00:00</posttime>
+	</experience>
+	
+	<experience>
+		<experienceid>2</experienceid>
+		<rollno>CB.EN.U4CSE17318</rollno>
+		<experiencecontent>Yeah, It good.</experiencecontent>
+		<companyname>Amazon</companyname>
+		<posttime>2020-10-12 12:00:00</posttime>
+	</experience>
+	
+	<experience>
+		<experienceid>3</experienceid>
+		<rollno>CB.EN.U4CSE17360</rollno>
+		<experiencecontent>Me likey!</experiencecontent>
+		<companyname>Microsoft</companyname>
+		<posttime>2020-10-21 12:00:00</posttime>
+	</experience>
+
+	<experience>
+		<experienceid>4</experienceid>
+		<rollno>CB.EN.U4CSE17361</rollno>
+		<experiencecontent>Me likey it so much!</experiencecontent>
+		<companyname>Google</companyname>
+		<posttime>2020-10-25 12:00:00</posttime>
 	</experience>
 </experiences>
