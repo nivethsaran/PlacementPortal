@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT students (student)>
+<!ELEMENT students (student)*>
 <!ATTLIST students xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST students xsi:noNamespaceSchemaLocation CDATA "XSD/student.xsd">
 <!ELEMENT student (fullname,rollno,authpassword,avatarurl,mobilenumber,

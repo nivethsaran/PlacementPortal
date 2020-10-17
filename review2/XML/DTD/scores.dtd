@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT scores (score)>
+<!ELEMENT scores (score)*>
 <!ATTLIST scores xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST scores xsi:noNamespaceSchemaLocation CDATA "XSD/scores.xsd">
 <!ELEMENT score (scoreid,quizid,rollno,total,studentscore)>

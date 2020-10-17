@@ -15,7 +15,7 @@
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="loadXML()">
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
@@ -49,7 +49,7 @@
                         <span data-feather="plus-circle"></span>
                     </a>
                 </h6>
-                <ul class="nav flex-column">
+                <ul id="leftpanel" class="nav flex-column">
                     <li class="nav-item" onclick="displayQuestion(0)">
                         <a class="nav-link" href="#">
                             <span data-feather="home"></span>

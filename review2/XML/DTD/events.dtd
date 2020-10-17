@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT events (event)>
+<!ELEMENT events (event)*>
 <!ATTLIST events xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST events xsi:noNamespaceSchemaLocation CDATA "XSD/events.xsd">
 <!ELEMENT event (eventid,eventdate,eventtitle,eventdesc)>

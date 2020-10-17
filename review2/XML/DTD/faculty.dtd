@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT faculties (faculty)>
+<!ELEMENT faculties (faculty)*>
 <!ATTLIST faculties xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST faculties xsi:noNamespaceSchemaLocation CDATA "XSD/faculty.xsd">
 <!ELEMENT faculty (fullname,facultyid,authpassword,avatarurl,mobilenumber,

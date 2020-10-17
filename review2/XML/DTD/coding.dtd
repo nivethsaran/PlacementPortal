@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT problems (problem*)>
+<!ELEMENT problems (problem)*>
 <!ATTLIST problems xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST problems xsi:noNamespaceSchemaLocation CDATA "XSD/coding.xsd">
 <!ELEMENT problem (problemid,problemname,problemdesc,problemdifficulty,

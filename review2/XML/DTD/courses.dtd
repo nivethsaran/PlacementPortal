@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT courses (course)>
+<!ELEMENT courses (course)*>
 <!ATTLIST courses xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST courses xsi:noNamespaceSchemaLocation CDATA "XSD/courses.xsd">
 <!ELEMENT course (courseid,coursename,topicname,department,courseurl,

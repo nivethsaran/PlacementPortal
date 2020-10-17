@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT experiences (experience)>
+<!ELEMENT experiences (experience)*>
 <!ATTLIST experiences xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST experiences xsi:noNamespaceSchemaLocation CDATA "XSD/placementexperience.xsd">
 <!ELEMENT experience (experienceid,rollno,experiencecontent,companyname,posttime)>

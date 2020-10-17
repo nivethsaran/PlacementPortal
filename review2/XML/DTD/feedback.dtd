@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT feedbacks (feedback)>
+<!ELEMENT feedbacks (feedback)*>
 <!ATTLIST feedbacks xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST feedbacks xsi:noNamespaceSchemaLocation CDATA "XSD/feedback.xsd">
 <!ELEMENT feedback (facultyid,feedbackid,pace,onlinetoolsusgae,effectiveness,

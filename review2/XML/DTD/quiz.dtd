@@ -1,5 +1,5 @@
 <?xml encoding="UTF-8"?>
-<!ELEMENT quizzes (quiz)>
+<!ELEMENT quizzes (quiz)*>
 <!ATTLIST quizzes xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST quizzes xsi:noNamespaceSchemaLocation CDATA "XSD/quiz.xsd">
 <!ELEMENT quiz (quizid,facultyid,quizname,quizdescription,numofquestions,
@@ -17,3 +17,5 @@
 <!ELEMENT department (#PCDATA)>
 <!ELEMENT topic (#PCDATA)>
 <!ELEMENT pin (#PCDATA)>
+<!ENTITY hyphen "-">
+<!ENTITY colon ":">
