@@ -9,6 +9,10 @@
               <xs:element type="xs:byte" name="questionid"/>
               <xs:element type="xs:string" name="questioncontent" />
               <xs:element type="xs:string" name="answer"/>
+              <xs:element type="xs:string" name="optiona" />
+              <xs:element type="xs:string" name="optionb" />
+              <xs:element type="xs:string" name="optionc" />
+              <xs:element type="xs:string" name="optiond" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -46,10 +46,10 @@ quizid integer,
 questionid varchar(10),
 questioncontent varchar(100),
 answer varchar(2),
-optiona varchar(20),
-optionb varchar(20),
-optionc varchar(20),
-optiond varchar(20),
+optiona varchar(100),
+optionb varchar(100),
+optionc varchar(100),
+optiond varchar(100),
 foreign key (quizid) references quiz(quizid),
 primary key (quizid,questionid)
 );
@@ -178,11 +178,11 @@ insert into student values ("Niveth Saran","CB.EN.U4CSE17337","$Qwer1234","https
 
 insert into quiz (facultyid,quizname,quizdescription,numofquestions,quizdate,quizstarttime,quizendtime,duration,department,topic,pin) values ("CB.EN.U4CSEFAC01","J2EE","Testing J2EE Basic Undestanding",5,'2020-10-07','01:00:00','01:30:00',15,"CSE","NCP",1234);
 
-insert into question values(1,1,"J2EE full form","a");
-insert into question values(1,2,"JSP full form","b");
-insert into question values(1,3,"XML full form","c");
-insert into question values(1,4,"HTML full form","d");
-insert into question values(1,5,"HTTPS full form","a");
+insert into question values(1,1,"J2EE full form","a","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
+insert into question values(1,2,"JSP full form","b","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
+insert into question values(1,3,"XML full form","c","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
+insert into question values(1,4,"HTML full form","d","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
+insert into question values(1,5,"HTTPS full form","a","Hypertext Transfer Protocol","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
 
 insert into courses (coursename,topicname,department,courseurl,facultyid) values ("NCP","J2EE","CSE","https://www.youtube.com/watch?v=vJ-Zn4fo0MQ","CB.EN.U4CSEFAC01");
 
