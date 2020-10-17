@@ -1,10 +1,12 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE forms SYSTEM "DTD/companyregistration.dtd">
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/companyregistration.xsd">
+	<form>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
 		<formid>1</formid>
 		<companyname>Cisco</companyname>
 		<deadline>2020-11-05</deadline>
 		<formurl>notavailable</formurl>
-	</ROW>
-</DATA>
+	</form>
+</forms>

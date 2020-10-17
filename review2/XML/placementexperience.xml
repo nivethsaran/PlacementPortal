@@ -1,10 +1,12 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE experiences SYSTEM "DTD/placementexperience.dtd">
+<experiences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/placementexperience.xsd">
+	<experience>
 		<experienceid>1</experienceid>
 		<rollno>CB.EN.U4CSE17337</rollno>
-		<experience>Great Exp</experience>
+		<experiencecontent>Great Exp</experiencecontent>
 		<companyname>Cisco</companyname>
 		<posttime>2020-10-07 12:00:00</posttime>
-	</ROW>
-</DATA>
+	</experience>
+</experiences>

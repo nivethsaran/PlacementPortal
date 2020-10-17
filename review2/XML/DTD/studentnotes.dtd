@@ -1,29 +1,10 @@
 <?xml encoding="UTF-8"?>
-
-<!ELEMENT DATA (ROW)>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT ROW (noteid,notetitle,notecontent,notedate,rollno)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
-
+<!ELEMENT notes (note)>
+<!ATTLIST notes xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST notes xsi:noNamespaceSchemaLocation CDATA "XSD/studentnotes.xsd">
+<!ELEMENT note (noteid,notetitle,notecontent,notedate,rollno)>
 <!ELEMENT noteid (#PCDATA)>
-<!ATTLIST noteid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT notetitle (#PCDATA)>
-<!ATTLIST notetitle
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT notecontent (#PCDATA)>
-<!ATTLIST notecontent
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT notedate (#PCDATA)>
-<!ATTLIST notedate
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT rollno (#PCDATA)>
-<!ATTLIST rollno
-  xmlns CDATA #FIXED ''>

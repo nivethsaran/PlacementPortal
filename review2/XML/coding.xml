@@ -1,10 +1,14 @@
-<DATA>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE problems SYSTEM "DTD/coding.dtd">
+<problems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/coding.xsd">
 
-	<ROW>
+	<problem>
 		<problemid>1</problemid>
 		<problemname>Reverse LL</problemname>
 		<problemdesc>Reverse a LinkedList</problemdesc>
 		<problemdifficulty>Easy</problemdifficulty>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
-	</ROW>
-</DATA>
+</problem>
+</problems>
+ 

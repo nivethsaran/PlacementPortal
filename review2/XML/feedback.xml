@@ -1,6 +1,8 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE feedbacks SYSTEM "DTD/feedback.dtd">
+<feedbacks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/feedback.xsd">
+	<feedback>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
 		<feedbackid>1</feedbackid>
 		<pace>9</pace>
@@ -11,5 +13,5 @@
 		<optadvanced>yes</optadvanced>
 		<suggestions>Keep up the good work</suggestions>
 		<courseid>1</courseid>
-	</ROW>
-</DATA>
+	</feedback>
+</feedbacks>

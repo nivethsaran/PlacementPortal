@@ -1,6 +1,8 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE faculties SYSTEM "DTD/faculty.dtd">
+<faculties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/faculty.xsd">
+	<faculty>
 		<fullname>Ashwin Bala</fullname>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
 		<authpassword>$Qwer1234</authpassword>
@@ -8,5 +10,5 @@
 		<mobilenumber>7878787878</mobilenumber>
 		<email>ashwin@gmail.com</email>
 		<department>CSE</department>
-	</ROW>
-</DATA>
+	</faculty>
+</faculties>

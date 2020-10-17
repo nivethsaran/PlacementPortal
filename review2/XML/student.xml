@@ -1,6 +1,8 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE students SYSTEM "DTD/student.dtd">
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/student.xsd">
+	<student>
 		<fullname>Niveth Saran</fullname>
 		<rollno>CB.EN.U4CSE17337</rollno>
 		<authpassword>$Qwer1234</authpassword>
@@ -8,5 +10,5 @@
 		<mobilenumber>7878787878</mobilenumber>
 		<email>nive@gmail.com</email>
 		<department>CSE</department>
-	</ROW>
-</DATA>
+	</student>
+</students>

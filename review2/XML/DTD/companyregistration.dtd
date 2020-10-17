@@ -1,29 +1,10 @@
 <?xml encoding="UTF-8"?>
-
-<!ELEMENT DATA (ROW)>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT ROW (facultyid,formid,companyname,deadline,formurl)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
-
+<!ELEMENT forms (form)>
+<!ATTLIST forms xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST forms xsi:noNamespaceSchemaLocation CDATA "XSD/companyregistration.xsd">
+<!ELEMENT form (facultyid,formid,companyname,deadline,formurl)>
 <!ELEMENT facultyid (#PCDATA)>
-<!ATTLIST facultyid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT formid (#PCDATA)>
-<!ATTLIST formid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT companyname (#PCDATA)>
-<!ATTLIST companyname
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT deadline (#PCDATA)>
-<!ATTLIST deadline
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT formurl (#PCDATA)>
-<!ATTLIST formurl
-  xmlns CDATA #FIXED ''>

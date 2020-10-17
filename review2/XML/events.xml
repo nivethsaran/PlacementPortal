@@ -1,9 +1,12 @@
-<DATA>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE events SYSTEM "DTD/events.dtd">
+<events xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/events.xsd">
 
-	<ROW>
+	<event>
 		<eventid>1</eventid>
 		<eventdate>2020-10-10</eventdate>
 		<eventtitle>Cisco Approaching</eventtitle>
 		<eventdesc>3 Rounds</eventdesc>
-	</ROW>
-</DATA>
+	</event>
+</events>

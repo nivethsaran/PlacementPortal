@@ -1,51 +1,17 @@
 <?xml encoding="UTF-8"?>
-
-<!ELEMENT DATA (ROW)>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT ROW (facultyid,feedbackid,pace,onlinetoolsusgae,effectiveness,
+<!ELEMENT feedbacks (feedback)>
+<!ATTLIST feedbacks xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST feedbacks xsi:noNamespaceSchemaLocation CDATA "XSD/feedback.xsd">
+<!ELEMENT feedback (facultyid,feedbackid,pace,onlinetoolsusgae,effectiveness,
                approachability,recommend,optadvanced,suggestions,
                courseid)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT facultyid (#PCDATA)>
-<!ATTLIST facultyid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT feedbackid (#PCDATA)>
-<!ATTLIST feedbackid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT pace (#PCDATA)>
-<!ATTLIST pace
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT onlinetoolsusgae (#PCDATA)>
-<!ATTLIST onlinetoolsusgae
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT effectiveness (#PCDATA)>
-<!ATTLIST effectiveness
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT approachability (#PCDATA)>
-<!ATTLIST approachability
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT recommend (#PCDATA)>
-<!ATTLIST recommend
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT optadvanced (#PCDATA)>
-<!ATTLIST optadvanced
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT suggestions (#PCDATA)>
-<!ATTLIST suggestions
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT courseid (#PCDATA)>
-<!ATTLIST courseid
-  xmlns CDATA #FIXED ''>

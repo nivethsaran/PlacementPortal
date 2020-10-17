@@ -1,37 +1,45 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE questions SYSTEM "DTD/question.dtd">
+<questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/question.xsd">
+	<question>
 		<quizid>1</quizid>
 		<questionid>1</questionid>
-		<question>J2EE full form</question>
+		<questioncontent>J2EE full form</questioncontent>
 		<answer>a</answer>
-	</ROW>
+	</question>
 
-	<ROW>
+	<question>
 		<quizid>1</quizid>
 		<questionid>2</questionid>
-		<question>JSP full form</question>
+		<questioncontent>JSP full form</questioncontent>
 		<answer>b</answer>
-	</ROW>
+	</question>
 
-	<ROW>
+	<question>
 		<quizid>1</quizid>
 		<questionid>3</questionid>
-		<question>XML full form</question>
+		<questioncontent>
+			XML full form
+		</questioncontent>
 		<answer>c</answer>
-	</ROW>
+	</question>
 
-	<ROW>
+	<question>
 		<quizid>1</quizid>
 		<questionid>4</questionid>
-		<question>HTML full form</question>
+		<questioncontent>
+			HTML full form
+		</questioncontent>
 		<answer>d</answer>
-	</ROW>
+	</question>
 
-	<ROW>
+	<question>
 		<quizid>1</quizid>
 		<questionid>5</questionid>
-		<question>HTTPS full form</question>
+		<questioncontent>
+			HTTPS full form
+		</questioncontent>
 		<answer>a</answer>
-	</ROW>
-</DATA>
+	</question>
+</questions>

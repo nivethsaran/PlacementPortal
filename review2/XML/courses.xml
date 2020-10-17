@@ -1,11 +1,13 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE courses SYSTEM "DTD/courses.dtd">
+<courses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/courses.xsd">
+	<course>
 		<courseid>1</courseid>
 		<coursename>NCP</coursename>
 		<topicname>J2EE</topicname>
 		<department>CSE</department>
 		<courseurl>https://www.youtube.com/watch?v=vJ-Zn4fo0MQ</courseurl>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
-	</ROW>
-</DATA>
+	</course>
+</courses>

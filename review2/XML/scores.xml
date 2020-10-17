@@ -1,10 +1,12 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE scores SYSTEM "DTD/scores.dtd">
+<scores xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/scores.xsd">
+	<score>
 		<scoreid>1</scoreid>
 		<quizid>1</quizid>
 		<rollno>CB.EN.U4CSE17337</rollno>
 		<total>5</total>
-		<score>3</score>
-	</ROW>
-</DATA>
+		<studentscore>3</studentscore>
+	</score>
+</scores>

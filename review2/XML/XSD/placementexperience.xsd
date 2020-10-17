@@ -1,13 +1,13 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="DATA">
+  <xs:element name="experiences">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ROW">
+        <xs:element name="experience" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="experienceid"/>
               <xs:element type="xs:string" name="rollno"/>
-              <xs:element type="xs:string" name="experience"/>
+              <xs:element type="xs:string" name="experiencecontent" />
               <xs:element type="xs:string" name="companyname"/>
               <xs:element type="xs:string" name="posttime"/>
             </xs:sequence>

@@ -1,15 +1,15 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="DATA">
+  <xs:element name="scores">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ROW">
+        <xs:element name="score" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="scoreid"/>
               <xs:element type="xs:byte" name="quizid"/>
               <xs:element type="xs:string" name="rollno"/>
               <xs:element type="xs:byte" name="total"/>
-              <xs:element type="xs:byte" name="score"/>
+              <xs:element type="xs:byte" name="studentscore" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

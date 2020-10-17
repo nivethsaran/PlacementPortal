@@ -1,10 +1,12 @@
-<DATA>
-
-	<ROW>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<!DOCTYPE notes SYSTEM "DTD/studentnotes.dtd">
+<notes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/studentnotes.xsd">
+	<note>
 		<noteid>1</noteid>
 		<notetitle>NCP Review</notetitle>
 		<notecontent>3 more days left</notecontent>
 		<notedate>2020-10-23</notedate>
 		<rollno>CB.EN.U4CSE17337</rollno>
-	</ROW>
-</DATA>
+	</note>
+</notes>

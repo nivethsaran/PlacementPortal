@@ -1,25 +1,19 @@
 <?xml encoding="UTF-8"?>
 
-<!ELEMENT DATA (ROW)+>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
+<!ELEMENT questions (question)+>
+<!ATTLIST questions xmlns:xsi CDATA  "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST questions xsi:noNamespaceSchemaLocation CDATA  "XSD/question.xsd">
 
-<!ELEMENT ROW (quizid,questionid,question,answer)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
+<!ELEMENT question (quizid,questionid,questioncontent,answer)>
+
 
 <!ELEMENT quizid (#PCDATA)>
-<!ATTLIST quizid
-  xmlns CDATA #FIXED ''>
+
 
 <!ELEMENT questionid (#PCDATA)>
-<!ATTLIST questionid
-  xmlns CDATA #FIXED ''>
 
-<!ELEMENT question (#PCDATA)>
-<!ATTLIST question
-  xmlns CDATA #FIXED ''>
+
+<!ELEMENT questioncontent (#PCDATA)>
+
 
 <!ELEMENT answer (#PCDATA)>
-<!ATTLIST answer
-  xmlns CDATA #FIXED ''>

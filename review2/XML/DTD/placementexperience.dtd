@@ -1,29 +1,10 @@
 <?xml encoding="UTF-8"?>
-
-<!ELEMENT DATA (ROW)>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT ROW (experienceid,rollno,experience,companyname,posttime)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
-
+<!ELEMENT experiences (experience)>
+<!ATTLIST experiences xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST experiences xsi:noNamespaceSchemaLocation CDATA "XSD/placementexperience.xsd">
+<!ELEMENT experience (experienceid,rollno,experiencecontent,companyname,posttime)>
 <!ELEMENT experienceid (#PCDATA)>
-<!ATTLIST experienceid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT rollno (#PCDATA)>
-<!ATTLIST rollno
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT experience (#PCDATA)>
-<!ATTLIST experience
-  xmlns CDATA #FIXED ''>
-
+<!ELEMENT experiencecontent (#PCDATA)>
 <!ELEMENT companyname (#PCDATA)>
-<!ATTLIST companyname
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT posttime (#PCDATA)>
-<!ATTLIST posttime
-  xmlns CDATA #FIXED ''>

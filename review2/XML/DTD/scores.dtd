@@ -1,29 +1,10 @@
 <?xml encoding="UTF-8"?>
-
-<!ELEMENT DATA (ROW)>
-<!ATTLIST DATA
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT ROW (scoreid,quizid,rollno,total,score)>
-<!ATTLIST ROW
-  xmlns CDATA #FIXED ''>
-
+<!ELEMENT scores (score)>
+<!ATTLIST scores xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST scores xsi:noNamespaceSchemaLocation CDATA "XSD/scores.xsd">
+<!ELEMENT score (scoreid,quizid,rollno,total,studentscore)>
 <!ELEMENT scoreid (#PCDATA)>
-<!ATTLIST scoreid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT quizid (#PCDATA)>
-<!ATTLIST quizid
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT rollno (#PCDATA)>
-<!ATTLIST rollno
-  xmlns CDATA #FIXED ''>
-
 <!ELEMENT total (#PCDATA)>
-<!ATTLIST total
-  xmlns CDATA #FIXED ''>
-
-<!ELEMENT score (#PCDATA)>
-<!ATTLIST score
-  xmlns CDATA #FIXED ''>
+<!ELEMENT studentscore (#PCDATA)>
