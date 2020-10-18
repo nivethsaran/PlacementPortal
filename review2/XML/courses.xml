@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE courses SYSTEM "courses.dtd">
-<?xml-stylesheet href="courses.css" type="text/css" ?>
-
+<!DOCTYPE courses SYSTEM "DTD/courses.dtd">
+<?xml-stylesheet href="../../review2/XML/XSLT/courses.xsl" type="text/xsl" ?>
 <courses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="courses.xsd">
 	<course>
 		<courseid>1</courseid>

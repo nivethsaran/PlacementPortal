@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<?xml-stylesheet href="../../review2/XML/XSLT/studentnotes.xsl" type="text/xsl" ?>
+
 <!DOCTYPE notes SYSTEM "DTD/studentnotes.dtd">
 <notes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/studentnotes.xsd">
 	<note>

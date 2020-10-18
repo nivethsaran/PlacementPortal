@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE experiences SYSTEM "placementexperience.dtd">
-<?xml-stylesheet href="placementexperience.css" type="text/css" ?>
+<!DOCTYPE experiences SYSTEM "DTD/placementexperience.dtd">
+<?xml-stylesheet href="../../review2/XML/XSLT/experience.xsl" type="text/xsl" ?>
+
 
 <experiences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="placementexperience.xsd">
 	<experience>

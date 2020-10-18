@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../../review2/XML/XSLT/quiz.xsl" type="text/xsl" ?>
 <!DOCTYPE quizzes SYSTEM "DTD/quiz.dtd">
 <quizzes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/quiz.xsd">
 	<quiz>

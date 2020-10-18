@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<?xml-stylesheet href="../../review2/XML/XSLT/question.xsl" type="text/xsl" ?>
+
 <!DOCTYPE questions SYSTEM "DTD/question.dtd">
 <questions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/question.xsd">
 	<question>

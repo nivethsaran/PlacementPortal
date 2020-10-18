@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <?xml-stylesheet href="shoppingcart.xsl" type="text/xsl" ?> -->
+<?xml-stylesheet href="../../review2/XML/XSLT/feedback.xsl" type="text/xsl" ?>
+
 <!DOCTYPE feedbacks SYSTEM "DTD/feedback.dtd">
 <feedbacks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/feedback.xsd">
 	<feedback>
