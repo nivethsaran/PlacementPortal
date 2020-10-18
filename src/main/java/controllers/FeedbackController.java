@@ -3,9 +3,17 @@ package controllers;
 import models.Coding;
 import models.Feedback;
 import models.PlacementExperience;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 
 public class FeedbackController {
 
@@ -86,6 +94,102 @@ public class FeedbackController {
         {
             System.out.println(e.getLocalizedMessage());
             return null;
+        }
+    }
+
+    public void parseExperienceXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("experience");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String experienceid= productElement.getElementsByTagName("experienceid").item(0).getTextContent();
+                String rollno=productElement.getElementsByTagName("rollno").item(0).getTextContent();
+                String experiencecontent= productElement.getElementsByTagName("experiencecontent").item(0).getTextContent();
+                String companyname = productElement.getElementsByTagName("companyname").item(0).getTextContent();
+                String posttime = productElement.getElementsByTagName("posttime").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        experienceid+"','"+
+                        rollno+"','"+
+                        experiencecontent+"','"+
+                        companyname+"','"+
+                        posttime+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+    public void parseFeedbackXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("feedback");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String facultyid= productElement.getElementsByTagName("facultyid").item(0).getTextContent();
+                String feedbackid=productElement.getElementsByTagName("feedbackid").item(0).getTextContent();
+                String pace= productElement.getElementsByTagName("pace").item(0).getTextContent();
+                String onlinetoolsusgae = productElement.getElementsByTagName("onlinetoolsusgae").item(0).getTextContent();
+                String effectiveness = productElement.getElementsByTagName("effectiveness").item(0).getTextContent();
+                String approachability = productElement.getElementsByTagName("approachability").item(0).getTextContent();
+                String recommend = productElement.getElementsByTagName("recommend").item(0).getTextContent();
+                String optadvanced = productElement.getElementsByTagName("optadvanced").item(0).getTextContent();
+                String suggestions = productElement.getElementsByTagName("suggestions").item(0).getTextContent();
+                String courseid = productElement.getElementsByTagName("courseid").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        facultyid+"','"+
+                        feedbackid+"','"+
+                        pace+"','"+
+                        onlinetoolsusgae+"','"+
+                        effectiveness+"','"+
+                        approachability+"','"+
+                        recommend+"','"+
+                        optadvanced+"','"+
+                        suggestions+"','"+
+                        courseid+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
         }
     }
 }

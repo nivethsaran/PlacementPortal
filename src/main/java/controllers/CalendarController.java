@@ -3,10 +3,18 @@ package controllers;
 import models.Companyregistration;
 import models.Events;
 import models.StudentNotes;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
+//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 public class CalendarController {
 
     Connection con;
@@ -53,6 +61,86 @@ public class CalendarController {
         {
             System.out.println(e.getLocalizedMessage());
             return null;
+        }
+    }
+
+    public void parseEventXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("event");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+                String eventid= productElement.getElementsByTagName("eventid").item(0).getTextContent();
+                String eventdate= productElement.getElementsByTagName("eventdate").item(0).getTextContent();
+                String eventtitle=productElement.getElementsByTagName("eventtitle").item(0).getTextContent();
+                String eventdesc= productElement.getElementsByTagName("eventdesc").item(0).getTextContent();
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        eventid+"','"+
+                        eventdate+"','"+
+                        eventtitle+"','"+
+                        eventdesc+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+    public void parseNotesXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("note");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+                String noteid= productElement.getElementsByTagName("noteid").item(0).getTextContent();
+                String notetitle= productElement.getElementsByTagName("notetitle").item(0).getTextContent();
+                String notecontent=productElement.getElementsByTagName("notecontent").item(0).getTextContent();
+                String notedate= productElement.getElementsByTagName("notedate").item(0).getTextContent();
+                String rollno= productElement.getElementsByTagName("rollno").item(0).getTextContent();
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        noteid+"','"+
+                        notetitle+"','"+
+                        notecontent+"','"+
+                        notedate+"','"+
+                        rollno+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
         }
     }
 

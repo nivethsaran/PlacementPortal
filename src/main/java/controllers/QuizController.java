@@ -4,10 +4,17 @@ import models.Question;
 import models.Quiz;
 import models.Scores;
 import models.Student;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
-
+//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 public class QuizController {
 
     Connection con;
@@ -120,5 +127,157 @@ public ArrayList<Quiz> getQuiz()
             return null;
         }
     }
+
+    public void parseQuizXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("quiz");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String quizid= productElement.getElementsByTagName("quizid").item(0).getTextContent();
+                String facultyid=productElement.getElementsByTagName("facultyid").item(0).getTextContent();
+                String quizname= productElement.getElementsByTagName("quizname").item(0).getTextContent();
+                String quizdescription = productElement.getElementsByTagName("quizdescription").item(0).getTextContent();
+                String numofquestions = productElement.getElementsByTagName("numofquestions").item(0).getTextContent();
+                String quizdate = productElement.getElementsByTagName("quizdate").item(0).getTextContent();
+                String quizstarttime = productElement.getElementsByTagName("quizstarttime").item(0).getTextContent();
+                String quizendtime = productElement.getElementsByTagName("quizendtime").item(0).getTextContent();
+                String duration = productElement.getElementsByTagName("duration").item(0).getTextContent();
+                String department = productElement.getElementsByTagName("department").item(0).getTextContent();
+                String topic = productElement.getElementsByTagName("topic").item(0).getTextContent();
+                String pin = productElement.getElementsByTagName("pin").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        quizid+"','"+
+                        facultyid+"','"+
+                        quizname+"','"+
+                        quizdescription+"','"+
+                        numofquestions+"','"+
+                        quizdate+"','"+
+                        quizstarttime+"','"+
+                        quizendtime+"','"+
+                        duration+"','"+
+                        department+"','"+
+                        topic+"','"+
+                        pin+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+
+    public void parseScoresXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("score");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String scoreid= productElement.getElementsByTagName("scoreid").item(0).getTextContent();
+                String quizid=productElement.getElementsByTagName("quizid").item(0).getTextContent();
+                String rollno= productElement.getElementsByTagName("rollno").item(0).getTextContent();
+                String total = productElement.getElementsByTagName("total").item(0).getTextContent();
+                String studentscore = productElement.getElementsByTagName("studentscore").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        scoreid+"','"+
+                        quizid+"','"+
+                        rollno+"','"+
+                        total+"','"+
+                        studentscore+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+
+    public void parseQuestionsXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename=
+                    doc.getDocumentElement().getNodeName();
+            NodeList listOfProducts = doc.getElementsByTagName("question");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String quizid= productElement.getElementsByTagName("quizid").item(0).getTextContent();
+                String questionid=productElement.getElementsByTagName("questionid").item(0).getTextContent();
+                String questioncontent= productElement.getElementsByTagName("questioncontent").item(0).getTextContent();
+                String answer = productElement.getElementsByTagName("answer").item(0).getTextContent();
+                String optiona = productElement.getElementsByTagName("optiona").item(0).getTextContent();
+                String optionb = productElement.getElementsByTagName("optionb").item(0).getTextContent();
+                String optionc = productElement.getElementsByTagName("optionc").item(0).getTextContent();
+                String optiond = productElement.getElementsByTagName("optiond").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        quizid+"','"+
+                        questionid+"','"+
+                        questioncontent+"','"+
+                        answer+"','"+
+                        optiona+"','"+
+                        optionb+"','"+
+                        optionc+"','"+
+                        optiond+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
 
 }
