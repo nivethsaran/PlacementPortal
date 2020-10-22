@@ -5,7 +5,7 @@
         <xs:element name="course" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="courseid"/>
+              <xs:element type="xs:int" name="courseid"/>
               <xs:element type="xs:string" name="coursename"/>
               <xs:element type="xs:string" name="topicname"/>
               <xs:element type="xs:string" name="department"/>

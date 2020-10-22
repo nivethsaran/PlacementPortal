@@ -5,7 +5,7 @@
         <xs:element name="note" maxOccurs="unbounded" minOccurs="0"> 
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="noteid"/>
+              <xs:element type="xs:int" name="noteid"/>
               <xs:element type="xs:string" name="notetitle"/>
               <xs:element type="xs:string" name="notecontent"/>
               <xs:element type="xs:date" name="notedate"/>

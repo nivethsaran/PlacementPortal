@@ -5,7 +5,7 @@
         <xs:element name="event" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="eventid"/>
+              <xs:element type="xs:int" name="eventid"/>
               <xs:element type="xs:date" name="eventdate"/>
               <xs:element type="xs:string" name="eventtitle"/>
               <xs:element type="xs:string" name="eventdesc"/>

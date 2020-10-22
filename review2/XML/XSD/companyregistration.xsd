@@ -6,7 +6,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:string" name="facultyid"/>
-              <xs:element type="xs:byte" name="formid"/>
+              <xs:element type="xs:int" name="formid"/>
               <xs:element type="xs:string" name="companyname"/>
               <xs:element type="xs:date" name="deadline"/>
               <xs:element type="xs:string" name="formurl"/>

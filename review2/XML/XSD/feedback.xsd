@@ -6,15 +6,15 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:string" name="facultyid"/>
-              <xs:element type="xs:byte" name="feedbackid"/>
-              <xs:element type="xs:byte" name="pace"/>
-              <xs:element type="xs:byte" name="onlinetoolsusgae"/>
-              <xs:element type="xs:byte" name="effectiveness"/>
-              <xs:element type="xs:byte" name="approachability"/>
+              <xs:element type="xs:int" name="feedbackid"/>
+              <xs:element type="xs:int" name="pace"/>
+              <xs:element type="xs:int" name="onlinetoolsusgae"/>
+              <xs:element type="xs:int" name="effectiveness"/>
+              <xs:element type="xs:int" name="approachability"/>
               <xs:element type="xs:string" name="recommend"/>
               <xs:element type="xs:string" name="optadvanced"/>
               <xs:element type="xs:string" name="suggestions"/>
-              <xs:element type="xs:byte" name="courseid"/>
+              <xs:element type="xs:int" name="courseid"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

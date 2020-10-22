@@ -5,7 +5,7 @@
         <xs:element name="experience" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="experienceid"/>
+              <xs:element type="xs:int" name="experienceid"/>
               <xs:element type="xs:string" name="rollno"/>
               <xs:element type="xs:string" name="experiencecontent" />
               <xs:element type="xs:string" name="companyname"/>

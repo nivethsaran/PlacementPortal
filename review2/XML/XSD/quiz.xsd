@@ -5,18 +5,18 @@
         <xs:element name="quiz" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="quizid"/>
+              <xs:element type="xs:int" name="quizid"/>
               <xs:element type="xs:string" name="facultyid"/>
               <xs:element type="xs:string" name="quizname"/>
               <xs:element type="xs:string" name="quizdescription"/>
-              <xs:element type="xs:byte" name="numofquestions"/>
+              <xs:element type="xs:int" name="numofquestions" />
               <xs:element type="xs:date" name="quizdate"/>
               <xs:element type="xs:time" name="quizstarttime"/>
               <xs:element type="xs:time" name="quizendtime"/>
-              <xs:element type="xs:byte" name="duration"/>
+              <xs:element type="xs:int" name="duration" />
               <xs:element type="xs:string" name="department"/>
               <xs:element type="xs:string" name="topic"/>
-              <xs:element type="xs:short" name="pin"/>
+              <xs:element type="xs:int" name="pin" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
