@@ -3,16 +3,8 @@
 <!ELEMENT questions (question)+>
 <!ATTLIST questions xmlns:xsi CDATA  "http://www.w3.org/2001/XMLSchema-instance">
 <!ATTLIST questions xsi:noNamespaceSchemaLocation CDATA  "XSD/question.xsd">
-
-<!ELEMENT question (quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond)>
-
-
 <!ELEMENT quizid (#PCDATA)>
-
-
 <!ELEMENT questionid (#PCDATA)>
-
-
 <!ELEMENT questioncontent (#PCDATA)>
 <!ELEMENT answer (#PCDATA)>
 <!ELEMENT optiona (#PCDATA)>

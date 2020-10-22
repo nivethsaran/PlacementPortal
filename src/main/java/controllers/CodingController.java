@@ -13,7 +13,6 @@ import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
-//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 public class CodingController {
 
     Connection con;
@@ -34,7 +33,7 @@ public class CodingController {
     {
         CodingController controller=new CodingController();
 //        controller.getCodingQuestions();
-        controller.parseProblemXML("");
+        controller.parseProblemXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\coding.xml");
         }
 
 
@@ -47,8 +46,7 @@ public class CodingController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="coding";
             NodeList listOfProducts = doc.getElementsByTagName("problem");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();

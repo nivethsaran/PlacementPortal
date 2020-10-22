@@ -14,7 +14,6 @@ import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
-//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 public class CalendarController {
 
     Connection con;
@@ -34,8 +33,10 @@ public class CalendarController {
     public static void main(String args[])
     {
         CalendarController controller=new CalendarController();
-        controller.getEvents();
-        controller.getNotes();
+//        controller.getEvents();
+//        controller.getNotes();
+        controller.parseEventXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\events.xml");
+        controller.parseNotesXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\studentnotes.xml");
     }
 
     public ArrayList<Events> getEvents()
@@ -73,8 +74,7 @@ public class CalendarController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="events";
             NodeList listOfProducts = doc.getElementsByTagName("event");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -112,8 +112,7 @@ public class CalendarController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="studentnotes";
             NodeList listOfProducts = doc.getElementsByTagName("note");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();

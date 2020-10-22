@@ -33,8 +33,10 @@ public class CourseController {
     public static void main(String args[])
     {
         CourseController controller=new CourseController();
-        controller.getCourses();
+//        controller.getCourses();
+        controller.parseCourseXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\courses.xml");
     }
+
 
     public void parseCourseXML(String xml)
     {
@@ -45,8 +47,7 @@ public class CourseController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="courses";
             NodeList listOfProducts = doc.getElementsByTagName("course");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();

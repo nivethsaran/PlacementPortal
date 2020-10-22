@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
-//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
+
 public class AuthenticationController {
 
     Connection con;
@@ -41,8 +41,8 @@ public class AuthenticationController {
         AuthenticationController authenticationController=new AuthenticationController();
 //        authenticationController.getStudentData();
 //        authenticationController.getFacultyData();
-        authenticationController.parseFacultyXML("");
-        authenticationController.parseStudentXML("");
+        authenticationController.parseFacultyXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\faculty.xml");
+        authenticationController.parseStudentXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\student.xml");
     }
 
     public void parseStudentXML(String xml)
@@ -54,8 +54,7 @@ public class AuthenticationController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="student";
             NodeList listOfProducts = doc.getElementsByTagName("student");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -99,8 +98,7 @@ public class AuthenticationController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="faculty";
             NodeList listOfProducts = doc.getElementsByTagName("faculty");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -195,3 +193,5 @@ public class AuthenticationController {
         }
     }
 }
+
+

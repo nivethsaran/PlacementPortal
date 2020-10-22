@@ -34,8 +34,10 @@ public class FeedbackController {
     public static void main(String args[])
     {
         FeedbackController controller=new FeedbackController();
-        controller.getFeedbacks();
-        controller.getPlacementExperience();
+//        controller.getFeedbacks();
+//        controller.getPlacementExperience();
+        controller.parseExperienceXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\placementexperience.xml");
+        controller.parseFeedbackXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\feedback.xml");
     }
 
     public ArrayList<Feedback> getFeedbacks()
@@ -106,8 +108,7 @@ public class FeedbackController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="placementexperience";
             NodeList listOfProducts = doc.getElementsByTagName("experience");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -149,8 +150,7 @@ public class FeedbackController {
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="feedback";
             NodeList listOfProducts = doc.getElementsByTagName("feedback");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();

@@ -14,7 +14,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
-//TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 public class QuizController {
 
     Connection con;
@@ -35,9 +34,13 @@ public class QuizController {
 public static void main(String args[])
 {
     QuizController controller=new QuizController();
-    controller.getQuiz();
-    controller.getQuestions(1);
-    controller.getScores(1);
+//    controller.getQuiz();
+//    controller.getQuestions(1);
+//    controller.getScores(1);
+
+    controller.parseQuizXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\quiz.xml");
+    controller.parseScoresXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\scores.xml");
+    controller.parseQuestionsXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\question.xml");
 }
 
 public ArrayList<Quiz> getQuiz()
@@ -137,8 +140,7 @@ public ArrayList<Quiz> getQuiz()
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="quiz";
             NodeList listOfProducts = doc.getElementsByTagName("quiz");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -195,8 +197,7 @@ public ArrayList<Quiz> getQuiz()
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="scores";
             NodeList listOfProducts = doc.getElementsByTagName("score");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
@@ -239,8 +240,7 @@ public ArrayList<Quiz> getQuiz()
                     docBuilderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(new File(xml));
             doc.getDocumentElement().normalize();
-            String tablename=
-                    doc.getDocumentElement().getNodeName();
+            String tablename="question";
             NodeList listOfProducts = doc.getElementsByTagName("question");
             System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
