@@ -17,7 +17,7 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-tr:hover  {background-color:#ffa5a5;}
+tr:hover  {background-color:#a6a6a4;}
 </style>
             </head>
             <body>
@@ -36,32 +36,120 @@ tr:hover  {background-color:#ffa5a5;}
                     </tr>
                     <xsl:for-each select="question">
                         <xsl:sort select="questionid" data-type="number" order="ascending" />
-                        <tr bgcolor="#ee6f57">
-                            <td>
-                                <xsl:value-of select="quizid" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="questionid" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="questioncontent" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="answer" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="optiona" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="optionb" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="optionc" />
-                            </td>
-                            <td>
-                                <xsl:value-of select="optiond" />
-                            </td>
-                        </tr>
+                        <xsl:choose>
+                            <xsl:when test="answer = 'a'">
+                                <tr bgcolor="#e8e8e8">
+                                    <td>
+                                        <xsl:value-of select="quizid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questionid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questioncontent" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="answer" />
+                                    </td>
+                                    <td bgcolor="#ccf6c8">
+                                        <xsl:value-of select="optiona" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionb" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionc" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiond" />
+                                    </td>
+                                </tr>
+                            </xsl:when>
+                            <xsl:when test="answer = 'b'">
+                                <tr bgcolor="#e8e8e8">
+                                    <td>
+                                        <xsl:value-of select="quizid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questionid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questioncontent" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="answer" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiona" />
+                                    </td>
+                                    <td bgcolor="#ccf6c8">
+                                        <xsl:value-of select="optionb" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionc" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiond" />
+                                    </td>
+                                </tr>
+                            </xsl:when>
+                            <xsl:when test="answer = 'c'">
+                                <tr bgcolor="#e8e8e8">
+                                    <td>
+                                        <xsl:value-of select="quizid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questionid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questioncontent" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="answer" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiona" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionb" />
+                                    </td>
+                                    <td bgcolor="#ccf6c8">
+                                        <xsl:value-of select="optionc" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiond" />
+                                    </td>
+                                </tr>
+                            </xsl:when>
+                            <xsl:when test="answer = 'd'">
+                                <tr bgcolor="#e8e8e8">
+                                    <td>
+                                        <xsl:value-of select="quizid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questionid" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="questioncontent" />
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="answer" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optiona" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionb" />
+                                    </td>
+                                    <td bgcolor="#f56a79">
+                                        <xsl:value-of select="optionc" />
+                                    </td>
+                                    <td bgcolor="#ccf6c8">
+                                        <xsl:value-of select="optiond" />
+                                    </td>
+                                </tr>
+                            </xsl:when>
+                        </xsl:choose>
                     </xsl:for-each>
                 </table>
             </body>

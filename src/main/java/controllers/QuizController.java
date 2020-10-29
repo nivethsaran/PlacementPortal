@@ -37,9 +37,8 @@ public static void main(String args[])
 //    controller.getQuiz();
 //    controller.getQuestions(1);
 //    controller.getScores(1);
-
+//    controller.parseScoresXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\scores.xml");
     controller.parseQuizXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\quiz.xml");
-    controller.parseScoresXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\scores.xml");
     controller.parseQuestionsXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\question.xml");
 }
 
@@ -187,50 +186,6 @@ public ArrayList<Quiz> getQuiz()
         }
     }
 
-
-    public void parseScoresXML(String xml)
-    {
-        try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="scores";
-            NodeList listOfProducts = doc.getElementsByTagName("score");
-            System.out.println(listOfProducts.getLength());
-            Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-
-                String scoreid= productElement.getElementsByTagName("scoreid").item(0).getTextContent();
-                String quizid=productElement.getElementsByTagName("quizid").item(0).getTextContent();
-                String rollno= productElement.getElementsByTagName("rollno").item(0).getTextContent();
-                String total = productElement.getElementsByTagName("total").item(0).getTextContent();
-                String studentscore = productElement.getElementsByTagName("studentscore").item(0).getTextContent();
-
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        scoreid+"','"+
-                        quizid+"','"+
-                        rollno+"','"+
-                        total+"','"+
-                        studentscore+"')";
-
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getLocalizedMessage());
-        }
-    }
-
-
     public void parseQuestionsXML(String xml)
     {
         try {
@@ -278,6 +233,52 @@ public ArrayList<Quiz> getQuiz()
             System.out.println(e.getLocalizedMessage());
         }
     }
+
+
+    public void parseScoresXML(String xml)
+    {
+        try {
+            DocumentBuilderFactory docBuilderFactory;
+            docBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder =
+                    docBuilderFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(new File(xml));
+            doc.getDocumentElement().normalize();
+            String tablename="scores";
+            NodeList listOfProducts = doc.getElementsByTagName("score");
+            System.out.println(listOfProducts.getLength());
+            Statement stmt = con.createStatement();
+            for (int i = 0; i < listOfProducts.getLength(); i++) {
+                Node product = listOfProducts.item(i);
+                Element productElement = (Element) product;
+
+                String scoreid= productElement.getElementsByTagName("scoreid").item(0).getTextContent();
+                String quizid=productElement.getElementsByTagName("quizid").item(0).getTextContent();
+                String rollno= productElement.getElementsByTagName("rollno").item(0).getTextContent();
+                String total = productElement.getElementsByTagName("total").item(0).getTextContent();
+                String studentscore = productElement.getElementsByTagName("studentscore").item(0).getTextContent();
+
+                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
+                        scoreid+"','"+
+                        quizid+"','"+
+                        rollno+"','"+
+                        total+"','"+
+                        studentscore+"')";
+
+                System.out.println(SQL_QUERY);
+                stmt.executeUpdate(SQL_QUERY);
+
+            }
+            System.out.println("Inserted records into the table...");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+
+
 
 
 }

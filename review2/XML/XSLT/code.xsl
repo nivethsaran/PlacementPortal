@@ -17,7 +17,7 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-tr:hover  {background-color:#ffa5a5;}
+tr:hover  {background-color:#eeeeee;}
 </style>
             </head>
             <body>
@@ -25,31 +25,76 @@ tr:hover  {background-color:#ffa5a5;}
                 <table border="2">
                     <tr>
                         <th>Problem Id</th>
-                        <th>Product Name</th>
+                        <th>Problem Name</th>
                         <th>Problem Description</th>
                         <th>Difficulty</th>
                         <th>Faculty ID</th>
                     </tr>
                     <xsl:for-each select="problem">
-                        <xsl:sort select="problemid" data-type="number" order="ascending" />
-                                <tr bgcolor="#ee6f57">
-                                    <td>
-                                        <xsl:value-of select="problemid" />
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="problemname" />
-                                    </td>
+                        <xsl:sort select="problemname" order="ascending" />
+                            <xsl:choose>
+                                <xsl:when test="problemdifficulty = 'Easy'">
+                                    <tr bgcolor="#89beb3">
+                                        <td>
+                                            <xsl:value-of select="problemid" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemname" />
+                                        </td>
 
-                                    <td>
-                                        <xsl:value-of select="problemdesc" />
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="problemdifficulty" />
-                                    </td>
-                                    <td>
-                                        <xsl:value-of select="facultyid" />
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <xsl:value-of select="problemdesc" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemdifficulty" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="facultyid" />
+                                        </td>
+                                    </tr>
+                                </xsl:when>
+                                <xsl:when test="problemdifficulty = 'Medium'">
+                                    <tr bgcolor="#edc988">
+                                        <td>
+                                            <xsl:value-of select="problemid" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemname" />
+                                        </td>
+
+                                        <td>
+                                            <xsl:value-of select="problemdesc" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemdifficulty" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="facultyid" />
+                                        </td>
+                                    </tr>
+                                </xsl:when>
+                                <xsl:when test="problemdifficulty = 'Difficult'">
+                                    <tr bgcolor="#ff414d">
+                                        <td>
+                                            <xsl:value-of select="problemid" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemname" />
+                                        </td>
+
+                                        <td>
+                                            <xsl:value-of select="problemdesc" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="problemdifficulty" />
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="facultyid" />
+                                        </td>
+                                    </tr>
+                                </xsl:when>
+                            </xsl:choose>
+                                
                     </xsl:for-each>
                 </table>
             </body>

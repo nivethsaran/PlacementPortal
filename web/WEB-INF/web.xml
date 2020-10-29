@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+<!--    <servlet>-->
+<!--        <servlet-name>AuthServlet</servlet-name>-->
+<!--        <servlet-class>servlets.StudentAuthServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>AuthServlet</servlet-name>-->
+<!--        <url-pattern>./authentication/student_auth.jsp</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>CodeServlet</servlet-name>-->
+<!--        <servlet-class>servlets.CodingServlets</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>CodeServlet</servlet-name>-->
+<!--        <url-pattern>./coding/coding.jsp</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>

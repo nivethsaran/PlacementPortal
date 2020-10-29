@@ -7,7 +7,64 @@
 		<problemid>1</problemid>
 		<problemname>Reverse LL</problemname>
 		<problemdesc>Reverse a LinkedList</problemdesc>
+		<problemdifficulty>Medium</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>2</problemid>
+		<problemname>Merge a LL</problemname>
+		<problemdesc>Merge a LinkedList</problemdesc>
+		<problemdifficulty>Medium</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>3</problemid>
+		<problemname>LCS</problemname>
+		<problemdesc>Longest Common Substring</problemdesc>
+		<problemdifficulty>Difficult</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>4</problemid>
+		<problemname>Odd or Even</problemname>
+		<problemdesc>Check if a number is odd or even</problemdesc>
 		<problemdifficulty>Easy</problemdifficulty>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
-</problem>
+	</problem>
+	<problem>
+		<problemid>5</problemid>
+		<problemname>Prime Check</problemname>
+		<problemdesc>Check if a value is prime</problemdesc>
+		<problemdifficulty>Easy</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>6</problemid>
+		<problemname>Print pattern</problemname>
+		<problemdesc>Print Pascals Triangle</problemdesc>
+		<problemdifficulty>Easy</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>7</problemid>
+		<problemname>Square Array</problemname>
+		<problemdesc>Square all elements in an array</problemdesc>
+		<problemdifficulty>Medium</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>8</problemid>
+		<problemname>Matrix Mul</problemname>
+		<problemdesc>Multiply two given matrices</problemdesc>
+		<problemdifficulty>Medium</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+	<problem>
+		<problemid>9</problemid>
+		<problemname>Longest Palindrome</problemname>
+		<problemdesc>Find the longest palindromic subsequence</problemdesc>
+		<problemdifficulty>Difficult</problemdifficulty>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+	</problem>
+
 </problems>

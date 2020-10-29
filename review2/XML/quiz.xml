@@ -8,17 +8,17 @@
 		<quizname>J2EE</quizname>
 		<quizdescription>Testing J2EE Basic Undestanding</quizdescription>
 		<numofquestions>5</numofquestions>
-		<quizdate>2020-10-07</quizdate>
+		<quizdate>2020-10-08</quizdate>
 		<quizstarttime>01:00:00</quizstarttime>
 		<quizendtime>01:30:00</quizendtime>
 		<duration>15</duration>
 		<department>CSE</department>
-		<topic>NCP</topic>
+		<topic>Technical</topic>
 		<pin>1234</pin>
 	</quiz>
 
 	<quiz>
-		<quizid>1</quizid>
+		<quizid>2</quizid>
 		<facultyid>CB.EN.U4CSEFAC01</facultyid>
 		<quizname>JSP</quizname>
 		<quizdescription>Testing JSP Basic Undestanding</quizdescription>
@@ -26,9 +26,99 @@
 		<quizdate>2020-10-07</quizdate>
 		<quizstarttime>01:00:00</quizstarttime>
 		<quizendtime>01:30:00</quizendtime>
-		<duration>15</duration>
+		<duration>50</duration>
 		<department>CSE</department>
-		<topic>NCP</topic>
+		<topic>Technical</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>3</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Idioms</quizname>
+		<quizdescription>Testing IDIOMS</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-10-07</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>15</duration>
+		<department>ALL</department>
+		<topic>Verbal</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>4</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Speed and Distance</quizname>
+		<quizdescription>Placement related aptitude test</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-10-07</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>120</duration>
+		<department>NONCSE</department>
+		<topic>Aptitude</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>5</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Aerodynamics</quizname>
+		<quizdescription>Major Quiz 1</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-09-21</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>25</duration>
+		<department>NONCSE</department>
+		<topic>Technical</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>6</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Digital Electronics</quizname>
+		<quizdescription>GATES and related concepts</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-10-30</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>30</duration>
+		<department>NONCSE</department>
+		<topic>Technical</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>7</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Data Structures</quizname>
+		<quizdescription>Data Structures MCQ</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-10-05</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>45</duration>
+		<department>CSE</department>
+		<topic>Technical</topic>
+		<pin>1234</pin>
+	</quiz>
+
+	<quiz>
+		<quizid>8</quizid>
+		<facultyid>CB.EN.U4CSEFAC01</facultyid>
+		<quizname>Preplacement Mock</quizname>
+		<quizdescription>All concepts all branches</quizdescription>
+		<numofquestions>5</numofquestions>
+		<quizdate>2020-10-09</quizdate>
+		<quizstarttime>01:00:00</quizstarttime>
+		<quizendtime>01:30:00</quizendtime>
+		<duration>60</duration>
+		<department>ALL</department>
+		<topic>All</topic>
 		<pin>1234</pin>
 	</quiz>
 </quizzes>

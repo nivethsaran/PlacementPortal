@@ -2,7 +2,7 @@
     <xs:element name="problems">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="problem">
+                <xs:element name="problem" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element type="xs:int" name="problemid" />

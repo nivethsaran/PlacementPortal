@@ -6,7 +6,7 @@
 	<question>
 		<quizid>1</quizid>
 		<questionid>1</questionid>
-		<questioncontent>J2EE full form</questioncontent>
+		<questioncontent>J2EE full form?</questioncontent>
 		<answer>a</answer>
 		<optiona>Java Enterprise Edition</optiona>
 		<optionb>Java Server Pages</optionb>
@@ -17,7 +17,7 @@
 	<question>
 		<quizid>1</quizid>
 		<questionid>2</questionid>
-		<questioncontent>JSP full form</questioncontent>
+		<questioncontent>JSP full form?</questioncontent>
 		<answer>b</answer>
 		<optiona>Java Enterprise Edition</optiona>
 		<optionb>Java Server Pages</optionb>
@@ -28,7 +28,7 @@
 	<question>
 		<quizid>1</quizid>
 		<questionid>3</questionid>
-		<questioncontent>XML full form</questioncontent>
+		<questioncontent>XML full form?</questioncontent>
 		<answer>c</answer>
 		<optiona>Java Enterprise Edition</optiona>
 		<optionb>Java Server Pages</optionb>
@@ -39,7 +39,7 @@
 	<question>
 		<quizid>1</quizid>
 		<questionid>4</questionid>
-		<questioncontent>HTML full form</questioncontent>
+		<questioncontent>HTML full form?</questioncontent>
 		<answer>d</answer>
 		<optiona>Java Enterprise Edition</optiona>
 		<optionb>Java Server Pages</optionb>
@@ -50,7 +50,7 @@
 	<question>
 		<quizid>1</quizid>
 		<questionid>5</questionid>
-		<questioncontent>HTTPS full form</questioncontent>
+		<questioncontent>HTTPS full form?</questioncontent>
 		<answer>a</answer>
 		<optiona>Hypertext Transfer Protocol</optiona>
 		<optionb>Java Server Pages</optionb>

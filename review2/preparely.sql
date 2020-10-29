@@ -132,6 +132,22 @@ eventtitle varchar(50),
 eventdesc varchar(200)
 );
 
+SET SQL_SAFE_UPDATES = 0;
+-- SET SQL_SAFE_UPDATES = 1; 
+
+delete from faculty;
+delete from student;
+delete from quiz;
+delete from question;
+delete from courses;
+delete from coding;
+delete from feedback;
+delete from companyregistration;
+delete from scores;
+delete from placementexperience;
+delete from studentnotes;
+delete from events;
+
 drop table faculty;
 drop table student;
 drop table quiz;

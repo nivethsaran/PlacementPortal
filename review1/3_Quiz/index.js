@@ -18,6 +18,54 @@ function loadPage()
     changeNOOQ()
 }
 
+function changeNOOQ()
+{
+
+    
+
+    let count=parseInt(document.getElementById("nooq").value)
+
+    cardlistinnerhtml ="<h2>Questions</h2><br>"
+    for(var i=1;i<=count;i++)
+    {
+        cardlistinnerhtml += `<div class=\"card\">\n
+            <div class=\"cardData\">\n
+                <label for=\"question`+ i + `\" id=\"question`+ i + `-label\">Question `+i+`</label>\n
+                <input type=\"text\\" class=\"form-control\" id=\"question`+ i + `\"  onclick = \"questionvalid(` + i + `)\" onkeyup = \"questionvalid(` + i + `)\" >\n
+            <br >\n
+            <div class=\"form-row\">\n
+            <div class=\"input-group col-md-2\">\n
+            <label for=\"opt`+ i + `a\" id=\"opt`+ i + `a-label\"></label>\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `a\" placeholder=\"option a\" onclick = \"optionavalid(` + i + `)\" onkeyup = \"optionavalid(` + i + `)\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <label for=\"opt`+ i + `b\" id=\"opt`+ i + `b-label\"></label>\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `b\" placeholder=\"option b\" onclick = \"optionbvalid(` + i + `)\" onkeyup = \"optionbvalid(` + i + `)\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <label for=\"opt`+ i + `c\" id=\"opt`+ i + `c-label\"></label>\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `c\" placeholder=\"option c\" onclick = \"optioncvalid(` + i + `)\" onkeyup = \"optioncvalid(` + i + `)\">\n
+                          </div >\n
+            <div class=\"input-group col-md-2\">\n
+            <label for=\"opt`+ i + `d\" id=\"opt`+ i + `d-label\"></label>\n
+            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `d\" placeholder=\"option d\" onclick = \"optiondvalid(` + i + `)\" onkeyup = \"optiondvalid(` + i + `)\">\n
+                          </div >\n
+            <div class=\"form-group col-md-4\">\n
+            <select id =\"correct`+ i +`\" class=\"form-control\">\n
+            <option  disabled> Correct Option</option >\n
+            <option selected value =\"a\">a</option>\n
+            <option value =\"b\">b</option>\n
+            <option value =\"c\">c</option>\n
+            <option value =\"d\">d</option>\n
+                                                </select >\n
+                                            </div >\n
+                                        </div >\n
+                                    </div></div><br>`
+    }
+    document.getElementById("cardlist").innerHTML=cardlistinnerhtml
+    
+}
+
 function togglePin()
 {
     if (document.getElementById("enablepin").checked==true)
