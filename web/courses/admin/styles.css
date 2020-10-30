@@ -1,0 +1,43 @@
+h3 {
+    color: #606060;
+}
+
+.form-box {
+    /* border: black solid 1px; */
+    margin: 0 20%;
+}
+
+.compulsory {
+    color: red;
+}
+
+.faded {
+    color: rgb(163, 163, 163);
+}
+
+#hidden-alert-danger{
+    display: none;
+}
+
+#hidden-alert-success{
+    display: none;
+}
+
+#preview{
+    display:none;
+}
+
+#addCourse-danger{
+    display: none;
+}
+
+#addCourse-success{
+    display: none;
+}
+
+#preview-video{
+    /* width: 640px;
+    height: 360px; */
+    width: 100%;
+    height: 360px;
+}

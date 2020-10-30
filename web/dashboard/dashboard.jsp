@@ -42,7 +42,7 @@
 <section class="sec1">
     <div class="row">
         <div class="col1">
-            <img class="dp" src="images/dp.png" alt="">
+            <img class="dp" src="./dashboard/images/dp.png" alt="">
         </div>
         <div class="col2">
             <h3>Name : Niveth Saran</h3>
@@ -71,13 +71,13 @@
     <div class="row">
         <div class="col11">
             <h2>Other Modules</h2>
-            <a  href="https://preparely.netlify.app/3_quiz/"><i class="fas fa-question-circle tomodules">Quiz Module</i></a>
+            <a  href="./quiz"><i class="fas fa-question-circle tomodules">Quiz Module</i></a>
             <br>
             <a  href="https://preparely.netlify.app/4_calendar/"><i class="fas fa-calendar-week tomodules">Calendar Module</i></a>
             <br>
-            <a  href="https://preparely.netlify.app/5_courses/admin/"><i class="fas fa-book tomodules">Courses Module</i></a>
+            <a  href="./course"><i class="fas fa-book tomodules">Courses Module</i></a>
             <br>
-            <a  href="https://preparely.netlify.app/6_code/"><i class="fas fa-code tomodules">Code Module</i></a>
+            <a  href="./ide"><i class="fas fa-code tomodules">Code Module</i></a>
             <br>
             <a  href="https://preparely.netlify.app/7_companyreg/students"><i class="fas fa-registered tomodules">Company Registration Module</i></a>
             <br>

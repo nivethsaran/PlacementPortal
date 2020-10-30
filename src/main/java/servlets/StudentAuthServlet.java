@@ -19,12 +19,9 @@ public class StudentAuthServlet extends HttpServlet {
         req.getRequestDispatcher("authentication/student_auth.jsp").forward(req, resp);
     }
 
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-////        super.doPost(req, resp);
-////        System.out.println(req.get);
-//        System.out.println(req.getParameter("username"));
-//        System.out.println(req.getParameter("password"));
-//        req.getRequestDispatcher("authentication/student_auth.jsp").forward(req, resp);
-//    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.getRequestDispatcher("dashboard/dashboard.jsp").forward(req,resp);
+    }
 }

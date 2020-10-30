@@ -32,6 +32,8 @@
 
 </head>
 <body>
+
+<%--NAVBAR--%>
 <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -52,6 +54,8 @@
         </ul>
     </div>
 </nav>
+<%--END OF NAVBAR--%>
+
 <div class="container">
     <header>
         <nav class="codrops-demos">
@@ -66,20 +70,21 @@
             <a class="hiddenanchor" id="tologin"></a>
             <div id="wrapper">
                 <div id="login" class="animate form">
-                    <form  autocomplete="on" >
+                    <form method="POST" action="/PlacementPortalFrontend_war_exploded/dashboard" autocomplete="off" >
                         <h1>Faculty Log in</h1>
                         <p>
-                            <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                            <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
+                            <label for="facidsignin" class="uname" data-icon="u" > Your faculty ID </label>
+                            <input id="facidsignin" name="facidsignin" required="required" type="text" placeholder="Enter username" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
                         </p>
                         <p>
                             <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                            <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" onkeyup="validatePassLogin()" onchange="validatePassLogin()"/>
+                            <input id="password" name="password" required="required" type="password" placeholder="Enter password" onkeyup="validatePassLogin()" onchange="validatePassLogin()"/>
                         </p>
                         <p class="keeplogin">
                             <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
                             <label for="loginkeeping">Keep me logged in</label>
                         </p>
+                        <input type="hidden" name="actiontype" value="login">
                         <p class="login button">
                             <input type="submit" value="Login" />
                         </p>
@@ -91,24 +96,38 @@
                 </div>
 
                 <div id="register" class="animate form">
-                    <form   action="https://preparely.netlify.app/2_dashboard/dashboard.html" autocomplete="on">
+                    <form method="post" action="/PlacementPortalFrontend_war_exploded/faculty_auth" autocomplete="on">
                         <h1> Faculty Sign up </h1>
+
                         <p>
-                            <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                            <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
+                            <label for="fullname" class="fullname" data-icon="p">Your password </label>
+                            <input id="fullname" name="fullname" required="required" type="password" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
+                        </p>
+                        <p>
+                            <label for="facidsignup" class="uname" data-icon="u">Your username</label>
+                            <input id="facidsignup" name="facidsignup" required="required" type="text" placeholder="Enter username here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
                         </p>
                         <p>
                             <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                            <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com" onkeyup="validateEmailReg()" onchange="validateEmailReg()"/>
+                            <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="Enter email here" onkeyup="validateEmailReg()" onchange="validateEmailReg()"/>
                         </p>
                         <p>
                             <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                            <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO" onkeyup="validatePassReg()" onchange="validatePassReg()"/>
+                            <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="Enter password" onkeyup="validatePassReg()" onchange="validatePassReg()"/>
                         </p>
                         <p>
                             <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO" onkeyup="validatePassConfirmReg()" onchange="validatePassConfirmReg()"/>
+                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="Re enter password" onkeyup="validatePassConfirmReg()" onchange="validatePassConfirmReg()"/>
                         </p>
+                        <p>
+                            <label for="imageurl" class="imageurl" data-icon="p">Please confirm your password </label>
+                            <input id="imageurl" name="imageurl" required="required" type="text" placeholder="eg. X8df!90EO" onkeyup="validateImageURL()" onchange="validateImageURL()"/>
+                        </p>
+                        <p>
+                            <label for="mobile" class="mobile" data-icon="p">Please confirm your password </label>
+                            <input id="mobile" name="mobile" required="required" type="number" placeholder="eg. X8df!90EO" onkeyup="validateMobile()" onchange="validateMobile()"/>
+                        </p>
+                        <input type="hidden" name="actiontype" value="signup">
                         <p class="signin button">
                             <input type="submit" value="Sign up"/>
                         </p>

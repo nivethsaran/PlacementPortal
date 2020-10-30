@@ -14,8 +14,7 @@ public class QuizServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        System.out.println("Hello");
-        req.getRequestDispatcher("authentication/faculty_auth.jsp").forward(req, resp);
+        req.getRequestDispatcher("quiz/quizindex.jsp").forward(req, resp);
     }
 
 }
