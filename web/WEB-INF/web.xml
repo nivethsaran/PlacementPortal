@@ -16,7 +16,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>CodeServlet</servlet-name>-->
-<!--        <servlet-class>servlets.CodingServlets</servlet-class>-->
+<!--        <servlet-class>servlets.CodingServlet</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet-mapping>-->

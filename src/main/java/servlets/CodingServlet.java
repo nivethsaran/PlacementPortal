@@ -7,15 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/questions")
-public class QuestionServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/ide")
+public class CodingServlet extends HttpServlet {
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        System.out.println("Hello");
-        req.getRequestDispatcher("").forward(req, resp);
+        req.getRequestDispatcher("coding/coding.jsp").forward(req, resp);
     }
 
 }

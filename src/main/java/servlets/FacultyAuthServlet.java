@@ -14,8 +14,11 @@ public class FacultyAuthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        System.out.println("Hello");
         req.getRequestDispatcher("authentication/faculty_auth.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("dashboard/dashboard.jsp").forward(req,resp);
+    }
 }
