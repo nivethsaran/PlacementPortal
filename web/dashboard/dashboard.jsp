@@ -73,7 +73,7 @@
             <h2>Other Modules</h2>
             <a  href="./quiz"><i class="fas fa-question-circle tomodules">Quiz Module</i></a>
             <br>
-            <a  href="https://preparely.netlify.app/4_calendar/"><i class="fas fa-calendar-week tomodules">Calendar Module</i></a>
+            <a  href="./calendar"><i class="fas fa-calendar-week tomodules">Calendar Module</i></a>
             <br>
             <a  href="./course"><i class="fas fa-book tomodules">Courses Module</i></a>
             <br>

@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/form")
-public class ViewFormServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/calendar")
+public class CalendarServlet extends HttpServlet {
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        req.getRequestDispatcher("forms/allforms.jsp").forward(req, resp);
+        req.getRequestDispatcher("events/events.jsp").forward(req, resp);
     }
 }
