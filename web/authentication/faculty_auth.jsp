@@ -70,7 +70,7 @@
             <a class="hiddenanchor" id="tologin"></a>
             <div id="wrapper">
                 <div id="login" class="animate form">
-                    <form method="POST" action="/PlacementPortalFrontend_war_exploded/dashboard" autocomplete="off" >
+                    <form method="POST" action="./dashboard" autocomplete="off" >
                         <h1>Faculty Log in</h1>
                         <p>
                             <label for="facidsignin" class="uname" data-icon="u" > Your faculty ID </label>
