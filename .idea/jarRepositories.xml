@@ -16,5 +16,10 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="11e72e47-b85c-4621-a938-494c183ca541" />
+      <option name="name" value="11e72e47-b85c-4621-a938-494c183ca541" />
+      <option name="url" value="https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.21" />
+    </remote-repository>
   </component>
 </project>

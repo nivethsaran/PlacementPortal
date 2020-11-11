@@ -19,7 +19,10 @@ public class AuthenticationController {
 
     public AuthenticationController()
     {
+
         try {
+//            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+            Class.forName("com.mysql.cj.jdbc.Driver");
             this.con = DriverManager.getConnection
                     ("jdbc:mysql://localhost:3306/preparely", "root",
                             "1234");
@@ -27,6 +30,8 @@ public class AuthenticationController {
         catch (SQLException e)
         {
             System.out.println("Connection Error:"+e.getLocalizedMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class Not Found Error:"+e.getLocalizedMessage());
         }
     }
 
@@ -39,10 +44,10 @@ public class AuthenticationController {
 //            System .out.println("Class not found "+ e);
 //        }
         AuthenticationController authenticationController=new AuthenticationController();
-//        authenticationController.getStudentData();
+        authenticationController.getAllStudentData();
 //        authenticationController.getFacultyData();
-        authenticationController.parseFacultyXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\faculty.xml");
-        authenticationController.parseStudentXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\student.xml");
+//        authenticationController.parseFacultyXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\faculty.xml");
+//        authenticationController.parseStudentXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\student.xml");
     }
 
     public void parseStudentXML(String xml)
@@ -133,7 +138,7 @@ public class AuthenticationController {
         }
     }
 
-    public ArrayList<Student> getStudentData()
+    public ArrayList<Student> getAllStudentData()
     {
         ArrayList<Student> students=new ArrayList<Student>();
         try {
@@ -163,8 +168,81 @@ public class AuthenticationController {
     }
 
 
+    public Student getStudentData(String rollnoinput)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            Student currStudent = new Student(null,null,null,null, null,
+                    null,null);
+            String query = "SELECT * FROM student where rollno = '" + rollnoinput + "'";
+            System.out.println(query);
+            ResultSet rs = stmt.executeQuery(query);
+            int rowCount = 0;
+            while (rs.next()) {
+                rowCount++;
+                currStudent=new Student(
+                        rs.getString("fullname"),
+                        rs.getString("rollno"),
+                        rs.getString("authpassword"),
+                        rs.getString("avatarurl"),
+                        rs.getString("mobilenumber"),
+                        rs.getString("email"),
+                        rs.getString("department")
+                );
+            }
+            if(rowCount>0)
+            return currStudent;
+            else
+            {
+                return null;
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
 
-    public ArrayList<Faculty> getFacultyData()
+
+
+    public Faculty getFacultyData(String facid)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            Faculty currFaculty = new Faculty(null,null,null,null, null,
+                    null,null);
+            ResultSet rs = stmt.executeQuery
+                    ("SELECT * FROM faculty where facultyid = '" + facid + "'");
+            int rowCount = 0;
+            while (rs.next()) {
+                rowCount++;
+               currFaculty = new Faculty(
+                        rs.getString("fullname"),
+                        rs.getString("facultyid"),
+                        rs.getString("authpassword"),
+                        rs.getString("avatarurl"),
+                        rs.getString("mobilenumber"),
+                        rs.getString("email"),
+                        rs.getString("department")
+                );
+            }
+            if(rowCount>0)
+            {
+                return currFaculty;
+            }
+            else {
+                return null;
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+    public ArrayList<Faculty> getAllFacultyData()
     {
         ArrayList<Faculty> faculties=new ArrayList<Faculty>();
         try {

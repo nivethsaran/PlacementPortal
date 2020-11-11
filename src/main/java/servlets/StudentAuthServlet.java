@@ -1,5 +1,8 @@
 package servlets;
 
+import models.Faculty;
+import models.Student;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +25,18 @@ public class StudentAuthServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("dashboard/dashboard.jsp").forward(req,resp);
+        if(req.getParameter("actiontype").equals("studsignup"))
+        {
+            String department = req.getParameter("rollno").substring(8,11);
+            Student student = new Student(req.getParameter("fullname"),
+                    req.getParameter("rollno"),
+                    req.getParameter("passwordsignup"),
+                    req.getParameter("imageurl"),
+                    req.getParameter("mobile"),
+                    req.getParameter("emailsignup"),
+                    department);
+            System.out.println(student.toString());
+        }
+        req.getRequestDispatcher("authentication/student_auth.jsp").forward(req,resp);
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
@@ -33,7 +34,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link logout" href="">Log Out</a>
+                <a class="nav-link logout" href="">Logout</a>
             </li>
         </ul>
     </div>
@@ -41,29 +42,30 @@
 
 <section class="sec1">
     <div class="row">
-        <div class="col1">
-            <img class="dp" src="./dashboard/images/dp.png" alt="">
-        </div>
-        <div class="col2">
-            <h3>Name : Niveth Saran</h3>
-            <br>
-            <h3>Roll Number : cb.en.u4cse17337</h3>
-            <br>
-            <h3>Email ID : niveth24@gmail.com</h3>
-            <br>
-            <div class="dropdown">
-                <button class="dropbtn btnn">View Quiz Score Histroy <i class="fas fa-chevron-down"></i></button>
-                <div id="quizscores" class="dropdown-content ">
-                    <h4>38/50</h4>
-                    <h4>30/50</h4>
-                    <h4>40/50</h4>
-                    <h4>45/50</h4>
-                    <h4>14/50</h4>
-                    <h4>30/50</h4>
-                    <h4>48/50</h4>
+
+                <div class="col1">
+                    <img class="dp" src="./dashboard/images/dp.png" alt="">
                 </div>
-            </div>
-        </div>
+                <div class="col2">
+                    <h3>Name : Niveth Saran</h3>
+                    <br>
+                    <h3>Roll Number : cb.en.u4cse17337</h3>
+                    <br>
+                    <h3>Email ID : niveth24@gmail.com</h3>
+                    <br>
+                    <div class="dropdown">
+                        <button class="dropbtn btnn">View Quiz Score Histroy <i class="fas fa-chevron-down"></i></button>
+                        <div id="quizscores" class="dropdown-content ">
+                            <h4>38/50</h4>
+                            <h4>30/50</h4>
+                            <h4>40/50</h4>
+                            <h4>45/50</h4>
+                            <h4>14/50</h4>
+                            <h4>30/50</h4>
+                            <h4>48/50</h4>
+                        </div>
+                    </div>
+                </div>
     </div>
 </section>
 

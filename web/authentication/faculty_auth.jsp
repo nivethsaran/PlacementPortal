@@ -5,6 +5,8 @@
   Time: 10:29 PM
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en" class="no-js">
 <head>
@@ -72,6 +74,16 @@
                 <div id="login" class="animate form">
                     <form method="POST" action="./dashboard" autocomplete="off" >
                         <h1>Faculty Log in</h1>
+                        <c:choose>
+                            <c:when test="${not empty message}">
+                                <div class="alert alert-danger" role="alert">
+                                    Wrong Credentials
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <br>
+                            </c:otherwise>
+                        </c:choose>
                         <p>
                             <label for="facidsignin" class="uname" data-icon="u" > Your faculty ID </label>
                             <input id="facidsignin" name="facidsignin" required="required" type="text" placeholder="Enter username" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
@@ -81,10 +93,10 @@
                             <input id="password" name="password" required="required" type="password" placeholder="Enter password" onkeyup="validatePassLogin()" onchange="validatePassLogin()"/>
                         </p>
                         <p class="keeplogin">
-                            <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                            <input type="checkbox" name="loginkeeping" id="loginkeeping" value="Yes" />
                             <label for="loginkeeping">Keep me logged in</label>
                         </p>
-                        <input type="hidden" name="actiontype" value="login">
+                        <input type="hidden" name="actiontype" value="faclogin">
                         <p class="login button">
                             <input type="submit" value="Login" />
                         </p>
@@ -96,7 +108,7 @@
                 </div>
 
                 <div id="register" class="animate form">
-                    <form method="post" action="/PlacementPortalFrontend_war_exploded/faculty_auth" autocomplete="on">
+                    <form method="post" action="./faculty_auth" autocomplete="on">
                         <h1> Faculty Sign up </h1>
 
                         <p>
@@ -127,7 +139,7 @@
                             <label for="mobile" class="mobile" data-icon="p">Please confirm your password </label>
                             <input id="mobile" name="mobile" required="required" type="number" placeholder="eg. X8df!90EO" onkeyup="validateMobile()" onchange="validateMobile()"/>
                         </p>
-                        <input type="hidden" name="actiontype" value="signup">
+                        <input type="hidden" name="actiontype" value="facsignup">
                         <p class="signin button">
                             <input type="submit" value="Sign up"/>
                         </p>

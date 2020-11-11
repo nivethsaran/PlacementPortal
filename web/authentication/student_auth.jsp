@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
@@ -65,34 +66,48 @@
         <div id="container_demo" >
             <a class="hiddenanchor" id="toregister"></a>
             <a class="hiddenanchor" id="tologin"></a>
+
             <div id="wrapper">
+
                 <div id="login" class="animate form">
-                    <form  method="POST" action="/PlacementPortalFrontend_war_exploded/dashboard" autocomplete="on">
+                    <form  method="POST" action="./dashboard" autocomplete="on">
                         <h1>Student Log in</h1>
+                        <c:choose>
+                            <c:when test="${not empty message}">
+                                <div class="alert alert-danger" role="alert">
+                                    Wrong Credentials
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <br>
+                            </c:otherwise>
+                        </c:choose>
                         <p>
-                            <label for="rollno" class="uname" data-icon="u" > Your email or username </label>
-                            <input id="rollno" name="rollno" required="required" type="text" placeholder="myusername or mymail@mail.com" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
+                            <label for="rollnologin" class="uname" data-icon="u" > Your email or username </label>
+                            <input id="rollnologin" name="rollno" required="required" type="text" placeholder="myusername or mymail@mail.com" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
                         </p>
                         <p>
                             <label for="password" class="youpasswd" data-icon="p"> Your password </label>
                             <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" onkeyup="validatePassLogin()" onchange="validatePassLogin()"/>
                         </p>
                         <p class="keeplogin">
-                            <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                            <input type="checkbox" name="loginkeeping" id="loginkeeping" value="Yes" />
                             <label for="loginkeeping">Keep me logged in</label>
                         </p>
                         <p class="login button">
                             <input type="submit" value="Login" />
                         </p>
+                        <input type="hidden" name="actiontype" value="studlogin">
                         <p class="change_link">
                             Not a member yet ?
                             <a href="#toregister" class="to_register">Join us</a>
                         </p>
+
                     </form>
                 </div>
 
                 <div id="register" class="animate form">
-                    <form method="post" action="/PlacementPortalFrontend_war_exploded/student_auth" autocomplete="on">
+                    <form method="post" action="./student_auth" autocomplete="on">
                         <h1> Student Sign up </h1>
 
                         <p>
@@ -100,8 +115,8 @@
                             <input id="fullname" name="fullname" required="required" type="password" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
                         </p>
                         <p>
-                            <label for="facidsignup" class="uname" data-icon="u">Your username</label>
-                            <input id="facidsignup" name="facidsignup" required="required" type="text" placeholder="Enter username here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
+                            <label for="rollno" class="uname" data-icon="u">Your username</label>
+                            <input id="rollno" name="rollno" required="required" type="text" placeholder="Enter username here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
                         </p>
                         <p>
                             <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
@@ -123,7 +138,7 @@
                             <label for="mobile" class="mobile" data-icon="p">Please confirm your password </label>
                             <input id="mobile" name="mobile" required="required" type="number" placeholder="eg. X8df!90EO" onkeyup="validateMobile()" onchange="validateMobile()"/>
                         </p>
-                        <input type="hidden" name="actiontype" value="signup">
+                        <input type="hidden" name="actiontype" value="studsignup">
                         <p class="signin button">
                             <input type="submit" value="Sign up"/>
                         </p>
