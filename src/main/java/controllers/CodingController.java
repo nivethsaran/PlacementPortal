@@ -92,7 +92,7 @@ public class CodingController {
                         rs.getString("problemdifficulty"),
                         rs.getString("facultyid")
                 );
-                System.out.println(currCodeQuestion.toString());
+//                System.out.println(currCodeQuestion.toString());
                 codeQuestions.add(currCodeQuestion);
             }
             return codeQuestions;

@@ -72,16 +72,14 @@
                 <div id="login" class="animate form">
                     <form  method="POST" action="./dashboard" autocomplete="on">
                         <h1>Student Log in</h1>
-                        <c:choose>
-                            <c:when test="${not empty message}">
-                                <div class="alert alert-danger" role="alert">
-                                    Wrong Credentials
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <br>
-                            </c:otherwise>
-                        </c:choose>
+                        <%
+                            if(request.getAttribute("message")!=null)
+                            {
+                                out.print("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                        request.getAttribute("message")+"\n" +
+                                        "</div>");
+                            }
+                        %>
                         <p>
                             <label for="rollnologin" class="uname" data-icon="u" > Your email or username </label>
                             <input id="rollnologin" name="rollno" required="required" type="text" placeholder="myusername or mymail@mail.com" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>

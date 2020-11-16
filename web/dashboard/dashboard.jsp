@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="en" dir="ltr">
 
 <head>
@@ -71,25 +72,55 @@
 
 <section class="sec2">
     <div class="row">
-        <div class="col11">
-            <h2>Other Modules</h2>
-            <a  href="./quiz"><i class="fas fa-question-circle tomodules">Quiz Module</i></a>
-            <br>
-            <a  href="./calendar"><i class="fas fa-calendar-week tomodules">Calendar Module</i></a>
-            <br>
-            <a  href="./course"><i class="fas fa-book tomodules">Courses Module</i></a>
-            <br>
-            <a  href="./ide"><i class="fas fa-code tomodules">Code Module</i></a>
-            <br>
-            <a  href="https://preparely.netlify.app/7_companyreg/students"><i class="fas fa-registered tomodules">Company Registration Module</i></a>
-            <br>
-            <a  href="https://preparely.netlify.app/8_feedback/"><i class="far fa-comment-dots tomodules">Feedback Module</i></a>
-            <br>
-            <a  href="https://preparely.netlify.app/9_contact/"><i class="fas fa-address-book tomodules">Contact Module</i></a>
-            <br>
-            <a  href="https://preparely.netlify.app/10_placementexperience/admin/"><i class="fas fa-scroll tomodules">Placement Experience</i></a>
-            <br>
-        </div>
+        <%  String usertype = (String) request.getSession().getAttribute("usertype");
+            if(usertype!=null){
+                if(usertype.equals("student"))
+                {
+                    out.print("<div class=\"col11\">\n" +
+                            "            <h2>Other Modules</h2>\n" +
+                            "            <a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./course\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./ide\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/7_companyreg/students\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/9_contact/\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
+                            "            <br>\n" +
+                            "        </div>");
+                }
+                else
+                {
+                    out.print("<div class=\"col11\">\n" +
+                            "            <h2>Other Modules</h2>\n" +
+                            "            <a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./addcourse\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"./addproblem\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/7_companyreg/students\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/9_contact/\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <br>\n" +
+                            "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
+                            "            <br>\n" +
+                            "        </div>");
+                }
+            }
+        %>
+
         <div class="col22">
             <h2>Recently Solved Problems</h2>
             <ul>

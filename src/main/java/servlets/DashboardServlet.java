@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/dashboard")
@@ -34,15 +35,18 @@ public class DashboardServlet extends HttpServlet {
             Faculty faculty = authenticationController.getFacultyData(username);
             if(faculty!=null&&faculty.getAuthpassword().equals(password))
             {
+                req.getSession().setAttribute("userdata",faculty);
+                req.getSession().setAttribute("usertype","faculty");
                 req.getRequestDispatcher("dashboard/dashboard.jsp").forward(req, resp);
-                req.setAttribute("usertype","faculty");
-                req.setAttribute("message", "");
-                req.setAttribute("data",faculty);
-                System.out.println(faculty.toString());
+            }
+            else if(faculty!=null&&!faculty.getAuthpassword().equals(password))
+            {
+                req.setAttribute("message", "Wrong Credentials");
+                req.getRequestDispatcher("authentication/faculty_auth.jsp").forward(req, resp);
             }
             else
             {
-                req.setAttribute("message", "WC");
+                req.setAttribute("message", "Server Error");
                 req.getRequestDispatcher("authentication/faculty_auth.jsp").forward(req, resp);
             }
         }
@@ -55,15 +59,18 @@ public class DashboardServlet extends HttpServlet {
             Student student = authenticationController.getStudentData(username);
             if(student!=null&&student.getAuthpassword().equals(password))
             {
+                req.getSession().setAttribute("userdata",student);
+                req.getSession().setAttribute("usertype","student");
                 req.getRequestDispatcher("dashboard/dashboard.jsp").forward(req, resp);
-                req.setAttribute("usertype","student");
-                req.setAttribute("message", "");
-                req.setAttribute("data",student);
-                System.out.println(student.toString());
+            }
+            else if(student!=null&&!student.getAuthpassword().equals(password))
+            {
+                req.setAttribute("message", "Wrong Credentials");
+                req.getRequestDispatcher("authentication/student_auth.jsp").forward(req, resp);
             }
             else
             {
-                req.setAttribute("message", "WC");
+                req.setAttribute("message", "Server Error");
                 req.getRequestDispatcher("authentication/student_auth.jsp").forward(req, resp);
             }
 

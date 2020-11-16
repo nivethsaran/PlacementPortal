@@ -74,16 +74,16 @@
                 <div id="login" class="animate form">
                     <form method="POST" action="./dashboard" autocomplete="off" >
                         <h1>Faculty Log in</h1>
-                        <c:choose>
-                            <c:when test="${not empty message}">
-                                <div class="alert alert-danger" role="alert">
-                                    Wrong Credentials
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <br>
-                            </c:otherwise>
-                        </c:choose>
+                        <%
+                            if(request.getAttribute("message")!=null)
+                            {
+                                out.print("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                        request.getAttribute("message")+"\n" +
+                                        "</div>");
+                            }
+                        %>
+
+
                         <p>
                             <label for="facidsignin" class="uname" data-icon="u" > Your faculty ID </label>
                             <input id="facidsignin" name="facidsignin" required="required" type="text" placeholder="Enter username" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>

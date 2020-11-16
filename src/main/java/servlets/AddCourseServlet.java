@@ -14,8 +14,7 @@ public class AddCourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        System.out.println("Hello");
-        req.getRequestDispatcher("courses/user/courseadmin.jsp").forward(req, resp);
+        req.getRequestDispatcher("courses/admin/courseadmin.jsp").forward(req, resp);
     }
 
 //    @Override

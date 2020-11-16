@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Coding" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 29-10-2020
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="models.Coding"%>
 <html lang="en">
 
 <head>
@@ -44,7 +46,19 @@
         </ul>
     </div>
 </nav>
-
+<% if(request.getAttribute("problems")!=null) {
+    ArrayList<Coding> problems = (ArrayList<Coding>) request.getAttribute("problems");
+    out.print("<script>var problemdescarr = [");
+    for (int i = 0; i < problems.size(); i++) {
+        out.print("'"+problems.get(i).getProblemdesc()+"',");
+    }out.print("]\n");
+    out.print("var problemdiffarr = [");
+    for (int i = 0; i < problems.size(); i++) {
+        out.print("'"+problems.get(i).getProblemdifficulty()+"',");
+    }out.print("]");
+    out.print("</script>");
+}
+%>
 
 <div class="container-fluid">
     <div class="row">
@@ -57,30 +71,22 @@
                     </a>
                 </h6>
                 <ul id="leftpanel" class="nav flex-column">
-                    <li class="nav-item" onclick="displayQuestion(0)">
-                        <a class="nav-link" href="#">
-                            <span data-feather="home"></span>
-                            Question 0
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="displayQuestion(1)">
-                            <span data-feather="file"></span>
-                            Question 1
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="displayQuestion(2)">
-                            <span data-feather="layers"></span>
-                            Question 2
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="displayQuestion(3)">
-                            <span data-feather="layers"></span>
-                            Question 3
-                        </a>
-                    </li>
+                    <% if(request.getAttribute("problems")!=null)
+                    {
+                        ArrayList<Coding> problems = (ArrayList<Coding>) request.getAttribute("problems");
+                        for(int i=0;i<problems.size();i++)
+                        {
+                            out.println("<li class=\"nav-item\" onclick=\"displayQuestion("+problems.get(i).getProblemid()+")\">\n" +
+                                    "                        <a class=\"nav-link\" href=\"#\">\n" +
+                                    "                            <span data-feather=\"home\"></span>\n"
+                                    +                            problems.get(i).getProblemname()+"\n" +
+                                    "                        </a>\n" +
+                                    "                    </li>");
+                        }
+                    }
+                    %>
+                    
+                    
 
 
                 </ul>

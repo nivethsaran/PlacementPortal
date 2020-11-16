@@ -92,11 +92,11 @@ function clearCode()
     editor.setValue("//Enter Code here.....")
 }
 
-var problemdescarr = ["Zeroth Element"]
-var problemdiffarr = ["Zeroth Element"]
+
 
 function displayQuestion(i)
 {
+    i = parseInt(i) - 1
     document.getElementById("question").innerHTML = "Question" + i+"("+problemdiffarr[i]+")" +":\r\n"+problemdescarr[i]
     document.getElementById("question").hidden=false
 }
@@ -106,41 +106,4 @@ function hideQuestion(i)
     document.getElementById("question").hidden = true
 }
 
-function loadXML()
-{
-    var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      displayProblems(this);
-    }
-  };
-  xmlhttp.open("GET", "..\\..\\review2\\XML\\coding.xml", true);
-  xmlhttp.send();
 
-}
-
-function displayProblems(xml) {
-  var i;
-  var xmlDoc = xml.responseXML;
-  var output=''
-  var x = xmlDoc.getElementsByTagName("problem");
-  console.log(x.length);
-  for(i=0;i<x.length;i++)
-  
-  {
-    var problemid=x[i].getElementsByTagName("problemid")[0].childNodes[0].nodeValue;
-    var problemname=x[i].getElementsByTagName("problemname")[0].childNodes[0].nodeValue;
-    var problemdesc=x[i].getElementsByTagName("problemdesc")[0].childNodes[0].nodeValue;
-    var problemdifficulty=x[i].getElementsByTagName("problemdifficulty")[0].childNodes[0].nodeValue;
-    var facultyid=x[i].getElementsByTagName("facultyid")[0].childNodes[0].nodeValue;
-    output+='<li class="nav-item" onclick="displayQuestion('+problemid+')">'+'\n'+
-                        '<a class="nav-link" href="#">'+'\n'+
-                            '<span data-feather="home"></span>'+'\n'+
-                            problemname+'\n'+'</a></li>'+'\n'
-    problemdescarr.push(problemdesc)
-    problemdiffarr.push(problemdifficulty)
-    console.log(output);
-  }
-    document.getElementById("leftpanel").innerHTML=output
-
-}
