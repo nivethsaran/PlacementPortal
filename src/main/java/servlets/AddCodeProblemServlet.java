@@ -14,6 +14,11 @@ public class AddCodeProblemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
+        String pid;
+        if(req.getParameter("pid")!=null)
+        {
+            System.out.println(pid=req.getParameter("pid"));
+        }
         req.getRequestDispatcher("coding/addquestion.jsp").forward(req, resp);
     }
 

@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="models.Coding"%>
+<%@ page import="models.Coding" %>
 <html lang="en">
 
 <head>
@@ -24,7 +24,7 @@
           integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
-<body onload="loadXML()">
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
@@ -46,18 +46,21 @@
         </ul>
     </div>
 </nav>
-<% if(request.getAttribute("problems")!=null) {
-    ArrayList<Coding> problems = (ArrayList<Coding>) request.getAttribute("problems");
-    out.print("<script>var problemdescarr = [");
-    for (int i = 0; i < problems.size(); i++) {
-        out.print("'"+problems.get(i).getProblemdesc()+"',");
-    }out.print("]\n");
-    out.print("var problemdiffarr = [");
-    for (int i = 0; i < problems.size(); i++) {
-        out.print("'"+problems.get(i).getProblemdifficulty()+"',");
-    }out.print("]");
-    out.print("</script>");
-}
+<% String usertype = (String) request.getSession().getAttribute("usertype");
+    if (request.getAttribute("problems") != null) {
+        ArrayList<Coding> problems = (ArrayList<Coding>) request.getAttribute("problems");
+        out.print("<script>var problemdescarr = [");
+        for (int i = 0; i < problems.size(); i++) {
+            out.print("'" + problems.get(i).getProblemdesc() + "',");
+        }
+        out.print("]\n");
+        out.print("var problemdiffarr = [");
+        for (int i = 0; i < problems.size(); i++) {
+            out.print("'" + problems.get(i).getProblemdifficulty() + "',");
+        }
+        out.print("]");
+        out.print("</script>");
+    }
 %>
 
 <div class="container-fluid">
@@ -71,24 +74,29 @@
                     </a>
                 </h6>
                 <ul id="leftpanel" class="nav flex-column">
-                    <% if(request.getAttribute("problems")!=null)
-                    {
+                    <% if (request.getAttribute("problems") != null && usertype != null) {
                         ArrayList<Coding> problems = (ArrayList<Coding>) request.getAttribute("problems");
-                        for(int i=0;i<problems.size();i++)
-                        {
-                            out.println("<li class=\"nav-item\" onclick=\"displayQuestion("+problems.get(i).getProblemid()+")\">\n" +
-                                    "                        <a class=\"nav-link\" href=\"#\">\n" +
-                                    "                            <span data-feather=\"home\"></span>\n"
-                                    +                            problems.get(i).getProblemname()+"\n" +
-                                    "                        </a>\n" +
-                                    "                    </li>");
+                        if (usertype.equals("student")) {
+                            for (int i = 0; i < problems.size(); i++) {
+//                            if(request.getSession().)
+                                out.println("<li class=\"nav-item\" onclick=\"displayQuestion(" + problems.get(i).getProblemid() + ")\">\n" +
+                                        "                        <a class=\"nav-link\" href=\"#\">\n" +
+                                        "                            <span data-feather=\"home\"></span>\n"
+                                        + problems.get(i).getProblemname() + "\n" +
+                                        "                        </a>\n" +
+                                        "                    </li>");
+                            }
+                        } else if (usertype.equals("faculty")) {
+                            for (int i = 0; i < problems.size(); i++) {
+//                            if(request.getSession().)
+                                out.println("<li class=\"nav-item\">\n" +
+                                        "<a href=\"addproblem?pid=" + problems.get(i).getProblemid() + "&edit=true\" class=\"nav-link\">" + problems.get(i).getProblemname() + "</a></li>");
+
+                            }
                         }
+
                     }
                     %>
-                    
-                    
-
-
                 </ul>
             </div>
         </nav>
@@ -104,7 +112,8 @@
                         <button class="btn btn-sm btn-outline-secondary" onclick="hideQuestion()">Hide Question</button>
                     </div>
                     <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="language-label" data-toggle="dropdown"
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="language-label"
+                           data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             Language (C)
                         </a>
@@ -134,15 +143,15 @@
                     <label class="form-check-label" for="custominput" id="custominput-label">Custom Input</label>
                 </div>
 
-                <textarea class="form-control" id="custominput" rows="5" onchange="validateinput()" onkeyup="validateinput()"></textarea>
+                <textarea class="form-control" id="custominput" rows="5" onchange="validateinput()"
+                          onkeyup="validateinput()"></textarea>
             </div>
             <input type="submit" value="Compile and Run" class="btn btn-dark" onclick="showCode()">
             <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
 
+        </main>
     </div>
-    </main>
-</div>
 </div>
 
 <!-- JavaScript Libs -->
