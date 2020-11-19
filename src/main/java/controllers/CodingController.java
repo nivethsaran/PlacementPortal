@@ -33,47 +33,77 @@ public class CodingController {
     {
         CodingController controller=new CodingController();
 //        controller.getCodingQuestions();
-        controller.parseProblemXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\coding.xml");
+//        controller.parseProblemXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\coding.xml");
         }
 
 
-    public void parseProblemXML(String xml)
+    public boolean insertCodingProblem(Coding problem )
     {
         try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="coding";
-            NodeList listOfProducts = doc.getElementsByTagName("problem");
-            System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-                String problemname= productElement.getElementsByTagName("problemname").item(0).getTextContent();
-                int problemid= Integer.parseInt(productElement.getElementsByTagName("problemid").item(0).getTextContent());
-                String problemdesc=productElement.getElementsByTagName("problemdesc").item(0).getTextContent();
-                String problemdifficulty= productElement.getElementsByTagName("problemdifficulty").item(0).getTextContent();
-                String facultyid = productElement.getElementsByTagName("facultyid").item(0).getTextContent();
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        problemid+"','"+
-                        problemname+"','"+
-                        problemdesc+"','"+
-                        problemdifficulty+"','"+
-                        facultyid+"')";
+            String SQL_QUERY = "INSERT INTO CODING (problemname,problemdesc,problemdifficulty,facultyid) VALUES ('" +
+                    problem.getProblemname() + "','" +
+                    problem.getProblemdesc() + "','" +
+                    problem.getProblemdifficulty() + "','" +
+                    problem.getFacultyid() + "')";
+            stmt.executeUpdate(SQL_QUERY);
+            return true;
 
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
         }
         catch(Exception e)
         {
             System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    public boolean updateQuestion(Coding problem)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate
+                    ("update coding set problemname='"+problem.getProblemname()+"', problemdesc ='"+problem.getProblemdesc()+"', problemdifficulty = '"+problem.getProblemdifficulty()+"' where problemid="+problem.getProblemid());
+//            stmt.executeUpdate(SQL_QUERY);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    public Coding getQuestionFromId(String id)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery
+                    ("SELECT * FROM coding where problemid="+id);
+            int rowCount=0;
+            Coding currCodeQuestion = null;
+            while (rs.next()) {
+                rowCount++;
+                currCodeQuestion =new Coding(
+                        rs.getInt("problemid"),
+                        rs.getString("problemname"),
+                        rs.getString("problemdesc"),
+                        rs.getString("problemdifficulty"),
+                        rs.getString("facultyid")
+                );
+            }
+            if(rowCount==0)
+            {
+                return null;
+            }
+            else
+            {
+                return currCodeQuestion;
+            }
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return null;
         }
     }
 

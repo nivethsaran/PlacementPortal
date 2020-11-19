@@ -97,7 +97,7 @@ function clearCode()
 function displayQuestion(i)
 {
     i = parseInt(i) - 1
-    document.getElementById("question").innerHTML = "Question" + i+"("+problemdiffarr[i]+")" +":\r\n"+problemdescarr[i]
+    document.getElementById("question").innerHTML = "Question " + i+" ("+problemdiffarr[i]+")" +":\r\n"+problemdescarr[i]
     document.getElementById("question").hidden=false
 }
 

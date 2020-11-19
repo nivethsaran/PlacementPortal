@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>Hello World</title>
+    <title>404, URL kinda sus..</title>
   </head>
   <body>
   <%out.println("<h1>Hello World</h1>");%>

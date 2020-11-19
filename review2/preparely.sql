@@ -216,4 +216,5 @@ insert into studentnotes(notetitle,notecontent,notedate,rollno) values ("NCP Rev
 
 insert into events(eventdate,eventtitle,eventdesc) values ("2020-10-10","Cisco Approaching","3 Rounds");
 
-
+update coding set problemname="Odd or Even", problemdesc ="None", problemdifficulty = "Medium" where problemid=4;
+SELECT * FROM question where quizid=1;

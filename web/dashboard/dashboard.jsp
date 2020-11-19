@@ -80,7 +80,7 @@
         <div class="col2">
             <h3>Name : <% out.print(fullname);%></h3>
             <br>
-            <h3>Roll Number : <% out.print(userid);%></h3>
+            <h3>USER ID(RollNo/Faculty ID) : <% out.print(userid);%></h3>
             <br>
             <h3>Email ID : <% out.print(emailid);%></h3>
             <br>

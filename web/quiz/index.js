@@ -155,57 +155,7 @@ function loadQuestions(xmlDoc)
     }
     document.getElementById('questions').innerHTML=quizlistinnerhtml
 }
-function loadScores(xmlDoc)
-{
-    var x = xmlDoc.getElementsByTagName("score");
-    console.log(x[0]);
-    quizlistinnerhtml=""
-    for(var i=0;i<x.length;i++)
-    {
-         var scoreid=x[i].getElementsByTagName("scoreid")[0].childNodes[0].nodeValue;
-        var quizid=x[i].getElementsByTagName("quizid")[0].childNodes[0].nodeValue;
-        var rollno=x[i].getElementsByTagName("rollno")[0].childNodes[0].nodeValue;
-        var total=x[i].getElementsByTagName("total")[0].childNodes[0].nodeValue;
-        var studentscore=x[i].getElementsByTagName("studentscore")[0].childNodes[0].nodeValue;
-        quizlistinnerhtml += '<li class="list-group-item">Quiz '+quizid+':'+(studentscore/total*100)+'%</li>'+'\n'
-    }
-    document.getElementById('scorelist').innerHTML=quizlistinnerhtml
-}
 
-
-function loadIndex(xmlDoc)
-{
-    // var xmlDoc = xml.responseXML;
-    var x = xmlDoc.getElementsByTagName("quiz");
-    console.log(x[0]);
-    quizlistinnerhtml=""
-    for(var i=0;i<x.length;i++)
-    {
-         var quizid=x[i].getElementsByTagName("quizid")[0].childNodes[0].nodeValue;
-        var facultyid=x[i].getElementsByTagName("facultyid")[0].childNodes[0].nodeValue;
-        var quizname=x[i].getElementsByTagName("quizname")[0].childNodes[0].nodeValue;
-        var quizdescription=x[i].getElementsByTagName("quizdescription")[0].childNodes[0].nodeValue;
-        var numofquestions=x[i].getElementsByTagName("numofquestions")[0].childNodes[0].nodeValue;
-        var quizdate=x[i].getElementsByTagName("quizdate")[0].childNodes[0].nodeValue;
-        var quizstarttime=x[i].getElementsByTagName("quizstarttime")[0].childNodes[0].nodeValue;
-        var quizendtime=x[i].getElementsByTagName("quizendtime")[0].childNodes[0].nodeValue;
-        var duration=x[i].getElementsByTagName("duration")[0].childNodes[0].nodeValue;
-        var department=x[i].getElementsByTagName("department")[0].childNodes[0].nodeValue;
-        var topic=x[i].getElementsByTagName("topic")[0].childNodes[0].nodeValue;
-        var pin=x[i].getElementsByTagName("pin")[0].childNodes[0].nodeValue;
-        quizlistinnerhtml += `<div class="card" onclick=quizonclick(`+i+`)>
-                <div class="cardData">
-                    <h4 class="cardTitle">`+quizname+`</h4>
-                    <p class="cardSubTitle">`+quizdescription+`</p>
-                    <p class="cardTime">`+"Number of Questions:"+numofquestions+"<br>Quiz Date:"+quizdate+"<br>Start time:"+quizstarttime+"<br>EndTime:"+quizendtime+"<br>Duration:"+duration+"\n"+
-                    " minutes<br>Department"+department+"<br>Topic:"+topic+"<br>Faculty Id:"+facultyid+`</p>
-                    <input type="text" placeholder="Enter PIN">
-                    <a href="quiz.html" target="_blank" class="pincheck">Start Quiz</a>
-                </div>
-            </div>`
-    }
-    document.getElementById('quizlistmain').innerHTML=quizlistinnerhtml
-}
 
 
 function validatenull(idname)

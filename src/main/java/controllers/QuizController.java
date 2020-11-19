@@ -34,15 +34,38 @@ public class QuizController {
 public static void main(String args[])
 {
     QuizController controller=new QuizController();
+//    ArrayList<Question> questions = controller.getQuestions("1");
+//    System.out.println(questions.size());
 //    controller.getQuiz();
 //    controller.getQuestions(1);
 //    controller.getScores(1);
 //    controller.parseScoresXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\scores.xml");
-    controller.parseQuizXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\quiz.xml");
-    controller.parseQuestionsXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\question.xml");
+//    controller.parseQuizXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\quiz.xml");
+//    controller.parseQuestionsXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\question.xml");
 }
 
-public ArrayList<Quiz> getQuiz()
+
+public String getPIN(String quizid)
+{
+    try {
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery
+                ("SELECT pin FROM quiz where quizid="+quizid);
+        int rowCount=0;
+        while (rs.next()) {
+            rowCount++;
+            return Integer.toString(rs.getInt("pin"));
+        }
+        return null;
+    }
+    catch (SQLException e)
+    {
+        System.out.println(e.getLocalizedMessage());
+        return null;
+    }
+}
+
+public ArrayList<Quiz> getQuizzes()
 {
     ArrayList<Quiz> quizzes=new ArrayList<Quiz>();
     try {
@@ -64,7 +87,6 @@ public ArrayList<Quiz> getQuiz()
                     rs.getString("topic"),
                     rs.getInt("pin")
             );
-            System.out.println(currQuiz.toString());
             quizzes.add(currQuiz);
         }
         return quizzes;
@@ -76,22 +98,28 @@ public ArrayList<Quiz> getQuiz()
     }
 }
 
-    public ArrayList<Question> getQuestions(int quizid)
+    public ArrayList<Question> getQuestions(String quizid)
     {
         ArrayList<Question> questions=new ArrayList<Question>();
         try {
             Statement stmt = con.createStatement();
+            String SQL_QUERY ="SELECT * FROM question where quizid="+quizid;
             ResultSet rs = stmt.executeQuery
-                    ("SELECT * FROM question where quizid="+quizid);
+                    (SQL_QUERY);
+            int rowCount=0;
+            System.out.println(SQL_QUERY);
             while (rs.next()) {
+                rowCount++;
                 Question currQuestion=new Question(
                         rs.getInt("quizid"),
                         rs.getInt("questionid"),
-                        rs.getString("question"),
-                        rs.getString("answer")
-
+                        rs.getString("questioncontent"),
+                        rs.getString("answer"),
+                        rs.getString("optiona"),
+                        rs.getString("optionb"),
+                        rs.getString("optionb"),
+                        rs.getString("optiond")
                 );
-                System.out.println(currQuestion.toString());
                 questions.add(currQuestion);
             }
             return questions;
@@ -103,22 +131,21 @@ public ArrayList<Quiz> getQuiz()
         }
     }
 
-    public ArrayList<Scores> getScores(int quizid)
+    public ArrayList<Scores> getScores(String rollno)
     {
         ArrayList<Scores> scores=new ArrayList<Scores>();
         try {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery
-                    ("SELECT * FROM scores where quizid="+quizid);
+                    ("SELECT * FROM scores where rollno='"+rollno+"'");
             while (rs.next()) {
                 Scores currScores=new Scores(
                         rs.getInt("scoreid"),
                         rs.getInt("quizid"),
                         rs.getString("rollno"),
                         rs.getInt("total"),
-                        rs.getInt("score")
+                        rs.getInt("studentscore")
                 );
-                System.out.println(currScores.toString());
                 scores.add(currScores);
             }
             return scores;

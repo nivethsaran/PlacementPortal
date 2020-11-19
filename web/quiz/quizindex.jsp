@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Quiz" %>
+<%@ page import="models.Scores" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 31-10-2020
@@ -16,7 +18,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
           integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
-<body onload="loadXML()">
+<body>
 <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -39,7 +41,10 @@
 </nav>
 
 
+<%
+    String usertype = (String) request.getSession().getAttribute("usertype");
 
+%>
 <div class="filtercontainer">
     <div class="form-row">
         <div class="form-group col-md-4">
@@ -66,15 +71,70 @@
 </div>
 <div class="centerContainer">
     <div class="cardList" id="quizlistmain">
+        <%
+            ArrayList<Quiz> quizzes = (ArrayList<Quiz>) request.getAttribute("quizzes");
+            for(int i=0;i<quizzes.size();i++)
+            {
+                Quiz quiz = quizzes.get(i);
+                if(usertype.equals("student"))
+                {
+                    out.print("<div class=\"card\">\n" +
+                            "<form action=\"./questions\" method=\"post\">\n"+
+                            "                <div class=\"cardData\">\n" +
+                            "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
+                            "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
+                            "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
+                            "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
+                            "                    <input type=\"text\" name=\"pinstud\" placeholder=\"Enter PIN\">\n" +
+                            "                    <input type=\"hidden\" name=\"quizid\" value=\""+quiz.getQuizid()+"\">"+
+                            "                    <input type=\"submit\" class=\"pincheck\" title=\"Enter Quiz\">\n" +
+                            "                </div></form>\n" +
+                            "            </div>");
+                }
+                else if(usertype.equals("faculty"))
+                {
+                    out.print("<div class=\"card\">\n" +
+                            "                <div class=\"cardData\">\n" +
+                            "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
+                            "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
+                            "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
+                            "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
+                            "                    <a href=\"\" target=\"_blank\" class=\"pincheck\">Update Quiz Details</a>\n" +
+                            "                </div>\n" +
+                            "            </div>");
+                }
 
+            }
+        %>
     </div>
     <div class="topicList">
-        <button type="button" class="btn btn-info" onclick="window.location.href='addQuiz.html'">Add Quiz</button>
+        <%
+            if(usertype.equals("student"))
+            {
+
+            }
+            else
+            {
+                out.print("<a type=\"button\" class=\"btn btn-info\" href=\"./addquiz\">Add Quiz</a>");
+            }
+        %>
+
         <br>
         <div class="alert alert-light" role="alert">
             Quiz Scores List
         </div>
         <ul id="scorelist" class="list-group">
+            <%
+                if(request.getAttribute("scores")!=null)
+                {
+                    ArrayList<Scores> scores = (ArrayList<Scores>) request.getAttribute("scores");
+                    for(int i=0;i<scores.size();i++)
+                    {
+                        Scores score= scores.get(i);
+                        out.println("<li class=\"list-group-item\">Quiz "+score.getQuizid()+":"+(double)score.getScore()/(double)score.getTotal()*100+"%</li>");
+                    }
+                }
+            %>
         </ul>
     </div>
 </div>

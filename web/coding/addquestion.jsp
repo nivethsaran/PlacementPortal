@@ -1,4 +1,5 @@
-<%--
+<%@ page import="models.Faculty" %>
+<%@ page import="models.Coding" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 16-11-2020
@@ -24,6 +25,17 @@
 
 <body>
 
+<%
+    Coding problem =null;
+    boolean update = false;
+    if(request.getAttribute("problem")!=null)
+    {
+        problem =(Coding)request.getAttribute("problem");
+        update = true;
+    }
+
+%>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -46,20 +58,133 @@
 </nav>
 
 <div style="margin-top: 100px" class="container-fluid">
-    <form action="/addproblem" method="post">
+    <form action="./addproblem" method="post">
         <div class="form-group">
+            <%
+                if(request.getAttribute("inserted")!=null)
+                {
+                    if((boolean)request.getAttribute("inserted"))
+                    {
+                        out.print("<div class=\"alert alert-success\" role=\"alert\">\n" +
+                                "  This is a success alert—check it out!\n" +
+                                "</div>");
+                    }
+                    else
+                    {
+                        out.print("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                "  This is a success alert—check it out!\n" +
+                                "</div>");
+                    }
+                    request.setAttribute("inserted",null);
+                }
+            %>
+            <a href="./ide" class="btn btn-primary"> View Problems </a>
+            <br>
+            <%
+                if(!update)
+                {
+                    out.print("<h1>Add a new problem</h1>");
+                }
+                else
+                {
+                    out.print("<h1>Update the problem</h1>");
+                }
+            %>
+
+            <br>
             <label for="questioname">Question Name</label>
-            <input class="form-control" type="text" id="questioname" name="questionname" required><br>
-            <label for="questiondesc" >Question Desciprtion</label>
-            <textarea class="form-control" id="questiondesc" name="questiondesc" maxlength="500" required></textarea><br>
+            <input class="form-control" type="text" id="questioname" name="questionname" required value="<%
+                if(update && problem!=null)
+                    {
+                        out.print(problem.getProblemname());
+                    }
+            %>"><br>
+            <label for="questiondesc">Question Desciprtion</label>
+            <textarea class="form-control" id="questiondesc" name="questiondesc" maxlength="500"
+                      required><%
+                if(update&& problem!=null)
+                {
+                    out.print(problem.getProblemdesc());
+                }
+            %></textarea><br>
             <label for="difficulty">Difficulty</label>
             <select class="form-control" id="difficulty" name="difficulty"><br>
-                <option value="Choose" disabled></option>
-                <option value="Easy" selected>Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Difficult">Difficult</option>
+                <%
+                    if(update&& problem!=null)
+                    {
+                        if(problem.getProblemdifficulty().equals("Easy"))
+                        {
+                            out.print("<option value=\"Choose\" disabled></option>\n" +
+                                    "                <option value=\"Easy\" selected>Easy</option>\n" +
+                                    "                <option value=\"Medium\">Medium</option>\n" +
+                                    "                <option value=\"Difficult\">Difficult</option>");
+                        }
+                        else if(problem.getProblemdifficulty().equals("Medium"))
+                        {
+                            out.print("<option value=\"Choose\" disabled></option>\n" +
+                                    "                <option value=\"Easy\" >Easy</option>\n" +
+                                    "                <option value=\"Medium\" selected>Medium</option>\n" +
+                                    "                <option value=\"Difficult\">Difficult</option>");
+                        }
+                        else if(problem.getProblemdifficulty().equals("Difficult"))
+                        {
+                            out.print("<option value=\"Choose\" disabled></option>\n" +
+                                    "                <option value=\"Easy\" >Easy</option>\n" +
+                                    "                <option value=\"Medium\" >Medium</option>\n" +
+                                    "                <option value=\"Difficult\" selected>Difficult</option>");
+                        }
+                        else
+                        {
+                            out.print("<option value=\"Choose\" disabled></option>\n" +
+                                    "                <option value=\"Easy\" selected>Easy</option>\n" +
+                                    "                <option value=\"Medium\">Medium</option>\n" +
+                                    "                <option value=\"Difficult\">Difficult</option>");
+                        }
+                    }
+                    else
+                    {
+                        out.print("<option value=\"Choose\" disabled></option>\n" +
+                                "                <option value=\"Easy\" selected>Easy</option>\n" +
+                                "                <option value=\"Medium\">Medium</option>\n" +
+                                "                <option value=\"Difficult\">Difficult</option>");
+                    }
+                %>
+
             </select><br>
-            <input class="btn btn-primary" type="submit" title="Add question">
+            <input type="hidden" name="facid" value="<%
+                Faculty facid = (Faculty)request.getSession().getAttribute("userdata");
+                out.print(facid.getFacultyid());%>">
+            <input type="hidden" name="actiontype" value="<%
+                if(update)
+                {
+                    out.print("update");
+                }
+                else
+                {
+                    out.print("add");
+                }
+            %>">
+            <%
+                if(update&& problem!=null) {
+                    out.print("\n" +
+                            "            <input type=\"hidden\" name=\"probid\" value=\""+problem.getProblemid()+"\">");
+                }
+            %>
+            <input class="btn btn-primary" type="submit" title="<% if(request.getAttribute("update")!=null)
+            {
+                if((boolean)request.getAttribute("update"))
+                {
+                    out.print("Update");
+                }
+                else
+                {
+                    out.print("Add Problem");
+                }
+            }else
+            {
+                out.print("Add Problem");
+            }
+            %>">
         </div>
     </form>
 </div>

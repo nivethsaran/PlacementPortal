@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Question" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 31-10-2020
@@ -47,6 +48,22 @@
     <div id="timer" class="timer btn btn-info"><span>Timer:</span><span  id="mins"></span> <span  id="secs"></span> <span  id="end"></span></div>
 
     <div id="questions" class="questions">
+        <%
+            ArrayList<Question> questions = (ArrayList<Question>) request.getAttribute("questions");
+            if(questions!=null)
+            {
+                for(Question i : questions)
+                {
+                    out.print("<p>Question "+i.getQuestionid()+":"+i.getQuestioncontent()+"</p>" +
+                            "<label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"a\">" +" optiona</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"b\">" + "optionb</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"c\">" + "optionc</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"d\">" + "optiond</label><hr>");
+                }
+            }
+
+        %>
     </div>
     <br>
     <button type="button" id="submitbtn" onclick="submitQuiz()" class="btn btn-danger">Submit</button>
