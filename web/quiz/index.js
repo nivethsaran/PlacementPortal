@@ -31,27 +31,27 @@ function changeNOOQ()
         cardlistinnerhtml += `<div class=\"card\">\n
             <div class=\"cardData\">\n
                 <label for=\"question`+ i + `\" id=\"question`+ i + `-label\">Question `+i+`</label>\n
-                <input type=\"text\\" class=\"form-control\" id=\"question`+ i + `\"  onclick = \"questionvalid(` + i + `)\" onkeyup = \"questionvalid(` + i + `)\" >\n
+                <input type=\"text\\" class=\"form-control\"  name=\"question`+ i + `\" id=\"question`+ i + `\"  onclick = \"questionvalid(` + i + `)\" onkeyup = \"questionvalid(` + i + `)\" >\n
             <br >\n
             <div class=\"form-row\">\n
             <div class=\"input-group col-md-2\">\n
             <label for=\"opt`+ i + `a\" id=\"opt`+ i + `a-label\"></label>\n
-            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `a\" placeholder=\"option a\" onclick = \"optionavalid(` + i + `)\" onkeyup = \"optionavalid(` + i + `)\">\n
+            <input type =\"text\" class=\"form-control\" name=\"opt`+ i + `a\" id=\"opt`+ i + `a\" placeholder=\"option a\" onclick = \"optionavalid(` + i + `)\" onkeyup = \"optionavalid(` + i + `)\">\n
                           </div >\n
             <div class=\"input-group col-md-2\">\n
             <label for=\"opt`+ i + `b\" id=\"opt`+ i + `b-label\"></label>\n
-            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `b\" placeholder=\"option b\" onclick = \"optionbvalid(` + i + `)\" onkeyup = \"optionbvalid(` + i + `)\">\n
+            <input type =\"text\" class=\"form-control\" name=\"opt`+ i + `b\" id=\"opt`+ i + `b\" placeholder=\"option b\" onclick = \"optionbvalid(` + i + `)\" onkeyup = \"optionbvalid(` + i + `)\">\n
                           </div >\n
             <div class=\"input-group col-md-2\">\n
             <label for=\"opt`+ i + `c\" id=\"opt`+ i + `c-label\"></label>\n
-            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `c\" placeholder=\"option c\" onclick = \"optioncvalid(` + i + `)\" onkeyup = \"optioncvalid(` + i + `)\">\n
+            <input type =\"text\" class=\"form-control\" name=\"opt`+ i + `c\" id=\"opt`+ i + `c\" placeholder=\"option c\" onclick = \"optioncvalid(` + i + `)\" onkeyup = \"optioncvalid(` + i + `)\">\n
                           </div >\n
             <div class=\"input-group col-md-2\">\n
             <label for=\"opt`+ i + `d\" id=\"opt`+ i + `d-label\"></label>\n
-            <input type =\"text\" class=\"form-control\" id=\"opt`+ i + `d\" placeholder=\"option d\" onclick = \"optiondvalid(` + i + `)\" onkeyup = \"optiondvalid(` + i + `)\">\n
+            <input type =\"text\" class=\"form-control\" name=\"opt`+ i + `d\" id=\"opt`+ i + `d\" placeholder=\"option d\" onclick = \"optiondvalid(` + i + `)\" onkeyup = \"optiondvalid(` + i + `)\">\n
                           </div >\n
             <div class=\"form-group col-md-4\">\n
-            <select id =\"correct`+ i +`\" class=\"form-control\">\n
+            <select name =\"correct`+ i +`\" id =\"correct`+ i +`\" class=\"form-control\">\n
             <option  disabled> Correct Option</option >\n
             <option selected value =\"a\">a</option>\n
             <option value =\"b\">b</option>\n
@@ -91,44 +91,6 @@ function validpin()
         document.getElementById("pin-label").innerText = "Pin"
         document.getElementById("pin-label").style.color = "black"
     }
-}
-
-function loadXML()
-{
-    var xmlhttp1 = new XMLHttpRequest();
-  xmlhttp1.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      loadIndex(new DOMParser().parseFromString(this.responseText,"text/xml"))
-        // loadIndex(this)
-    }
-  };
-  xmlhttp1.overrideMimeType("text/xml");
-  xmlhttp1.open("GET", "..\\..\\review2\\XML\\quiz.xml", true);
-  xmlhttp1.send();
-
-  var xmlhttp2 = new XMLHttpRequest();
-  xmlhttp2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      loadScores(new DOMParser().parseFromString(this.responseText,"text/xml"))
-        // loadIndex(this)
-    }
-  };
-  xmlhttp2.overrideMimeType("text/xml");
-  xmlhttp2.open("GET", "..\\..\\review2\\XML\\scores.xml", true);
-  xmlhttp2.send();
-
-}
-function loadQuizXML(){
-    var xmlhttp1 = new XMLHttpRequest();
-  xmlhttp1.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      loadQuestions(new DOMParser().parseFromString(this.responseText,"text/xml"))
-        // loadIndex(this)
-    }
-  };
-  xmlhttp1.overrideMimeType("text/xml");
-  xmlhttp1.open("GET", "..\\..\\review2\\XML\\question.xml", true);
-  xmlhttp1.send();
 }
 
 function loadQuestions(xmlDoc)
@@ -352,17 +314,15 @@ function quizonclick(a) {
 }
 
 
-function quiztimer()
+function quiztimer(end)
 {
-    loadQuizXML();
-    var start = new Date().getTime();
-    var end = start + (1000 * 60 * 0.2)
+    console.log("Running")
     var myfunc = setInterval(function () {
-        
-        console.log(start + " " + end);
         // code goes here
         var now = new Date().getTime();
-        var timeleft = end - now;
+
+        var timeleft = end + 2000 - now;
+        console.log(timeleft /1000)
         var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
@@ -386,25 +346,9 @@ function quiztimer()
     
 }
 
-answers=['a','b','c','d','a']
 function submitQuiz()
 {  
-    score=0
-    for(var i=0;i<5;i++)
-    {
-        var ans = document.getElementsByName('question'+(i+1));
-        var ans_value;
-        for (var j = 0; j < ans.length; j++) {
-            if (ans[j].checked) {
-                ans_value = ans[j].value;
-            }
-        }
-        if(ans_value==answers[i])
-        {
-            score++ 
-        }
-    }
-    alert(score)
+    document.getElementById("mainquizform").submit()
     document.getElementById("submitbtn").disabled=true
     document.getElementById("messageclose").hidden=false
 }

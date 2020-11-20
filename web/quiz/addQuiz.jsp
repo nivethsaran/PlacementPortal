@@ -1,4 +1,4 @@
-<%--
+<%@ page import="models.Faculty" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 31-10-2020
@@ -40,46 +40,46 @@
     </div>
 </nav>
 <div style="margin-top: 50px;">
-    <form action="">
+    <form action="./addquiz" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="quizname" id="quizname-label">Quiz Name</label>
-                <input type="text" class="form-control" id="quizname" onchange="validatenull('quizname')" onkeyup="validatenull('quizname')">
+                <input type="text" class="form-control" name="quizname" id="quizname" onchange="validatenull('quizname')" onkeyup="validatenull('quizname')">
             </div>
             <div class="form-group col-md-6">
                 <label for="nooq" id="nooq-label">Number of Questions</label>
-                <select class="custom-select" id="nooq" onclick="changeNOOQ()" >
+                <select class="custom-select" id="nooq" name="nooq" onclick="changeNOOQ()" >
                 </select>
             </div>
 
         </div>
         <div class="form-group">
             <label for="quizdesc" id="quizdesc-label">Quiz Description</label>
-            <input type="text" class="form-control" id="quizdesc" placeholder="This quiz tests your knowledge on ...." onchange="validatenull('quizdesc')" onkeyup="validatenull('quizdesc')">
+            <input type="text" class="form-control" name="quizdesc" id="quizdesc" placeholder="This quiz tests your knowledge on ...." onchange="validatenull('quizdesc')" onkeyup="validatenull('quizdesc')">
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="date" id="date-label">Date of Exam</label>
-                <input type="date" class="form-control" id="date" onblur="validdate()" onchange="validdate()">
+                <input type="date" class="form-control" name="date" id="date" onblur="validdate()" onchange="validdate()">
             </div>
             <div class="form-group col-md-3">
                 <label for="starttime" id="starttime-label">Start Window</label>
-                <input type="time" class="form-control" id="starttime" onkeyup="validtime()" onchange="validtime()">
+                <input type="time" class="form-control" name="starttime" id="starttime" onkeyup="validtime()" onchange="validtime()">
             </div>
             <div class="form-group col-md-3">
                 <label for="endtime" id="endtime-label">End Window</label>
-                <input type="time" class="form-control" id="endtime" onkeyup="validtime()" onchange="validtime()">
+                <input type="time" class="form-control" name="endtime" id="endtime" onkeyup="validtime()" onchange="validtime()">
             </div>
             <div class="form-group col-md-3">
                 <label for="duration" id="duration-label">Duration(in minutes)</label>
-                <input type="number" class="form-control" id="duration" onkeyup="validdur()" onchange="validdur()">
+                <input type="number" class="form-control" name="duration" id="duration" onkeyup="validdur()" onchange="validdur()">
             </div>
         </div>
         <div class="form-row">
 
             <div class="form-group col-md-4">
                 <label for="dept" id="dept-label">Department</label>
-                <select id="dept" class="form-control">
+                <select id="dept" name="dept" class="form-control">
                     <option disabled selected>Choose</option>
                     <option value="CSE">CSE</option>
                     <option value="NONCSE">NON-CSE</option>
@@ -89,7 +89,7 @@
 
             <div class="form-group col-md-4">
                 <label for="topic" id="topic-label">Topic</label>
-                <select id="topic" class="form-control">
+                <select name="topic" id="topic" class="form-control">
                     <option disabled selected>Choose</option>
                     <option value="Technical">Technical</option>
                     <option value="Verbal">Verbal</option>
@@ -101,10 +101,14 @@
 
             <div class="form-group col-md-4">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="enablepin" onclick="togglePin()">
+                    <input name="pinenabled" value="" type="checkbox" class="custom-control-input" id="enablepin" onclick="togglePin()">
                     <label class="custom-control-label" id="pin-label" for="enablepin">Pin</label>
                 </div>
-                <input type="number" class="form-control pin-ed-adjust" id="pin" placeholder="" onchange="validpin()" onkeyup="validpin()">
+                <input type="hidden" name="facid" value="<%
+                    Faculty faculty = (Faculty) request.getSession().getAttribute("userdata");
+                    out.print(faculty.getFacultyid());
+                %>">
+                <input name="pin" type="number" class="form-control pin-ed-adjust" id="pin" placeholder="" onchange="validpin()" onkeyup="validpin()">
             </div>
 
         </div>

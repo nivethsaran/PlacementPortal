@@ -406,7 +406,7 @@ function quiztimer()
 {
     loadQuizXML();
     var start = new Date().getTime();
-    var end = start + (1000 * 60 * 0.2)
+    var end = start + (1000 * 60) + 2000
     var myfunc = setInterval(function () {
         
         console.log(start + " " + end);

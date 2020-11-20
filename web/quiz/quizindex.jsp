@@ -1,6 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="models.Quiz" %>
-<%@ page import="models.Scores" %><%--
+<%@ page import="models.Scores" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.text.ParseException" %>
+<%@ page import="models.Faculty" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 31-10-2020
@@ -76,33 +79,47 @@
             for(int i=0;i<quizzes.size();i++)
             {
                 Quiz quiz = quizzes.get(i);
-                if(usertype.equals("student"))
-                {
-                    out.print("<div class=\"card\">\n" +
-                            "<form action=\"./questions\" method=\"post\">\n"+
-                            "                <div class=\"cardData\">\n" +
-                            "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
-                            "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
-                            "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
-                            "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
-                            "                    <input type=\"text\" name=\"pinstud\" placeholder=\"Enter PIN\">\n" +
-                            "                    <input type=\"hidden\" name=\"quizid\" value=\""+quiz.getQuizid()+"\">"+
-                            "                    <input type=\"submit\" class=\"pincheck\" title=\"Enter Quiz\">\n" +
-                            "                </div></form>\n" +
-                            "            </div>");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String endtime = quiz.getQuizdate() + " " + quiz.getQuizendtime();
+                long endtimelong = 0;
+                try {
+                    endtimelong   = sdf.parse(endtime).getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
-                else if(usertype.equals("faculty"))
+                if(System.currentTimeMillis()<endtimelong)
                 {
-                    out.print("<div class=\"card\">\n" +
-                            "                <div class=\"cardData\">\n" +
-                            "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
-                            "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
-                            "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
-                            "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
-                            "                    <a href=\"\" target=\"_blank\" class=\"pincheck\">Update Quiz Details</a>\n" +
-                            "                </div>\n" +
-                            "            </div>");
+                    if(usertype.equals("student"))
+                    {
+                        out.print("<div class=\"card\">\n" +
+                                "<form action=\"./questions\" method=\"post\">\n"+
+                                "                <div class=\"cardData\">\n" +
+                                "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
+                                "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
+                                "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
+                                "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
+                                "                    <input type=\"text\" name=\"pinstud\" placeholder=\"Enter PIN\">\n" +
+                                "                    <input type=\"hidden\" name=\"quizid\" value=\""+quiz.getQuizid()+"\">"+
+                                "                    <input type=\"submit\" class=\"pincheck\" title=\"Enter Quiz\">\n" +
+                                "                </div></form>\n" +
+                                "            </div>");
+                    }
+                    else if(usertype.equals("faculty"))
+                    {
+                            out.print("<div class=\"card\">\n" +
+                                    "                <div class=\"cardData\">\n" +
+                                    "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
+                                    "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
+                                    "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
+                                    "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
+                                    "                    <a href=\"./deleteQuiz?quizid="+quiz.getQuizid()+"\" class=\"pincheck\">Delete Quiz Details</a>\n" +
+                                    "                </div>\n" +
+                                    "            </div>");
+
+
+                    }
                 }
+
 
             }
         %>
@@ -120,13 +137,14 @@
         %>
 
         <br>
-        <div class="alert alert-light" role="alert">
-            Quiz Scores List
-        </div>
+
         <ul id="scorelist" class="list-group">
             <%
                 if(request.getAttribute("scores")!=null)
                 {
+                    out.print("<div class=\"alert alert-light\" role=\"alert\">\n" +
+                            "            Quiz Scores List\n" +
+                            "        </div>");
                     ArrayList<Scores> scores = (ArrayList<Scores>) request.getAttribute("scores");
                     for(int i=0;i<scores.size();i++)
                     {

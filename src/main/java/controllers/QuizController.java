@@ -3,7 +3,6 @@ package controllers;
 import models.Question;
 import models.Quiz;
 import models.Scores;
-import models.Student;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -34,6 +33,7 @@ public class QuizController {
 public static void main(String args[])
 {
     QuizController controller=new QuizController();
+    System.out.println(System.currentTimeMillis());
 //    ArrayList<Question> questions = controller.getQuestions("1");
 //    System.out.println(questions.size());
 //    controller.getQuiz();
@@ -90,6 +90,39 @@ public ArrayList<Quiz> getQuizzes()
             quizzes.add(currQuiz);
         }
         return quizzes;
+    }
+    catch (SQLException e)
+    {
+        System.out.println(e.getLocalizedMessage());
+        return null;
+    }
+}
+
+public Quiz getQuizFromId(String id)
+{
+
+    try {
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery
+                ("SELECT * FROM quiz where quizid="+id);
+        while (rs.next()) {
+            Quiz currQuiz=new Quiz(
+                    rs.getInt("quizid"),
+                    rs.getString("facultyid"),
+                    rs.getString("quizname"),
+                    rs.getString("quizdescription"),
+                    rs.getInt("numofquestions"),
+                    rs.getString("quizdate"),
+                    rs.getString("quizstarttime"),
+                    rs.getString("quizendtime"),
+                    rs.getInt("duration"),
+                    rs.getString("department"),
+                    rs.getString("topic"),
+                    rs.getInt("pin")
+            );
+            return currQuiz;
+        }
+        return null;
     }
     catch (SQLException e)
     {
@@ -213,99 +246,137 @@ public ArrayList<Quiz> getQuizzes()
         }
     }
 
-    public void parseQuestionsXML(String xml)
-    {
+    public boolean insertQuiz(Quiz quiz) {
         try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="question";
-            NodeList listOfProducts = doc.getElementsByTagName("question");
-            System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-
-                String quizid= productElement.getElementsByTagName("quizid").item(0).getTextContent();
-                String questionid=productElement.getElementsByTagName("questionid").item(0).getTextContent();
-                String questioncontent= productElement.getElementsByTagName("questioncontent").item(0).getTextContent();
-                String answer = productElement.getElementsByTagName("answer").item(0).getTextContent();
-                String optiona = productElement.getElementsByTagName("optiona").item(0).getTextContent();
-                String optionb = productElement.getElementsByTagName("optionb").item(0).getTextContent();
-                String optionc = productElement.getElementsByTagName("optionc").item(0).getTextContent();
-                String optiond = productElement.getElementsByTagName("optiond").item(0).getTextContent();
-
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        quizid+"','"+
-                        questionid+"','"+
-                        questioncontent+"','"+
-                        answer+"','"+
-                        optiona+"','"+
-                        optionb+"','"+
-                        optionc+"','"+
-                        optiond+"')";
-
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
+            String SQL_QUERY = "INSERT INTO quiz(facultyid,quizname,quizdescription,numofquestions,quizdate,quizstarttime,quizendtime,duration,department,topic,pin) values ('"+
+                    quiz.getFacultyid() + "','" +
+                    quiz.getQuizname() + "','" +
+                    quiz.getQuizdescription() + "'," +
+                    quiz.getNumofquestions() + ",'" +
+                    quiz.getQuizdate() + "','" +
+                    quiz.getQuizstarttime() + "','" +
+                    quiz.getQuizendtime() + "'," +
+                    quiz.getDuration() + ",'" +
+                    quiz.getDepartment() + "','" +
+                    quiz.getTopic() + "'," +
+                    quiz.getPin() +
+                    ")";
+            System.out.println(SQL_QUERY);
+            int rs = stmt.executeUpdate
+                    (SQL_QUERY);
+            return true;
         }
-        catch(Exception e)
+        catch (SQLException e)
         {
             System.out.println(e.getLocalizedMessage());
+            return false;
         }
     }
 
-
-    public void parseScoresXML(String xml)
-    {
+    public boolean insertQuestion(Question question) {
         try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="scores";
-            NodeList listOfProducts = doc.getElementsByTagName("score");
-            System.out.println(listOfProducts.getLength());
             Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-
-                String scoreid= productElement.getElementsByTagName("scoreid").item(0).getTextContent();
-                String quizid=productElement.getElementsByTagName("quizid").item(0).getTextContent();
-                String rollno= productElement.getElementsByTagName("rollno").item(0).getTextContent();
-                String total = productElement.getElementsByTagName("total").item(0).getTextContent();
-                String studentscore = productElement.getElementsByTagName("studentscore").item(0).getTextContent();
-
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        scoreid+"','"+
-                        quizid+"','"+
-                        rollno+"','"+
-                        total+"','"+
-                        studentscore+"')";
-
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
+            String SQL_QUERY = "INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values ("+
+                    question.getQuizid() + "," +
+                    question.getQuestionid() + ",'" +
+                    question.getQuestioncontent() + "','" +
+                    question.getAnswer() + "','" +
+                    question.getOptiona() + "','" +
+                    question.getOptionb() + "','" +
+                    question.getOptionc() + "','" +
+                    question.getOptiond() + "'" +
+                    ")";
+            System.out.println(SQL_QUERY);
+            int rs = stmt.executeUpdate
+                    (SQL_QUERY);
+            return true;
         }
-        catch(Exception e)
+        catch (SQLException e)
         {
             System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    public int getQuizId()
+    {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "Select quizid from quiz order by quizid desc limit 1; ";
+            System.out.println(SQL_QUERY);
+            ResultSet rs = stmt.executeQuery(SQL_QUERY);
+            while (rs.next()) {
+                return rs.getInt("quizid");
+            }
+            return -1;
+    }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return -1;
         }
     }
 
 
 
+    public boolean insertScores(Scores scores) {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "INSERT INTO scores(quizid,rollno,total,studentscore) values ("+
+                    scores.getQuizid() + ",'" +
+                    scores.getRollno() + "'," +
+                    scores.getTotal() + "," +
+                    scores.getScore()+")";
+            System.out.println(SQL_QUERY);
+            int rs = stmt.executeUpdate
+                    (SQL_QUERY);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
 
+
+    public void deleteQuizWithId(String quizid) {
+        try{
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "Delete from quiz where quizid="+quizid;
+            System.out.println(SQL_QUERY);
+            int rs = stmt.executeUpdate
+                    (SQL_QUERY);
+        }catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+    public void deleteScoreWithId(String quizid) {
+        try{
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "Delete from scores where quizid="+quizid;
+            System.out.println(SQL_QUERY);
+            int rs = stmt.executeUpdate
+                    (SQL_QUERY);
+        }catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+
+    public void deleteQuestionWithId(String quizid) {
+        try {
+            Statement stmt1 = con.createStatement();
+            String SQL_QUERY_Q = "DELETE FROM QUESTION WHERE QUIZID=" + quizid;
+            System.out.println(SQL_QUERY_Q);
+            int rs1 = stmt1 .executeUpdate
+                    (SQL_QUERY_Q);
+        } catch (SQLException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
 
 }

@@ -121,7 +121,7 @@
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/9_contact/\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
                             "            <br>\n" +
@@ -141,7 +141,7 @@
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/9_contact/\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
                             "            <br>\n" +

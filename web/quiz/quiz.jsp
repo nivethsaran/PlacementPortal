@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="models.Question" %><%--
+<%@ page import="models.Question" %>
+<%@ page import="models.Quiz" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 31-10-2020
@@ -19,7 +20,15 @@
           integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
-<body onload="quiztimer()">
+<body <%
+    ArrayList<Question> questions = (ArrayList<Question>) request.getAttribute("questions");
+    Quiz quiz = (Quiz) request.getAttribute("quiz");
+    if(questions!=null){
+        long endTime = (long) request.getAttribute("endtime");
+        out.print("onload=quiztimer("+endTime+")");
+    }
+
+%>>
 <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
     <a class="navbar-brand" href="#">Preparely</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -49,24 +58,28 @@
 
     <div id="questions" class="questions">
         <%
-            ArrayList<Question> questions = (ArrayList<Question>) request.getAttribute("questions");
+
             if(questions!=null)
             {
+                out.print("<form id=\"mainquizform\" action=\"./submitquiz\" method=\"post\">");
                 for(Question i : questions)
                 {
                     out.print("<p>Question "+i.getQuestionid()+":"+i.getQuestioncontent()+"</p>" +
                             "<label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
-                            "value=\"a\">" +" optiona</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
-                            "value=\"b\">" + "optionb</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
-                            "value=\"c\">" + "optionc</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
-                            "value=\"d\">" + "optiond</label><hr>");
+                            "value=\"a\">" + i.getOptiona() +"</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"b\">" + i.getOptionb() +"</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"c\">" + i.getOptionc() +"</label><label><input type=\"radio\" name=\"question"+i.getQuestionid()+"\" id=\"question"+i.getQuestionid()+"\" " +
+                            "value=\"d\">" + i.getOptiond() +"</label><hr>");
                 }
+
             }
 
         %>
     </div>
     <br>
-    <button type="button" id="submitbtn" onclick="submitQuiz()" class="btn btn-danger">Submit</button>
+    <%out.print("<input type=\"hidden\" value=\""+quiz.getQuizid()+"\" name=\"quizid\">");%>
+    <input type="submit" id="submitbtn" class="btn btn-danger" title="Submit">
+    <% out.print("</form>"); %>
     <h6 id="messageclose" hidden>Close the tab after the quiz is over</h6>
 </div><br>
 
