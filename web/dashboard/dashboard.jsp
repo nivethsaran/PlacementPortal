@@ -113,7 +113,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./course\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <a  href=\"./view-courses\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"./ide\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
                             "            <br>\n" +
@@ -123,7 +123,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
+                            "            <a  href=\"./submit-exp\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
                             "            <br>\n" +
                             "        </div>");
                 } else if(usertype.equals("faculty")){
@@ -133,7 +133,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./addcourse\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <a  href=\"./create-course\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"./addproblem\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
                             "            <br>\n" +
@@ -143,7 +143,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/10_placementexperience/admin/\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
+                            "            <a  href=\"./view-exps\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
                             "            <br>\n" +
                             "        </div>");
                 }

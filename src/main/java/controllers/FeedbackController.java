@@ -13,6 +13,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 //TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 
 public class FeedbackController {
@@ -191,5 +193,54 @@ public class FeedbackController {
         {
             System.out.println(e.getLocalizedMessage());
         }
+    }
+
+    public void submitExperience(String roll, String content, String company, String posttime) throws ClassNotFoundException {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "INSERT INTO placementexperience (rollno, experiencecontent, companyname, posttime) VALUES "+
+                    "('"+roll+
+                    "','" +content+
+                    "','"+company+
+                    "','"+ posttime+ "')";
+
+            stmt.executeUpdate(SQL_QUERY);
+        }
+        catch(SQLException e) {
+            System .out.println("Exception occurred: "+ e);
+        }
+    }
+
+    public Map<String,String> getExistingValues(int cid) {
+
+        Map<String,String> userpass = new HashMap<String,String>();
+
+        try{
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT rollno, experiencecontent, companyname, posttime FROM placementexperience WHERE experienceid='"+cid+"'");
+            String rollno = null;
+            String experiencecontent = null;
+            String companyname = null;
+            String posttime = null;
+            while(rs.next()){
+                rollno = rs.getString("rollno");
+                experiencecontent = rs.getString("experiencecontent");
+                companyname = rs.getString("companyname");
+                posttime = rs.getString("posttime");
+            }
+
+
+            userpass.put("rollno", rollno);
+            userpass.put("experiencecontent", experiencecontent);
+            userpass.put("companyname", companyname);
+            userpass.put("posttime", posttime);
+
+            return userpass;
+        }
+        catch(SQLException e){
+            System .out.println("Exception occurred: "+ e);
+        }
+
+        return userpass;
     }
 }

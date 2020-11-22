@@ -12,6 +12,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 //TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 
 public class CourseController {
@@ -34,51 +36,9 @@ public class CourseController {
     {
         CourseController controller=new CourseController();
 //        controller.getCourses();
-        controller.parseCourseXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\courses.xml");
+//        controller.parseCourseXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\courses.xml");
     }
 
-
-    public void parseCourseXML(String xml)
-    {
-        try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="courses";
-            NodeList listOfProducts = doc.getElementsByTagName("course");
-            System.out.println(listOfProducts.getLength());
-            Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-                String courseid= productElement.getElementsByTagName("courseid").item(0).getTextContent();
-                String coursename=productElement.getElementsByTagName("coursename").item(0).getTextContent();
-                String topicname= productElement.getElementsByTagName("topicname").item(0).getTextContent();
-                String department = productElement.getElementsByTagName("department").item(0).getTextContent();
-                String courseurl = productElement.getElementsByTagName("courseurl").item(0).getTextContent();
-                String facultyid = productElement.getElementsByTagName("facultyid").item(0).getTextContent();
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        courseid+"','"+
-                        coursename+"','"+
-                        topicname+"','"+
-                        department+"','"+
-                        courseurl+"','"+
-                        facultyid+"')";
-
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getLocalizedMessage());
-        }
-    }
 
     public ArrayList<Courses> getCourses()
     {
@@ -106,5 +66,106 @@ public class CourseController {
             System.out.println(e.getLocalizedMessage());
             return null;
         }
+    }
+
+    public void addToCourse(String cname, String tname, String dept, String curl, String fac_id) throws ClassNotFoundException {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "INSERT INTO courses (coursename, topicname, department, courseurl, facultyid) VALUES "+
+                    "('"+cname+
+                    "','" +tname+
+                    "','"+dept+
+                    "','"+curl+
+                    "','"+ fac_id+ "')";
+
+            stmt.executeUpdate(SQL_QUERY);
+        }
+        catch(SQLException e) {
+            System .out.println("Exception occurred: "+ e);
+        }
+    }
+
+    public void deleteFromCourse(int cid){
+        try{Statement stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM courses WHERE " +
+                    "courseid="+cid+";");
+            System.out.println("deleted element.");
+        } catch (SQLException e) {
+            System .out.println("Exception occurred: "+ e);
+        }
+    }
+
+    public void updateCourse(int cid, String coursename, String topicname, String department, String courseurl) throws ClassNotFoundException {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "UPDATE courses SET " +
+                    "coursename = '"+coursename+
+                    "', topicname= '"+topicname+
+                    "', department = '"+department+
+                    "', courseurl = '"+courseurl+
+                    "' WHERE courseid = "+cid+";";
+
+            System.out.print("Executed: "+SQL_QUERY);
+            stmt.executeUpdate(SQL_QUERY);
+        }
+        catch(SQLException e) {
+            System .out.println("Exception occurred: "+ e);
+        }
+    }
+
+    public boolean checkIfTopicNotExists(String topic, String dept){
+        try{
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT topicname FROM courses WHERE " +
+                    "department='"+dept+"'");
+            while(rs.next()){
+                if(rs.getString("topicname").equals(topic)){
+                    // if the topic already exists
+                    return false;
+                }
+            }
+
+            // if the topicname doesn't exist
+            System.out.println("Topicname doesnt exists.");
+            return true;
+        }
+        catch(SQLException e){
+            System .out.println("Exception occurred: "+ e);
+        }
+        return false;
+    }
+
+    //    function to get the existing form fields
+    public Map<String,String> getExistingValues(int cid) {
+
+        Map<String,String> userpass = new HashMap<String,String>();
+
+        try{
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT coursename, topicname, department, courseurl FROM courses WHERE courseid='"+cid+"'");
+            String coursename = null;
+            String topicname = null;
+            String department = null;
+            String courseurl = null;
+            while(rs.next()){
+                coursename = rs.getString("coursename");
+                topicname = rs.getString("topicname");
+                department = rs.getString("department");
+                courseurl = rs.getString("courseurl");
+            }
+
+
+            userpass.put("coursename", coursename);
+            userpass.put("topicname", topicname);
+            userpass.put("department", department);
+            userpass.put("courseurl", courseurl);
+
+            return userpass;
+        }
+        catch(SQLException e){
+            System .out.println("Exception occurred: "+ e);
+        }
+
+        return userpass;
     }
 }
