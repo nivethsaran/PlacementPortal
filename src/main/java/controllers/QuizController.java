@@ -13,6 +13,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+
+import static utils.CONSTANTS.*;
+
 public class QuizController {
 
     Connection con;
@@ -21,8 +24,8 @@ public class QuizController {
     {
         try {
             this.con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost:3306/preparely", "root",
-                            "1234");
+                    (SQL_CONN_STRING, SQL_USERNAME,
+                            SQL_PASSWORD);
         }
         catch (SQLException e)
         {

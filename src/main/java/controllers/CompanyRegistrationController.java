@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Coding;
 import models.Companyregistration;
 import models.Courses;
 import org.w3c.dom.Document;
@@ -13,6 +14,8 @@ import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
+import static utils.CONSTANTS.*;
+
 public class CompanyRegistrationController {
 
     Connection con;
@@ -20,8 +23,8 @@ public class CompanyRegistrationController {
     {
         try {
             this.con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost:3306/preparely", "root",
-                            "1234");
+                    (SQL_CONN_STRING, SQL_USERNAME,
+                            SQL_PASSWORD);
         }
         catch (SQLException e)
         {
@@ -33,51 +36,8 @@ public class CompanyRegistrationController {
     {
         CompanyRegistrationController controller=new CompanyRegistrationController();
 //        controller.getRegForms();
-        controller.parseFormXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\companyregistration.xml");
+//        controller.parseFormXML("E:\\Java_Projects\\PlacementPortalFrontend\\review2\\XML\\companyregistration.xml");
     }
-
-
-    public void parseFormXML(String xml)
-    {
-        try {
-            DocumentBuilderFactory docBuilderFactory;
-            docBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder =
-                    docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(new File(xml));
-            doc.getDocumentElement().normalize();
-            String tablename="companyregistration";
-            NodeList listOfProducts = doc.getElementsByTagName("form");
-            System.out.println(listOfProducts.getLength());
-            Statement stmt = con.createStatement();
-            for (int i = 0; i < listOfProducts.getLength(); i++) {
-                Node product = listOfProducts.item(i);
-                Element productElement = (Element) product;
-                String facultyid= productElement.getElementsByTagName("facultyid").item(0).getTextContent();
-                String formid=productElement.getElementsByTagName("formid").item(0).getTextContent();
-                String companyname= productElement.getElementsByTagName("companyname").item(0).getTextContent();
-                String deadline = productElement.getElementsByTagName("deadline").item(0).getTextContent();
-                String formurl = productElement.getElementsByTagName("formurl").item(0).getTextContent();
-                String SQL_QUERY= "INSERT INTO "+tablename+ " VALUES ('"+
-                        facultyid+"','"+
-                        formid+"','"+
-                        companyname+"','"+
-                        deadline+"','"+
-                        formurl+"')";
-
-                System.out.println(SQL_QUERY);
-                stmt.executeUpdate(SQL_QUERY);
-
-            }
-            System.out.println("Inserted records into the table...");
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.getLocalizedMessage());
-        }
-    }
-
-
 
     public ArrayList<Companyregistration> getRegForms()
     {
@@ -92,7 +52,8 @@ public class CompanyRegistrationController {
                         rs.getInt("formid"),
                         rs.getString("companyname"),
                         rs.getString("deadline"),
-                        rs.getString("formurl")
+                        rs.getString("formurl"),
+                        rs.getString("pay")
                 );
                 System.out.println(forms.toString());
                 forms.add(form);
@@ -103,6 +64,54 @@ public class CompanyRegistrationController {
         {
             System.out.println(e.getLocalizedMessage());
             return null;
+        }
+    }
+
+    public Companyregistration getFormFromId(String fid)
+    {
+        Companyregistration form=null;
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery
+                    ("SELECT * FROM companyregistration where formid = "+fid);
+            while (rs.next()) {
+                form=new Companyregistration(
+                        rs.getString("facultyid"),
+                        rs.getInt("formid"),
+                        rs.getString("companyname"),
+                        rs.getString("deadline"),
+                        rs.getString("formurl"),
+                        rs.getString("pay")
+                );
+                return form;
+            }
+            return null;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+
+    public boolean insertForm(Companyregistration form) {
+        try {
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "insert into companyregistration(facultyid,companyname,deadline,formurl,pay) values ('" +
+                    form.getFacultyid() + "','" +
+                    form.getCompanyname() + "','" +
+                    form.getDeadline() + "','" +
+                    form.getFormurl() + "'," +
+                    form.getPay() + ")";
+            stmt.executeUpdate(SQL_QUERY);
+            return true;
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
         }
     }
 }

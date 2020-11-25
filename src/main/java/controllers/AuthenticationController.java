@@ -6,12 +6,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+
+import static utils.CONSTANTS.*;
 
 public class AuthenticationController {
 
@@ -24,8 +25,8 @@ public class AuthenticationController {
 //            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost:3306/preparely", "root",
-                            "1234");
+                    (SQL_CONN_STRING, SQL_USERNAME,
+                            SQL_PASSWORD);
         }
         catch (SQLException e)
         {
@@ -268,6 +269,37 @@ public class AuthenticationController {
         {
             System.out.println(e.getLocalizedMessage());
             return null;
+        }
+    }
+
+    public boolean insertFaculty(Faculty faculty)
+    {
+        try{
+            Statement stmt = con.createStatement();
+
+            String SQL_QUERY = "INSERT INTO FACULTY VALUES ('"+faculty.getFullname()+"','"+faculty.getFacultyid()+"','"+faculty.getAuthpassword()+"','"+faculty.getAvatarurl()+"','"+faculty.getMobilenumber()+"','"+faculty.getEmail()+"','"+faculty.getDepartment()+"')";
+            stmt.executeUpdate(SQL_QUERY);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    public boolean insertStudent(Student student)
+    {
+        try{
+            Statement stmt = con.createStatement();
+            String SQL_QUERY = "INSERT INTO STUDENT VALUES ('"+student.getFullname()+"','"+student.getRollno()+"','"+student.getAuthpassword()+"','"+student.getAvatarurl()+"','"+student.getMobilenumber()+"','"+student.getEmail()+"','"+student.getDepartment()+"')";
+            stmt.executeUpdate(SQL_QUERY);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
         }
     }
 }

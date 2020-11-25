@@ -6,9 +6,24 @@
     <welcome-file-list>
         <welcome-file>authentication/student_auth.jsp</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/notfound.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/error/unauthorized.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/forbidden.jsp</location>
+    </error-page>
 <!--    <servlet>-->
 <!--        <servlet-name>AuthServlet</servlet-name>-->
-<!--        <servlet-class>servlets.StudentAuthServlet</servlet-class>-->
+<!--        <servlet-class>servlets.authentication.StudentAuthServlet</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet-mapping>-->
@@ -18,7 +33,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>CodeServlet</servlet-name>-->
-<!--        <servlet-class>servlets.CodingServlet</servlet-class>-->
+<!--        <servlet-class>servlets.coding.CodingServlet</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet-mapping>-->

@@ -73,6 +73,14 @@
     </div>
 </div>
 <div class="centerContainer">
+    <%
+        if(request.getAttribute("message")!=null)
+        {
+            out.print("<div class=\"alert alert-primary\" role=\"alert\">\n" +
+                    request.getAttribute("message") +
+                    "</div>");
+        }
+    %>
     <div class="cardList" id="quizlistmain">
         <%
             ArrayList<Quiz> quizzes = (ArrayList<Quiz>) request.getAttribute("quizzes");
@@ -87,40 +95,32 @@
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                if(System.currentTimeMillis()<endtimelong)
-                {
-                    if(usertype.equals("student"))
-                    {
+                if(System.currentTimeMillis()<endtimelong) {
+                    if (usertype.equals("student")) {
                         out.print("<div class=\"card\">\n" +
-                                "<form action=\"./questions\" method=\"post\">\n"+
+                                "<form action=\"./questions\" method=\"post\">\n" +
                                 "                <div class=\"cardData\">\n" +
-                                "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
-                                "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
-                                "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
-                                "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
+                                "                    <h4 class=\"cardTitle\">" + quiz.getQuizname() + "</h4>\n" +
+                                "                    <p class=\"cardSubTitle\">" + quiz.getQuizdescription() + "</p>\n" +
+                                "                    <p class=\"cardTime\">Number of Questions:" + quiz.getNumofquestions() + "<br>Quiz Date:" + quiz.getQuizdate() + "<br>Start time:" + quiz.getQuizstarttime() + "<br>EndTime:" + quiz.getQuizendtime() + "<br>Duration:" + quiz.getDuration() +
+                                "                    minutes<br>Department" + quiz.getDepartment() + "<br>Topic:" + quiz.getTopic() + "<br>Faculty Id:" + quiz.getFacultyid() + "</p>\n" +
                                 "                    <input type=\"text\" name=\"pinstud\" placeholder=\"Enter PIN\">\n" +
-                                "                    <input type=\"hidden\" name=\"quizid\" value=\""+quiz.getQuizid()+"\">"+
+                                "                    <input type=\"hidden\" name=\"quizid\" value=\"" + quiz.getQuizid() + "\">" +
                                 "                    <input type=\"submit\" class=\"pincheck\" title=\"Enter Quiz\">\n" +
                                 "                </div></form>\n" +
                                 "            </div>");
-                    }
-                    else if(usertype.equals("faculty"))
-                    {
-                            out.print("<div class=\"card\">\n" +
-                                    "                <div class=\"cardData\">\n" +
-                                    "                    <h4 class=\"cardTitle\">"+quiz.getQuizname()+"</h4>\n" +
-                                    "                    <p class=\"cardSubTitle\">"+quiz.getQuizdescription()+"</p>\n" +
-                                    "                    <p class=\"cardTime\">Number of Questions:"+quiz.getNumofquestions()+"<br>Quiz Date:"+quiz.getQuizdate()+"<br>Start time:"+quiz.getQuizstarttime()+"<br>EndTime:"+quiz.getQuizendtime()+"<br>Duration:"+quiz.getDuration()+
-                                    "                    minutes<br>Department"+quiz.getDepartment()+"<br>Topic:"+quiz.getTopic()+"<br>Faculty Id:"+quiz.getFacultyid()+"</p>\n" +
-                                    "                    <a href=\"./deleteQuiz?quizid="+quiz.getQuizid()+"\" class=\"pincheck\">Delete Quiz Details</a>\n" +
-                                    "                </div>\n" +
-                                    "            </div>");
-
-
+                    } else if (usertype.equals("faculty")) {
+                        out.print("<div class=\"card\">\n" +
+                                "                <div class=\"cardData\">\n" +
+                                "                    <h4 class=\"cardTitle\">" + quiz.getQuizname() + "</h4>\n" +
+                                "                    <p class=\"cardSubTitle\">" + quiz.getQuizdescription() + "</p>\n" +
+                                "                    <p class=\"cardTime\">Number of Questions:" + quiz.getNumofquestions() + "<br>Quiz Date:" + quiz.getQuizdate() + "<br>Start time:" + quiz.getQuizstarttime() + "<br>EndTime:" + quiz.getQuizendtime() + "<br>Duration:" + quiz.getDuration() +
+                                "                    minutes<br>Department" + quiz.getDepartment() + "<br>Topic:" + quiz.getTopic() + "<br>Faculty Id:" + quiz.getFacultyid() + "</p>\n" +
+                                "                    <a href=\"./deleteQuiz?quizid=" + quiz.getQuizid() + "\" class=\"pincheck\">Delete Quiz Details</a>\n" +
+                                "                </div>\n" +
+                                "            </div>");
                     }
                 }
-
-
             }
         %>
     </div>

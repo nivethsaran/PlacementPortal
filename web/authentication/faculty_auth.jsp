@@ -112,12 +112,12 @@
                         <h1> Faculty Sign up </h1>
 
                         <p>
-                            <label for="fullname" class="fullname" data-icon="p">Your password </label>
-                            <input id="fullname" name="fullname" required="required" type="password" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
+                            <label for="fullname" class="fullname" data-icon="u">Your full name</label>
+                            <input id="fullname" name="fullname" required="required" type="text" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
                         </p>
                         <p>
-                            <label for="facidsignup" class="uname" data-icon="u">Your username</label>
-                            <input id="facidsignup" name="facidsignup" required="required" type="text" placeholder="Enter username here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
+                            <label for="facidsignup" class="uname" data-icon="u">Your faculty ID</label>
+                            <input id="facidsignup" name="facidsignup" required="required" type="text" placeholder="Enter faculty ID here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
                         </p>
                         <p>
                             <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
@@ -132,12 +132,12 @@
                             <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="Re enter password" onkeyup="validatePassConfirmReg()" onchange="validatePassConfirmReg()"/>
                         </p>
                         <p>
-                            <label for="imageurl" class="imageurl" data-icon="p">Please confirm your password </label>
-                            <input id="imageurl" name="imageurl" required="required" type="text" placeholder="eg. X8df!90EO" onkeyup="validateImageURL()" onchange="validateImageURL()"/>
+                            <label for="imageurl" class="imageurl" data-icon="u">Enter image url </label>
+                            <input id="imageurl" name="imageurl" required="required" type="text" placeholder="Enter image url here" onkeyup="validateImageURL()" onchange="validateImageURL()"/>
                         </p>
                         <p>
-                            <label for="mobile" class="mobile" data-icon="p">Please confirm your password </label>
-                            <input id="mobile" name="mobile" required="required" type="number" placeholder="eg. X8df!90EO" onkeyup="validateMobile()" onchange="validateMobile()"/>
+                            <label for="mobile" class="mobile" data-icon="u">Enter mobile Number </label>
+                            <input id="mobile" name="mobile" required="required" type="number" placeholder="Enter mobile number here" onkeyup="validateMobile()" onchange="validateMobile()"/>
                         </p>
                         <input type="hidden" name="actiontype" value="facsignup">
                         <p class="signin button">

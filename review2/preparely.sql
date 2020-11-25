@@ -24,7 +24,6 @@ email varchar(30),
 department varchar(10)
 );
 
-
 create table quiz(
 quizid integer primary key auto_increment,
 facultyid varchar(20),
@@ -37,7 +36,7 @@ quizendtime time,
 duration integer,
 department varchar(6),
 topic varchar(20),
-pin integer check (pin between 1000 and 9999),
+pin integer,
 foreign key (facultyid) references faculty(facultyid)
 );
 
@@ -57,11 +56,11 @@ primary key (quizid,questionid)
 
 create table courses(
 courseid integer primary key auto_increment,
-coursename varchar(20),
-topicname varchar(20),
-department varchar(10),
-courseurl varchar(50),
-facultyid varchar(20),
+coursename varchar(100),
+topicname varchar(100),
+department varchar(100),
+courseurl varchar(100),
+facultyid varchar(100),
 foreign key (facultyid) references faculty(facultyid)
 );
 
@@ -109,9 +108,9 @@ foreign key (quizid) references quiz(quizid)
 
 create table placementexperience(
 experienceid integer primary key auto_increment,
-rollno  varchar(20),
-experiencecontent varchar(200),
-companyname varchar(30),
+rollno  varchar(100),
+experiencecontent varchar(5000),
+companyname varchar(100),
 posttime datetime,
 foreign key (rollno) references student(rollno)
 );
@@ -193,7 +192,6 @@ insert into faculty values ("Ashwin Bala","CB.EN.U4CSEFAC01","$Qwer1234","https:
 insert into student values ("Niveth Saran","CB.EN.U4CSE17337","$Qwer1234","https://i.imgur.com/nJK5tHV.jpg","7878787878","nive@gmail.com","CSE");
 
 insert into quiz (facultyid,quizname,quizdescription,numofquestions,quizdate,quizstarttime,quizendtime,duration,department,topic,pin) values ("CB.EN.U4CSEFAC01","J2EE","Testing J2EE Basic Undestanding",5,'2020-10-07','01:00:00','01:30:00',15,"CSE","NCP",1234);
-
 insert into question values(1,1,"J2EE full form","a","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
 insert into question values(1,2,"JSP full form","b","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
 insert into question values(1,3,"XML full form","c","Java Enterprise Edition","Java Server Pages","Entensive Markup Language","Hypertext Markup Language");
@@ -217,4 +215,19 @@ insert into studentnotes(notetitle,notecontent,notedate,rollno) values ("NCP Rev
 insert into events(eventdate,eventtitle,eventdesc) values ("2020-10-10","Cisco Approaching","3 Rounds");
 
 update coding set problemname="Odd or Even", problemdesc ="None", problemdifficulty = "Medium" where problemid=4;
-SELECT * FROM question where quizid=1;
+SELECT * FROM question;
+
+Select quizid from quiz order by quizid desc limit 1; 
+
+SELECT * FROM QUIZ;
+Select * from question;
+
+select * from scores;
+update quiz set quizdate="2020-11-20", quizstarttime = "13:35:00", quizendtime ="22:00:00", duration=1 where quizid = 1;
+
+delete from question where quizid=10;
+INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (1,10,'J2EE Stands for','a','Java 2EE','JSP 2EE','Jugo 2EE','Jug 2EE');
+
+delete from quiz;
+
+INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (11,1,'two pllus two','d','1','2','3','4');

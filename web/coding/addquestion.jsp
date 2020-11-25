@@ -66,13 +66,13 @@
                     if((boolean)request.getAttribute("inserted"))
                     {
                         out.print("<div class=\"alert alert-success\" role=\"alert\">\n" +
-                                "  This is a success alert—check it out!\n" +
+                                "  Added successfully\n" +
                                 "</div>");
                     }
                     else
                     {
                         out.print("<div class=\"alert alert-danger\" role=\"alert\">\n" +
-                                "  This is a success alert—check it out!\n" +
+                                "  Server error, try again later\n" +
                                 "</div>");
                     }
                     request.setAttribute("inserted",null);

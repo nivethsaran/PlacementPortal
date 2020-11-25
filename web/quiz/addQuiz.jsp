@@ -40,6 +40,15 @@
     </div>
 </nav>
 <div style="margin-top: 50px;">
+
+    <%
+        if(request.getAttribute("message")!=null)
+        {
+            out.print("<div class=\"alert alert-primary\" role=\"alert\">\n" +
+                    request.getAttribute("message") +
+                    "</div>");
+        }
+    %>
     <form action="./addquiz" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">

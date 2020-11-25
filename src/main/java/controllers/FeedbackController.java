@@ -15,6 +15,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static utils.CONSTANTS.*;
 //TODO : Tablenames arent proper in INSERT STATEMENTS, DO FIX IT
 
 public class FeedbackController {
@@ -24,8 +26,8 @@ public class FeedbackController {
     {
         try {
             this.con = DriverManager.getConnection
-                    ("jdbc:mysql://localhost:3306/preparely", "root",
-                            "1234");
+                    (SQL_CONN_STRING, SQL_USERNAME,
+                            SQL_PASSWORD);
         }
         catch (SQLException e)
         {

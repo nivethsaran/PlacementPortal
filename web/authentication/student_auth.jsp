@@ -75,14 +75,14 @@
                         <%
                             if(request.getAttribute("message")!=null)
                             {
-                                out.print("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                out.print("<div class=\"alert alert-info\" role=\"alert\">\n" +
                                         request.getAttribute("message")+"\n" +
                                         "</div>");
                             }
                         %>
                         <p>
-                            <label for="rollnologin" class="uname" data-icon="u" > Your email or username </label>
-                            <input id="rollnologin" name="rollno" required="required" type="text" placeholder="myusername or mymail@mail.com" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
+                            <label for="rollnologin" class="uname" data-icon="u" > Your Roll No </label>
+                            <input id="rollnologin" name="rollno" required="required" type="text" placeholder="myusername" onkeyup="validateUserLogin()" onchange="validateUserLogin()"/>
                         </p>
                         <p>
                             <label for="password" class="youpasswd" data-icon="p"> Your password </label>
@@ -109,15 +109,15 @@
                         <h1> Student Sign up </h1>
 
                         <p>
-                            <label for="fullname" class="fullname" data-icon="p">Your password </label>
-                            <input id="fullname" name="fullname" required="required" type="password" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
+                            <label for="fullname" class="fullname" data-icon="p">Your full name </label>
+                            <input id="fullname" name="fullname" required="required" type="text" placeholder="Enter Full name" onkeyup="validateFullReg()" onchange="validateFullReg()"/>
                         </p>
                         <p>
-                            <label for="rollno" class="uname" data-icon="u">Your username</label>
-                            <input id="rollno" name="rollno" required="required" type="text" placeholder="Enter username here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
+                            <label for="rollno" class="uname" data-icon="u">Your roll number</label>
+                            <input id="rollno" name="rollno" required="required" type="text" placeholder="Enter rollnumber here" onkeyup="validateUserReg()" onchange="validateUserReg()"/>
                         </p>
                         <p>
-                            <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+                            <label for="emailsignup" class="youmail" data-icon="e">Your email</label>
                             <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="Enter email here" onkeyup="validateEmailReg()" onchange="validateEmailReg()"/>
                         </p>
                         <p>
@@ -129,11 +129,11 @@
                             <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="Re enter password" onkeyup="validatePassConfirmReg()" onchange="validatePassConfirmReg()"/>
                         </p>
                         <p>
-                            <label for="imageurl" class="imageurl" data-icon="p">Please confirm your password </label>
-                            <input id="imageurl" name="imageurl" required="required" type="text" placeholder="eg. X8df!90EO" onkeyup="validateImageURL()" onchange="validateImageURL()"/>
+                            <label for="imageurl" class="imageurl" data-icon="u">Your image url </label>
+                            <input id="imageurl" name="imageurl" required="required" type="text" placeholder="enter url here.." onkeyup="validateImageURL()" onchange="validateImageURL()"/>
                         </p>
                         <p>
-                            <label for="mobile" class="mobile" data-icon="p">Please confirm your password </label>
+                            <label for="mobile" class="mobile" data-icon="u">Your mobile number </label>
                             <input id="mobile" name="mobile" required="required" type="number" placeholder="eg. X8df!90EO" onkeyup="validateMobile()" onchange="validateMobile()"/>
                         </p>
                         <input type="hidden" name="actiontype" value="studsignup">

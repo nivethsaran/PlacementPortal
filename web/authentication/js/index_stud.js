@@ -1,13 +1,13 @@
 function validateUserLogin()
 {
-    var uname=document.getElementById("rollno").value
+    var uname=document.getElementById("rollnologin").value
     if(uname==""||uname==null)
     {
-        document.getElementsByClassName("uname")[0].innerHTML="Your faculty ID (data required here)"
+        document.getElementsByClassName("uname")[0].innerHTML="Your Roll No (data required here)"
         document.getElementsByClassName("uname")[0].style.color='#ff0000';
     }
     else{
-        document.getElementsByClassName("uname")[0].innerHTML = "Your faculty ID"
+        document.getElementsByClassName("uname")[0].innerHTML = "Your Roll No"
         document.getElementsByClassName("uname")[0].style.color='#2d6277';
     }
 }
@@ -37,13 +37,13 @@ function validateFullReg() {
 }
 
 function validateUserReg() {
-    var uname = document.getElementById("facidsignup").value
+    var uname = document.getElementById("rollno").value
     if (uname == "" || uname == null) {
-        document.getElementsByClassName("uname")[1].innerHTML = "Your faculty ID (data required here)"
+        document.getElementsByClassName("uname")[1].innerHTML = "Your roll number (data required here)"
         document.getElementsByClassName("uname")[1].style.color='#ff0000';
     }
     else {
-        document.getElementsByClassName("uname")[1].innerHTML = "Your faculty ID"
+        document.getElementsByClassName("uname")[1].innerHTML = "Your roll number"
         document.getElementsByClassName("uname")[1].style.color='#2d6277';
     }
 }

@@ -46,7 +46,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link logout" href="">Logout</a>
+                <a class="nav-link logout" href="./about">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link logout" href="./logout">Logout</a>
             </li>
         </ul>
     </div>
@@ -117,7 +120,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./ide\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/7_companyreg/students\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <a  href=\"./viewform\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
                             "            <br>\n" +
@@ -137,7 +140,7 @@
                             "            <br>\n" +
                             "            <a  href=\"./addproblem\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/7_companyreg/students\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <a  href=\"./addform\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
                             "            <br>\n" +
                             "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
                             "            <br>\n" +

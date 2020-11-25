@@ -7,13 +7,18 @@ public class Companyregistration {
     String companyname;
     String deadline;
     String formurl;
+    String pay;
 
-    public Companyregistration(String facultyid, int formid, String companyname, String deadline, String formurl) {
-        this.facultyid = facultyid;
-        this.formid = formid;
-        this.companyname = companyname;
-        this.deadline = deadline;
-        this.formurl = formurl;
+    @Override
+    public String toString() {
+        return "Companyregistration{" +
+                "facultyid='" + facultyid + '\'' +
+                ", formid=" + formid +
+                ", companyname='" + companyname + '\'' +
+                ", deadline='" + deadline + '\'' +
+                ", formurl='" + formurl + '\'' +
+                ", pay='" + pay + '\'' +
+                '}';
     }
 
     public String getFacultyid() {
@@ -56,14 +61,20 @@ public class Companyregistration {
         this.formurl = formurl;
     }
 
-    @Override
-    public String toString() {
-        return "companyregistration{" +
-                "facultyid='" + facultyid + '\'' +
-                ", formid=" + formid +
-                ", companyname='" + companyname + '\'' +
-                ", deadline='" + deadline + '\'' +
-                ", formurl='" + formurl + '\'' +
-                '}';
+    public String getPay() {
+        return pay;
+    }
+
+    public void setPay(String pay) {
+        this.pay = pay;
+    }
+
+    public Companyregistration(String facultyid, int formid, String companyname, String deadline, String formurl, String pay) {
+        this.facultyid = facultyid;
+        this.formid = formid;
+        this.companyname = companyname;
+        this.deadline = deadline;
+        this.formurl = formurl;
+        this.pay = pay;
     }
 }

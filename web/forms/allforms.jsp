@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Companyregistration" %><%--
   Created by IntelliJ IDEA.
   User: Niveth_Saran
   Date: 01-11-2020
@@ -11,49 +12,33 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="./forms/styles1.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
+
 <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">Company Name</th>
-        <th scope="col">Company Link For Registration</th>
-        <th scope="col">Company Information</th>
+        <th scope="col">Pay(In LPA)</th>
+        <th scope="col">Application Deadline</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">Google</th>
-        <td><a href="docs.googe.com/pqr">docs.googe.com/xyz</a></td>
-        <td>
-            <ul>
-                <li>Date-20th September</li>
-                <li>Pay-20LPA</li>
-            </ul>
-        </td>
-
-    </tr>
-    <tr>
-        <th scope="row">Amazon</th>
-        <td><a href="docs.googe.com/pqr">docs.googe.com/pqr</a></td>
-        <td>
-            <ul>
-                <li>Date-26th September</li>
-                <li>Pay-24LPA</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">Flipkart</th>
-        <td><a href="docs.googe.com/pqr">docs.googe.com/qewr</a></td>
-        <td>
-            <ul>
-                <li>Date-24th September</li>
-                <li>Pay-19LPA</li>
-            </ul>
-        </td>
-
-    </tr>
+    <%
+        ArrayList<Companyregistration> forms = (ArrayList<Companyregistration>) request.getAttribute("forms");
+        if (forms != null) {
+            for (Companyregistration form : forms) {
+                out.println("<tr>\n" +
+                        "        <th scope=\"row\">"+form.getCompanyname()+"</th>\n" +
+                        "        <td>"+form.getPay()+"</td>\n" +
+                        "        <td>"+form.getDeadline()+"</td>\n" +
+                        "        <td><a href=\"./apply?formid="+form.getFormid()+"\">Apply</a></td>\n" +
+                        "    </tr>");
+            }
+        }
+    %>
     </tbody>
 </table>
 </body>
