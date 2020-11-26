@@ -93,7 +93,8 @@ facultyid varchar(20),
 formid integer primary key auto_increment,
 companyname varchar(20),
 deadline date,
-formurl varchar(100),
+pay integer,
+formurl varchar(300),
 foreign key (facultyid) references faculty(facultyid));
 
 create table scores(
@@ -204,7 +205,7 @@ insert into coding (problemname,problemdesc,problemdifficulty,facultyid) values 
 
 insert into feedback (facultyid,pace,onlinetoolsusgae,effectiveness,approachability,recommend,optadvanced,suggestions,courseid) values ("CB.EN.U4CSEFAC01",9,9,9,9,"no","yes","Keep up the good work","1");
 
-insert into companyregistration(facultyid,companyname,deadline,formurl) values ("CB.EN.U4CSEFAC01","Cisco","2020-11-05","notavailable");
+insert into companyregistration(facultyid,companyname,deadline,formurl,pay) values ("CB.EN.U4CSEFAC01","Cisco","2020-11-05",'https://docs.google.com/forms/d/e/1FAIpQLScGzPPms0gHGsMoXCrUFDHPr3AUtx71xpWcfsoP_opi0W-NDA/viewform?usp=sf_link', 24);
 
 insert into scores(quizid,rollno,total,studentscore) values (1,"CB.EN.U4CSE17337",5,3);
 
@@ -229,5 +230,5 @@ delete from question where quizid=10;
 INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (1,10,'J2EE Stands for','a','Java 2EE','JSP 2EE','Jugo 2EE','Jug 2EE');
 
 delete from quiz;
-
+-- update companyregistration set formurl = ' ; 
 INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (11,1,'two pllus two','d','1','2','3','4');
