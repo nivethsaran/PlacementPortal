@@ -26,22 +26,19 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Preparely</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                <a class="nav-link logout" href="./logout">Logout</a>
             </li>
         </ul>
     </div>
@@ -148,8 +145,12 @@
 
                 <textarea class="form-control" id="custominput" rows="5" onchange="validateinput()"
                           onkeyup="validateinput()"></textarea>
+
+                <label class="form-check-label" for="output" id="output-label">Custom Input</label>
+                <textarea class="form-control" id="output" rows="5" onchange="validateinput()"
+                          onkeyup="validateinput()"></textarea>
             </div>
-            <input type="submit" value="Compile and Run" class="btn btn-dark" onclick="showCode()">
+            <input type="button" onclick="executeCode()" value="Compile and Run" class="btn btn-dark" onclick="showCode()">
             <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
 

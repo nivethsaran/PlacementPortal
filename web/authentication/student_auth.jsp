@@ -7,6 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% if(request.getSession().getAttribute("usertype")!=null)
+{
+    response.sendRedirect("dashboard");
+}
+%>
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8" />
@@ -33,22 +38,16 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
-    <a class="navbar-brand" href="#">Preparely</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
         </ul>
     </div>

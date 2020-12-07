@@ -22,7 +22,9 @@
     String usertype = (String) request.getSession().getAttribute("usertype");
     String alphabet = (String) request.getAttribute("starting");
 %>
+
 <nav class="AlphabetNav">
+    <a href="./">Back</a>
     <a href="./contact?alphabet=A" id="a">A</a>
     <a href="./contact?alphabet=B" id="b">B</a>
     <a href="./contact?alphabet=C" id="c">C</a>
@@ -61,7 +63,9 @@
             {
                 out.print("<section class=\"Contact\">\n" +
                         "            <img class=\"Contact-avatar\" src=\""+i.getAvatarurl()+"\" />\n" +
-                        "            <h3 class=\"Contact-name\">"+i.getFullname()+"("+i.getEmail()+","+i.getMobilenumber() +")</h3>\n" +
+                        "            <h5 class=\"Contact-name\">"+i.getFullname()+"</h5>\n" +
+                        "            <h3 class=\"Contact-name\">("+i.getEmail()+")</h3>\n" +
+                        "            <h3 class=\"Contact-name\">("+i.getMobilenumber()+")</h3>\n" +
                         "        </section>");
             }
         }
@@ -76,8 +80,8 @@
                 out.print("<section class=\"Contact\">\n" +
                         "            <img class=\"Contact-avatar\" src=\""+i.getAvatarurl()+"\" />\n" +
                         "            <h5 class=\"Contact-name\">"+i.getFullname()+"</h5>\n" +
-                        "            <h3 class=\"Contact-name\">"+i.getEmail()+"</h3>\n" +
-                        "            <h3 class=\"Contact-name\">"+i.getMobilenumber()+"</h3>\n" +
+                        "            <h3 class=\"Contact-name\">("+i.getEmail()+")</h3>\n" +
+                        "            <h3 class=\"Contact-name\">("+i.getMobilenumber()+")</h3>\n" +
                         "        </section>");
             }
         }

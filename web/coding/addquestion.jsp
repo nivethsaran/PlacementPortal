@@ -36,22 +36,19 @@
 
 %>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Preparely</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                <a class="nav-link logout" href="./logout">Logout</a>
             </li>
         </ul>
     </div>
@@ -66,7 +63,7 @@
                     if((boolean)request.getAttribute("inserted"))
                     {
                         out.print("<div class=\"alert alert-success\" role=\"alert\">\n" +
-                                "  Added successfully\n" +
+                                "  Operation Successful\n" +
                                 "</div>");
                     }
                     else
@@ -172,6 +169,7 @@
             %>
             <input class="btn btn-primary" type="submit" title="<% if(request.getAttribute("update")!=null)
             {
+                System.out.println("Button Update");
                 if((boolean)request.getAttribute("update"))
                 {
                     out.print("Update");
@@ -187,6 +185,16 @@
             %>">
         </div>
     </form>
+
+    <%
+        if(request.getAttribute("update")!=null)
+        {
+            if((boolean)request.getAttribute("update"))
+            {
+                out.print("<br><br><a class=\"btn btn-primary\" href=\"./deletecode?id=" + problem.getProblemid() + "\">Delete</a>");
+            }
+        }
+    %>
 </div>
 <!-- JavaScript Libs -->
 

@@ -75,6 +75,22 @@ public class CodingController {
         }
     }
 
+    public boolean deleteQuestion(String problem)
+    {
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate
+                    ("DELETE FROM CODING WHERE problemid = "+problem);
+//            stmt.executeUpdate(SQL_QUERY);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+    }
+
     public Coding getQuestionFromId(String id)
     {
         try {

@@ -2,12 +2,12 @@ package models;
 
 public class Events {
 
-    int eventid;
+    String eventid;
     String eventdate;
     String eventtitle;
     String eventdesc;
 
-    public Events(int eventid, String eventdate, String eventtitle, String eventdesc) {
+    public Events(String eventid, String eventdate, String eventtitle, String eventdesc) {
         this.eventid = eventid;
         this.eventdate = eventdate;
         this.eventtitle = eventtitle;
@@ -24,11 +24,11 @@ public class Events {
                 '}';
     }
 
-    public int getEventid() {
+    public String getEventid() {
         return eventid;
     }
 
-    public void setEventid(int eventid) {
+    public void setEventid(String eventid) {
         this.eventid = eventid;
     }
 

@@ -15,6 +15,23 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link logout" href="./about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link logout" href="./logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <%
     Companyregistration form = (Companyregistration) request.getAttribute("form");
 %>

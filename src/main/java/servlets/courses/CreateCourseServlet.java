@@ -20,7 +20,7 @@ public class CreateCourseServlet extends HttpServlet{
         String role = (String)req.getSession().getAttribute("usertype");
 
         if(!role.equals("faculty")){
-            resp.sendRedirect(req.getContextPath() + "/index.jsp?message="+ URLEncoder.encode("You are not a faculty!", "UTF-8"));
+            resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
         }else{
             req.getRequestDispatcher("course/admin/createCourse.jsp").forward(req, resp);
             String action = req.getServletPath();

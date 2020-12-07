@@ -19,22 +19,19 @@
 </head>
 
 <body onload="loadPage()">
-<nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
-    <a class="navbar-brand" href="#">Preparely</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                <a class="nav-link logout" href="./logout">Logout</a>
             </li>
         </ul>
     </div>
@@ -69,7 +66,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="date" id="date-label">Date of Exam</label>
-                <input type="date" class="form-control" name="date" id="date" onblur="validdate()" onchange="validdate()">
+                <input type="date" class="form-control" name="date" id="date" onkeyup="validdate()" onchange="validdate()">
             </div>
             <div class="form-group col-md-3">
                 <label for="starttime" id="starttime-label">Start Window</label>

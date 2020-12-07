@@ -64,13 +64,14 @@ public class QuestionServlet extends HttpServlet {
             }
             else
             {
-                req.getRequestDispatcher("quiz/quizindex.jsp").forward(req, resp);
+                req.getSession().setAttribute("quizindexmessage","Quiz Currently Not Available");
+                resp.sendRedirect("quiz");
             }
         }
         else
         {
-            req.setAttribute("message","WRONG PIN, TRY AGAIN");
-            req.getRequestDispatcher("quiz/quizindex.jsp").forward(req, resp);
+            req.getSession().setAttribute("quizindexmessage","WRONG PIN, TRY AGAIN");
+            resp.sendRedirect("quiz");
         }
 
     }

@@ -15,17 +15,25 @@ public class ContactsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AuthenticationController controller = new AuthenticationController();
-        if(req.getSession().getAttribute("usertype").equals("student"))
+        if(req.getSession().getAttribute("usertype")==null)
         {
-            req.setAttribute("contacts",controller.getAllFacultyData());
-            req.setAttribute("starting",req.getParameter("alphabet"));
+            resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
         }
-        else if(req.getSession().getAttribute("usertype").equals("faculty"))
+        else
         {
-            req.setAttribute("contacts",controller.getAllStudentData());
-            req.setAttribute("starting",req.getParameter("alphabet"));
+            if(req.getSession().getAttribute("usertype").equals("student"))
+            {
+                req.setAttribute("contacts",controller.getAllFacultyData());
+                req.setAttribute("starting",req.getParameter("alphabet"));
+            }
+            else if(req.getSession().getAttribute("usertype").equals("faculty"))
+            {
+                req.setAttribute("contacts",controller.getAllStudentData());
+                req.setAttribute("starting",req.getParameter("alphabet"));
+            }
+            req.getRequestDispatcher("contact/contact.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("contact/contact.jsp").forward(req, resp);
+
     }
 
     @Override

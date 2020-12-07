@@ -1,4 +1,3 @@
-<%@ page import="models.Student" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -10,6 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="models.Student" %>
 <%@ page import="models.Faculty" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.Events" %>
+<%@ page import="controllers.CalendarController" %>
+<%@ page import="models.*" %>
+<%@ page import="controllers.QuizController" %>
 <html lang="en" dir="ltr">
 
 <head>
@@ -38,7 +42,7 @@
 
 <body>
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
-    <a class="navbar-brand" href="#">Preparely</a>
+    <a class="navbar-brand" href="./">Preparely</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -46,7 +50,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link logout" href="./about">Logout</a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link logout" href="./logout">Logout</a>
@@ -78,7 +82,11 @@
     <div class="row">
 
         <div style="margin-top: 100px" class="col1">
-            <img class="dp" src="<% out.print(imageurl); %>" alt="">
+            <img class="dp" src="<% out.print(imageurl); %>" alt="" style=" height: 150px;
+            width: 150px;
+            position: absolute;
+            bottom:460px;
+            left:150px;">
         </div>
         <div class="col2">
             <h3>Name : <% out.print(fullname);%></h3>
@@ -89,18 +97,19 @@
             <br>
             <h3>Mobile : <% out.print(mobile);%></h3>
             <br>
-            <div class="dropdown">
-                <button class="dropbtn btnn">View Quiz Score Histroy <i class="fas fa-chevron-down"></i></button>
-                <div id="quizscores" class="dropdown-content ">
-                    <h4>38/50</h4>
-                    <h4>30/50</h4>
-                    <h4>40/50</h4>
-                    <h4>45/50</h4>
-                    <h4>14/50</h4>
-                    <h4>30/50</h4>
-                    <h4>48/50</h4>
-                </div>
-            </div>
+            <% if(request.getSession().getAttribute("usertype").equals("student"))
+            {
+                Student student = (Student) request.getSession().getAttribute("userdata");
+                ArrayList<Scores> scores = new QuizController().getScores(student.getRollno());
+                int totalmarks = 0;
+                int scoretotal = 0;
+                for (Scores score: scores)
+                {
+                    totalmarks += score.getTotal();
+                    scoretotal += score.getScore();
+                }
+                out.print("<h3>Performance: "+scoretotal*100/totalmarks+"%</h3>");
+            }%>
         </div>
     </div>
 </section>
@@ -111,44 +120,44 @@
             if (usertype != null) {
                 if (usertype.equals("student")) {
                     out.print("<div class=\"col11\">\n" +
-                            "            <h2>Other Modules</h2>\n" +
-                            "            <a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz Module</i></a>\n" +
+                            "            <h2>Menu</h2>\n" +
+                            "            <ul style=\"list-style-type: none; margin-left: 0.5em\"><li><a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
+                            "            <li><a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./view-courses\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <li><a  href=\"./view-courses\"><i class=\"fas fa-book tomodules\">Courses</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./ide\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
+                            "            <li><a  href=\"./ide\"><i class=\"fas fa-code tomodules\">Code</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./viewform\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <li><a  href=\"./viewform\"><i class=\"fas fa-registered tomodules\">Company Registration</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
+                            "            <li><a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <li><a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./submit-exp\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
+                            "            <li><a  href=\"./submit-exp\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a></li>\n" +
                             "            <br>\n" +
-                            "        </div>");
+                            "        </ul></div>");
                 } else if(usertype.equals("faculty")){
                     out.print("<div class=\"col11\">\n" +
-                            "            <h2>Other Modules</h2>\n" +
-                            "            <a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz Module</i></a>\n" +
+                            "            <h2>Menu</h2>\n" +
+                            "            <ul style=\"list-style-type: none; margin-left: 0.5em\"><li><a  href=\"./quiz\"><i class=\"fas fa-question-circle tomodules\">Quiz Module</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar Module</i></a>\n" +
+                            "            <li><a  href=\"./calendar\"><i class=\"fas fa-calendar-week tomodules\">Calendar</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./create-course\"><i class=\"fas fa-book tomodules\">Courses Module</i></a>\n" +
+                            "            <li><a  href=\"./create-course\"><i class=\"fas fa-book tomodules\">Courses</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./addproblem\"><i class=\"fas fa-code tomodules\">Code Module</i></a>\n" +
+                            "            <li><a  href=\"./addproblem\"><i class=\"fas fa-code tomodules\">Code</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./addform\"><i class=\"fas fa-registered tomodules\">Company Registration Module</i></a>\n" +
+                            "            <li><a  href=\"./addform\"><i class=\"fas fa-registered tomodules\">Company Registration</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback Module</i></a>\n" +
+                            "            <li><a  href=\"https://preparely.netlify.app/8_feedback/\"><i class=\"far fa-comment-dots tomodules\">Feedback</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact Module</i></a>\n" +
+                            "            <li><a  href=\"./contact?alphabet=A\"><i class=\"fas fa-address-book tomodules\">Contact</i></a></li>\n" +
                             "            <br>\n" +
-                            "            <a  href=\"./view-exps\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a>\n" +
-                            "            <br>\n" +
-                            "        </div>");
+                            "            <li><a  href=\"./view-exps\"><i class=\"fas fa-scroll tomodules\">Placement Experience</i></a></li>\n" +
+                            "            <br>\n"  +
+                            "        </ul></div>");
                 }
                 else
                 {
@@ -162,17 +171,20 @@
         %>
 
         <div class="col22">
-            <h2>Recently Solved Problems</h2>
+            <h2>Upcoming Events</h2>
             <ul>
-                <li><a class="toprob" href="#" style="color:#FF0000;">3Sum Closest</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Add One Row to Tree</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Adding Two Negabinary Numbers</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Airplane Seat Assignment Probability</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">All Possible Full Binary Trees</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Allocate Mailboxes</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Backspace String Compare</a></li>
-                <li><a class="toprob" href="#" style="color:#FF0000;">Best Time to Buy and Sell Stock with Cooldown</a>
-                </li>
+                <%
+                    CalendarController controller = new CalendarController();
+                    ArrayList<Events> events = controller.getEvents();
+                    if(events==null)
+                    {
+                        System.out.println("Events Error");
+                    }
+                    for(Events event: events)
+                    {
+                        out.print("<li>"+event.getEventtitle()+"-->"+event.getEventdate()+"</li>");
+                    }
+                %>
             </ul>
         </div>
     </div>

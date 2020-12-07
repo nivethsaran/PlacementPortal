@@ -32,7 +32,9 @@ public class QuizServlet extends HttpServlet {
         else
         {
             if(req.getSession().getAttribute("usertype").equals("student")) {
+
                 Student student= (Student) req.getSession().getAttribute("userdata");
+                quizzes = controller.getQuizzesForStudent(student.getRollno());
                 scores = controller.getScores(student.getRollno());
             }
             if(scores!=null)

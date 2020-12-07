@@ -101,6 +101,41 @@ public ArrayList<Quiz> getQuizzes()
     }
 }
 
+
+    public ArrayList<Quiz> getQuizzesForStudent(String rollno)
+    {
+        ArrayList<Quiz> quizzes=new ArrayList<Quiz>();
+        try {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery
+                    ("SELECT * FROM QUIZ WHERE quizid not in (select quizid from scores where rollno='"+rollno+"');");
+            while (rs.next()) {
+                Quiz currQuiz=new Quiz(
+                        rs.getInt("quizid"),
+                        rs.getString("facultyid"),
+                        rs.getString("quizname"),
+                        rs.getString("quizdescription"),
+                        rs.getInt("numofquestions"),
+                        rs.getString("quizdate"),
+                        rs.getString("quizstarttime"),
+                        rs.getString("quizendtime"),
+                        rs.getInt("duration"),
+                        rs.getString("department"),
+                        rs.getString("topic"),
+                        rs.getInt("pin")
+                );
+                quizzes.add(currQuiz);
+            }
+            return quizzes;
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
+    }
+
+
 public Quiz getQuizFromId(String id)
 {
 
@@ -153,7 +188,7 @@ public Quiz getQuizFromId(String id)
                         rs.getString("answer"),
                         rs.getString("optiona"),
                         rs.getString("optionb"),
-                        rs.getString("optionb"),
+                        rs.getString("optionc"),
                         rs.getString("optiond")
                 );
                 questions.add(currQuestion);

@@ -1,5 +1,5 @@
 var config, editor;
-
+let lang_global = "C++"
 config = {
     lineNumbers: true,
     mode: "text/x-csrc",
@@ -27,6 +27,7 @@ function showCode() {
 
 function changeCode(lang)
 {
+    lang_global = lang
     var mode="text/x-csrc"
     console.log(lang);
     if(lang=="C++")
@@ -106,4 +107,38 @@ function hideQuestion(i)
     document.getElementById("question").hidden = true
 }
 
+function getLanguageForCompilation(l)
+{
+    if(l === 'C')
+    return 'C'
+    else if(l === 'JAVA')
+    return 'Java'
+    else if(l === 'PYTHON')
+    return 'Python'
+    else if(l === 'C++')
+    return 'C++'
+}
 
+function executeCode() {
+    let url = baseurl + 'execute';
+    let http = new XMLHttpRequest();
+    let params = 'code=';
+    params += editor.getValue() + '&language=';
+    params += getLanguageForCompilation(lang_global) + '&input=';
+    params += document.getElementById('custominput').value;
+
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // http.setRequestHeader('Access-Control-Allow-Origin', '*' )
+    http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState === 4 && http.status === 200) {
+            document.getElementById("output").innerHTML = http.responseText;
+        } else {
+            document.getElementById("output").innerHTML = "Server Error Try Again Later"
+        }
+    }
+
+    // http.send(JSON.stringify(params));
+    http.send(params);
+
+}

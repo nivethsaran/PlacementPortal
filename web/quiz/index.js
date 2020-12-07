@@ -18,6 +18,7 @@ function loadPage()
     changeNOOQ()
 }
 
+
 function changeNOOQ()
 {
 
@@ -148,12 +149,16 @@ function validatenull(idname)
 function validdate(){
     var GivenDate = document.getElementById("date").value;
     var CurrentDate = new Date();
+    CurrentDate.setHours(0,0,0,0);
     GivenDate = new Date(GivenDate);
-
+    GivenDate.setHours(0,0,0,0)
+    console.log(GivenDate.toDateString() + " " +CurrentDate.toDateString())
     if (GivenDate < CurrentDate) {
+        console.log("Something Wrong")
         document.getElementById("date-label").innerText="Date of Exam(Invalid)";
         document.getElementById("date-label").style.color="red"
     } else {
+        console.log("Something")
         document.getElementById("date-label").innerText = "Date of Exam";
         document.getElementById("date-label").style.color = "black"
     }

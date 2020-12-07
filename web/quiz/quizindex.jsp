@@ -22,65 +22,36 @@
           integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top">
-    <a class="navbar-brand" href="#">Preparely</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark navgbar">
+    <a class="navbar-brand" href="./">Preparely</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fas fa-book"></i></a>
+                <a class="nav-link logout" href="./about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-star-half-alt"></i></a>
+                <a class="nav-link logout" href="./logout">Logout</a>
             </li>
         </ul>
     </div>
 </nav>
 
-
 <%
     String usertype = (String) request.getSession().getAttribute("usertype");
-
+    if(request.getSession().getAttribute("quizindexmessage")!=null)
+    {
+        out.print("<div class=\"alert alert-primary\" role=\"alert\">\n" +
+                request.getSession().getAttribute("quizindexmessage") +
+                "</div>");
+    }
+    request.getSession().setAttribute("quizindexmessage",null);
 %>
-<div class="filtercontainer">
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="dept" id="dept-label">Department</label>
-            <select id="dept" class="form-control">
-                <option disabled selected>Choose</option>
-                <option value="CSE">CSE</option>
-                <option value="NONCSE">NON-CSE</option>
-                <option value="ALL">ALL</option>
-            </select>
-        </div>
-
-        <div class="form-group col-md-4">
-            <label for="topic" id="topic-label">Topic</label>
-            <select id="topic" class="form-control">
-                <option disabled selected>Choose</option>
-                <option value="Technical">Technical</option>
-                <option value="Verbal">Verbal</option>
-                <option value="Aptitude">Aptitude</option>
-                <option value="All">All</option>
-            </select>
-        </div>
-    </div>
-</div>
 <div class="centerContainer">
-    <%
-        if(request.getAttribute("message")!=null)
-        {
-            out.print("<div class=\"alert alert-primary\" role=\"alert\">\n" +
-                    request.getAttribute("message") +
-                    "</div>");
-        }
-    %>
+
     <div class="cardList" id="quizlistmain">
         <%
             ArrayList<Quiz> quizzes = (ArrayList<Quiz>) request.getAttribute("quizzes");

@@ -126,11 +126,13 @@ foreign key (rollno) references student(rollno)
 );
 
 create table events(
-eventid integer primary key auto_increment,
+eventid varchar(1000),
 eventdate date,
 eventtitle varchar(50),
 eventdesc varchar(200)
 );
+
+drop table events;
 
 SET SQL_SAFE_UPDATES = 0;
 -- SET SQL_SAFE_UPDATES = 1; 
@@ -181,6 +183,7 @@ select * from quiz;
 select * from question;
 select * from courses;
 select * from coding;
+
 select * from feedback;
 select * from companyregistration;
 select * from scores;
@@ -224,11 +227,25 @@ SELECT * FROM QUIZ;
 Select * from question;
 
 select * from scores;
-update quiz set quizdate="2020-11-20", quizstarttime = "13:35:00", quizendtime ="22:00:00", duration=1 where quizid = 1;
-
+update quiz set quizdate="2020-11-20", quizstarttime = "13:35:00", quizendtime ="22:00:00", duration=1 where quizid = 20;
+update quiz set quizdate="2020-12-07", quizstarttime = "13:35:00", quizendtime ="22:00:00", duration=1 where quizid = 20;
 delete from question where quizid=10;
 INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (1,10,'J2EE Stands for','a','Java 2EE','JSP 2EE','Jugo 2EE','Jug 2EE');
 
 delete from quiz;
+delete from scores;
+delete from question;
 -- update companyregistration set formurl = ' ; 
 INSERT INTO question(quizid,questionid,questioncontent,answer,optiona,optionb,optionc,optiond) values (11,1,'two pllus two','d','1','2','3','4');
+
+
+
+insert into quiz (facultyid,quizname,quizdescription,numofquestions,quizdate,quizstarttime,quizendtime,duration,department,topic,pin) values ("CB.EN.U4CSEFAC01","J2EE","Testing J2EE Basic Undestanding",5,'2020-12-06','22:00:00','23:40:00',15,"CSE","NCP",1234);
+
+
+SELECT*FROM QUIZ;
+
+
+SELECT * FROM QUIZ WHERE quizid not in (select quizid from scores where rollno='CB.EN.U4CSE17337');
+use preparely;
+SELECT * FROM events order by eventdate desc
